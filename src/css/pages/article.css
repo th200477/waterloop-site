@@ -14,7 +14,7 @@
 .rt li{white-space:pre-wrap}
 .rt strong{font-weight:700}
 .rt a{color:inherit;text-decoration:underline}
-.rt-img img{display:inline-block;width:100%;height:auto;vertical-align:baseline}
+.rt-img img{display:inline-block;width:auto;max-width:100%;height:auto;vertical-align:baseline}  /* 今のサイト：元の幅より広げない（幅720の写真は PC で 720 のまま） */
 
 /* --- 共通の枠 --- */
 .article__title{font:700 48px/67px var(--font-jp);letter-spacing:.05em}
