@@ -34,16 +34,18 @@
 .article--column .article__lead{margin-top:64px}
 .article--column .article__lead .article__inner{display:flex;flex-direction:column;gap:24px}
 .article--column .article__hero{aspect-ratio:16/9}
-.article--column .article__body{margin-top:64px;padding-bottom:64px}
+.article--column .article__body{margin-top:64px;padding-bottom:128px}  /* 今のサイト：More の下 PC 128／タブレット 112／スマホ 114 */
 .article--column .article__body .article__inner{display:flex;flex-direction:column;gap:24px}
 @media (max-width:1279px){
   .article--column .article__inner{padding:0 64px}
   .article--column .article__title{font-size:32px;line-height:48px}
   .article--column .article__lead,.article--column .article__body{margin-top:48px}
+  .article--column .article__body{padding-bottom:112px}
 }
 @media (max-width:799px){
   .article--column .article__inner{padding:0 32px}
   .article--column .article__head .article__inner{gap:12px}
+  .article--column .article__body{padding-bottom:114px}
 }
 
 /* --- お知らせ：白地、文字は黒 --- */

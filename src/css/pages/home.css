@@ -24,7 +24,7 @@
 .hero__copy-h{line-height:70px;letter-spacing:.2em;white-space:nowrap}
 .hero-play{position:absolute;z-index:2;right:-15px;bottom:-26px;width:240px;height:240px;padding:0;border:0;background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .hero-play__ring{position:absolute;inset:0;width:100%;height:100%;overflow:visible;animation:hero-spin 12.8s linear infinite;transform-origin:center}
-.hero-play__text{font:500 23px -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;letter-spacing:4px}
+.hero-play__text{font:500 22px -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;letter-spacing:4px}
 .hero-play__icon{position:relative;width:48px;height:48px}
 .hero-play:focus-visible{outline:2px solid var(--white);outline-offset:-40px;border-radius:50%}
 @keyframes hero-spin{to{transform:rotate(360deg)}}
@@ -38,8 +38,8 @@
   .hero__video{display:none}
   .hero__image{display:block}
   .hero__copy{gap:4px;font-size:24px;line-height:32px}
-  .hero__copy-v{width:32px;padding-bottom:3px}
-  .hero__copy-v span{height:32px}
+  .hero__copy-v{width:32px;padding-bottom:7px}
+  .hero__copy-v span{height:32px;line-height:44px}  /* Figma Mobile：ZOM 24/44（文字の送りは32px のまま） */
   .hero__copy-h{line-height:35px;letter-spacing:.2em}
   .hero-play{right:-24px;bottom:-29px}
 }

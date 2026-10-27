@@ -34,7 +34,7 @@
 .pj-row__body>p{font:400 16px/32px var(--font-jp);letter-spacing:.005em}
 
 .pj-scope{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:16px}
-.pj-scope li{border:1px solid currentColor;border-radius:8px;padding:0 15px;font:400 16px/30px var(--font-jp);letter-spacing:.005em}
+.pj-scope li{box-shadow:inset 0 0 0 1px currentColor;border-radius:8px;padding:0 16px;font:400 16px/32px var(--font-jp);letter-spacing:.005em}  /* 今のサイト：枠を含めて高さ32・左右16、行間32 */
 
 .pj-figure{display:block;margin:var(--mt,0) 0 var(--mb,0)}
 .pj-figure img{width:100%;height:auto;aspect-ratio:var(--ar);object-fit:cover}
@@ -68,6 +68,7 @@
 
 /* ===== スマホ ===== */
 @media (max-width:799px){
+  .pj{padding-bottom:34px}  /* 今のサイト：スマホは All Project の下が狭い */
   .pj-carousel{height:360px;margin-top:80px}
   .pj-carousel__btn{width:32px;height:32px;margin-top:-16px}
   .pj-carousel__btn--prev{left:16px}
