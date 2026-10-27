@@ -101,8 +101,8 @@ body:has(main[data-header="dark"]) .site-header__logo-img--white,body.is-header-
 .site-footer__social{display:flex;gap:24px}
 .site-footer__vision{font:400 72px/88px var(--font-mincho);letter-spacing:.2em}
 .site-footer__copy{font:400 13px/18px var(--font-en)}
-@media (max-width:1199px){.site-footer{padding:64px}}
+@media (max-width:1199px){.site-footer{padding:64px}.site-footer__vision{font-size:64px;letter-spacing:12.8px}}
 @media (max-width:767px){
   .site-footer{padding:64px 32px}
-  .site-footer__vision{font-size:44px;line-height:64px}
+  .site-footer__vision{font-size:44px;line-height:64px;letter-spacing:8.8px}
 }

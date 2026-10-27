@@ -4,6 +4,8 @@
 @media (max-width:1199px){.only-pc{display:none}.only-sp{display:inline}}
 
 /* セクション見出し（英字＋波線＋説明） */
+.home .home-title{padding:0 64px}
+@media (max-width:767px){.home .home-title{padding:0 32px}.home .news .home-title{padding:0 64px}}
 .home-title__head{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
 .home-title h2{color:inherit}
 .home-title--dark{color:var(--blue-dark)}
