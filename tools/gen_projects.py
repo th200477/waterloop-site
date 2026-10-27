@@ -27,7 +27,7 @@ PAGES={
                  'WATER LOOP PROJECTは、それぞれの領域を横断しながら、地域環境・体験・カルチャーをつなぐプロジェクト全体の企画とディレクションを担当。⏎ 環境課題を「説明する」のではなく、人が自然と関わりたくなる入口として再編集することを目指しました。'],
   p_img=('5432eaee4d2f26d3cd242be5e29041263b0ade61','GROUNDTAP BREWERY × 西条自然学校 × WATER LOOP PROJECT',640,240,'592/222'), p_opt=dict(mt=16,mb=0,sp_mb=16,sp_w=340,sp_ar='340/128'),
   partners=[('GROUNDTAP BREWERY','愛媛県西条市に2023年に誕生したマイクロブルワリー。地元企業・株式会社ダイテックが、金属加工のものづくり技術を活かして参入した。ブランド名は西条の湧水「うちぬき」に由来し、名水百選に選ばれたこの地下水を全商品の仕込み水に使用。西条産米を使ったラガーをはじめ、地域の素材と文化をビールに落とし込んでいる。',
-             [('ig','ab9ec683ee775ad2483cb9eb0a0878c8ada26a58','https://www.instagram.com/groundtap_brewery/'),('fb','e633b3e99e9247cb4a50557ca8e0affb8c68fd93','https://www.facebook.com/groundtap.brewery/'),('x','b8a2cde219ab8b38905270c27e29b083774c4eb9','https://x.com/gt_brewery'),('yt','536e223d284eee864e6356923e28b98b299c0dac',None),('mc','a97c8956a2f908916b047362a389243cabea6775','https://www.mixcloud.com/gtbtaproom/'),('web','5e8d31e262b0882403d2fd24f91fd71f7e4873f3','https://groundtap-brewery.com/')]),
+             [('ig','ab9ec683ee775ad2483cb9eb0a0878c8ada26a58','https://www.instagram.com/groundtap_brewery/'),('fb','e633b3e99e9247cb4a50557ca8e0affb8c68fd93','https://www.facebook.com/groundtap.brewery/'),('x','b8a2cde219ab8b38905270c27e29b083774c4eb9','https://x.com/gt_brewery'),('mc','a97c8956a2f908916b047362a389243cabea6775','https://www.mixcloud.com/gtbtaproom/'),('web','5e8d31e262b0882403d2fd24f91fd71f7e4873f3','https://groundtap-brewery.com/')]),
             SAIJO],
   next=[('p','現在、WATER LOOP PROJECTでは、定期的に交流会やイベントを開催しており、SUGOSUGIをその場で試飲いただける機会を設けています。実際に飲みながら、森や地域のことをゆるやかに知ってもらう場になればと考えています。'),
         ('p','イベントや交流会のお知らせは、Instagramにて発信しています。ぜひお気軽にご参加ください。'),
