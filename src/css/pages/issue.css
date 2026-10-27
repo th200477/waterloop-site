@@ -66,7 +66,7 @@
 .iss-person__links{display:flex;flex-wrap:wrap;gap:16px;margin-top:16px}
 .iss-person__links a,.iss-person__links span{display:block;width:20px;height:20px}
 .iss .iss-person__links img{width:20px;height:20px;object-fit:contain}
-.iss-person__links a:hover{opacity:.6}
+/* メンバーのアイコンにホバーの動きはない（今のサイトと同じ） */
 
 /* ===== タブレット ===== */
 @media (max-width:1199px){
