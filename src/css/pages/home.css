@@ -69,8 +69,7 @@
 }
 
 /* ---- パララックスのギャラリー ---- */
-.plx{position:relative;height:800px;overflow:hidden;background:#0b2a1a}
-.plx--water{background:#1aa3a3}
+.plx{position:relative;height:800px;overflow:hidden}  /* 背景色なし：今のサイトと同じく、写真がずれて空いたところはページの青が見える */
 .plx__bg{position:absolute;left:0;right:0;top:-121px;height:1042px;will-change:translate}  /* PC の 1 つ目だけパララックス（data-parallax） */
 .plx__bg img{width:100%;height:100%;max-width:none;object-fit:cover}
 .plx__row{position:absolute;left:50%;top:50%;width:1040px;display:flex;gap:160px;transform:translate(-50%,-50%);will-change:translate}  /* 3枚まとめてパララックス（data-parallax） */

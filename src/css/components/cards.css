@@ -33,12 +33,12 @@
 .news-card__title{display:flex;align-items:center;height:41px;font:400 22px/33px var(--font-jp);letter-spacing:.05em}
 .news-card__date{font:400 13px/18px var(--font-en);color:rgba(255,255,255,.5)}
 /* トップでは見出しが英字書体（Manrope 24px）で、日付との間が広い */
-.news-cards--top{width:100%;max-width:640px;margin:0 auto}
+.news-cards--top{width:calc(100% - 640px);max-width:800px;margin:0 auto}  /* PC：今のサイトと同じく左右に最低 320px、幅は最大 800px（1280幅で640px、1440幅以上で800px） */
 .news-cards--top .news-card__title{font:400 24px/33px var(--font-en);letter-spacing:.1em}
 .news-cards--top .news-card__body{gap:24px;padding-top:0}
 .news-cards--top .news-card__title{display:block;height:auto}
 @media (max-width:1199px){
-  .news-cards--top{max-width:none;padding:0 96px}
+  .news-cards--top{width:100%;max-width:none;padding:0 96px}
   .news-cards--page .news-card__body{padding-top:0}
   .news-cards--page .news-card__title{height:67px}
 }

@@ -12,8 +12,8 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="WATER LOOP PROJECT">
 <link rel="icon" href="/favicon.png">
-<!-- 動き：JSが動くときだけ「出てくる前」の状態で隠す。main.js が3秒たっても動かなければ隠すのをやめる（消えたままにしない保険） -->
-<script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.__motion)document.documentElement.classList.remove('js');},3000);</script>
+<!-- 動き：JSが動くときだけ「出てくる前」の状態で隠す。ページを読み終えても main.js が動いていなければ隠すのをやめる（消えたままにしない保険。時間で切るとスマホの遅い回線で動きが消えるため） -->
+<script>document.documentElement.classList.add('js');window.addEventListener('load',function(){if(!window.__motion)document.documentElement.classList.remove('js');});</script>
 <!-- Manrope は今のサイトと同じファイルを自前で置く（src/fonts/、OFL）。Noto Sans JP / Zen Old Mincho は Google Fonts -->
 <link rel="preload" href="/fonts/Manrope-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
