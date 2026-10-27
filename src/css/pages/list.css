@@ -7,7 +7,7 @@
 
 /* コラム一覧：上400pxだけ薄い緑、その下は白 */
 .list-page--columns{background:linear-gradient(var(--green-10) 0 400px,var(--white) 400px)}
-.list-page--columns .list-page__list{padding:0 96px 64px}
+.list-page--columns .list-page__list{padding:0 max(96px,calc(50% - 528px)) 64px}  /* 広い画面でも今のサイトと同じく 3 列（320×3＋48×2＝1056px）のまま中央に */
 @media (max-width:1199px){.list-page--columns .list-page__list{padding:0 48px 64px}}
 @media (max-width:767px){.list-page--columns .list-page__list{padding:0 24px 64px}}
 

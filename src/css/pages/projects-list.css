@@ -11,7 +11,7 @@
 .pl-br-sp{display:none}
 
 /* カード */
-.pl-list{list-style:none;margin:96px 0 0;padding:0;display:flex;flex-direction:column;gap:96px}
+.pl-list{list-style:none;margin:96px auto 0;max-width:1280px;padding:0;display:flex;flex-direction:column;gap:96px}  /* 広い画面：今のサイトと同じく幅 1280px の箱で中央に */
 .pl-card{position:relative;width:1040px;height:640px}
 .pl-card--even{margin-left:240px}
 .pl-card__media{position:absolute;inset:0;overflow:hidden}

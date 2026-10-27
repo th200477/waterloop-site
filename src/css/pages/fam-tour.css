@@ -9,6 +9,8 @@ body:has(main.fam) > .site-footer{display:none}
 .fam ol,.fam ul{list-style:none}
 .fam img{max-width:none}
 
+/* 広い画面（1280px より広い）：今のサイトと同じく、紹介の箱・Insight の枠は幅 1088px、持ち帰れることは 1152px のまま中央に置く */
+
 /* 申し込むボタン */
 .fam-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:160px;height:48px;padding:0 16px;border:1px solid var(--white);border-radius:40px;background:var(--cyan);color:var(--white);font:700 14px/18px var(--font-jp);text-decoration:none}  /* ホバー：0.3 秒で 1.1 倍（.hv-scale） */
 .fam-btn img{width:16px;height:15px}
@@ -27,7 +29,7 @@ body:has(main.fam) > .site-footer{display:none}
 .fam-hero__catch{position:absolute;top:212px;left:50%;transform:translateX(-50%);display:flex;flex-direction:row-reverse;align-items:flex-start;gap:40px}
 .fam-hero__catch span{display:block;background:var(--white);padding:8px 2px;width:36px;font:600 28px/36px "Noto Serif JP",var(--font-mincho);text-align:center;word-break:break-all;line-break:anywhere;color:var(--blue-dark)}
 
-.fam-intro{position:relative;margin:-100px 96px 0;padding:64px 96px 32px;background:var(--green-10);border-radius:32px 32px 0 0;display:flex;flex-direction:column}
+.fam-intro{position:relative;margin:-100px max(96px,calc(50% - 544px)) 0;padding:64px 96px 32px;background:var(--green-10);border-radius:32px 32px 0 0;display:flex;flex-direction:column}
 .fam-intro__logo{width:139px;height:40px;object-fit:contain}
 .fam-intro__title{margin-top:16px !important;font:700 56px/72px var(--font-jp);letter-spacing:.05em}
 .fam-intro__date{margin-top:16px !important;font:700 26px/33px var(--font-jp);letter-spacing:.05em;color:var(--blue)}
@@ -35,7 +37,7 @@ body:has(main.fam) > .site-footer{display:none}
 .fam-intro .fam-btn{align-self:center;margin-top:24px}
 
 /* Insight（枠つきボックス） */
-.fam-insight{margin:0 96px;padding:96px 0 48px;border:8px solid var(--line);border-top:0;--inset:56px}
+.fam-insight{margin:0 max(96px,calc(50% - 544px));padding:96px 0 48px;border:8px solid var(--line);border-top:0;--inset:56px}
 .fam-insight > .fam-title{padding-bottom:48px}
 .fam-topic{margin:0 var(--inset);padding:48px 0;border-top:2px solid var(--line)}
 .fam-topic:last-child{padding-bottom:0}
@@ -64,7 +66,7 @@ body:has(main.fam) > .site-footer{display:none}
 .fam-merit{position:relative;margin-top:96px;color:var(--white);overflow:hidden}
 .fam-merit__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .fam-merit::before{content:"";position:absolute;inset:0;background:rgba(0,81,114,.6);z-index:1}
-.fam-merit__inner{position:relative;z-index:2;padding:112px 64px}
+.fam-merit__inner{position:relative;z-index:2;padding:112px max(64px,calc(50% - 576px))}
 .fam-merit__title{text-align:center;font:700 32px/48px var(--font-jp);letter-spacing:.05em}
 .fam-merit__list{margin-top:80px;display:grid;grid-template-columns:repeat(3,1fr);gap:64px}
 .fam-merit__item img{width:80px;height:14px}
@@ -98,10 +100,10 @@ body:has(main.fam) > .site-footer{display:none}
 /* タイムライン */
 .fam-timeline{padding:96px 64px}
 .fam .fam-days{margin-top:64px}
-.fam-day{display:grid;grid-template-columns:528px 1fr 528px;grid-template-areas:"img line body";justify-content:center;max-width:1152px;margin:0 auto;padding:0}
+.fam-day{display:grid;grid-template-columns:minmax(528px,1fr) 96px minmax(528px,1fr);grid-template-areas:"img line body";justify-content:center;max-width:1280px;margin:0 auto;padding:0}  /* 今のサイト：1280 幅で 528＋96＋528、広い画面では最大 1280px（592＋96＋592）まで広がる */
 .fam-day--rev{grid-template-areas:"body line img"}
 .fam-day__img{grid-area:img;padding:32px 0 48px}
-.fam-day__img img{display:block;width:528px;height:400px;object-fit:cover}
+.fam-day__img img{display:block;width:100%;height:400px;object-fit:cover}
 .fam-day__body{grid-area:body;padding:32px 16px 48px}
 .fam-day__line{grid-area:line;position:relative;display:flex;justify-content:center}
 .fam-day__line::before{content:"";position:absolute;left:50%;top:0;width:2px;height:48px;margin-left:-1px;background:#000}
