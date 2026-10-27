@@ -39,7 +39,7 @@
 .thanks__body{text-align:center}
 .thanks__body .contact__open{margin-top:64px}
 
-@media (max-width:767px){
+@media (max-width:799px){
   .legal__body{margin:48px 32px 0}
   .contact .legal__body{margin-top:96px}
   .contact-form{margin:48px 32px 0}

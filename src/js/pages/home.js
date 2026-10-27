@@ -4,7 +4,7 @@
 
   // ヒーローの背景動画（PC・タブレットだけ読み込む。スマホは写真）
   var hv=document.querySelector('.hero__video');
-  var wide=window.matchMedia('(min-width: 768px)');
+  var wide=window.matchMedia('(min-width:800px)');
   function loadHero(){
     if(!hv||!wide.matches||hv.dataset.loaded) return;
     hv.dataset.loaded='1';
@@ -71,7 +71,7 @@
   // 今のサイトの「スクロールで変形（このレイヤーが見えたら）」と同じ計算。値が変わるたびに 0.8 秒の ease-out-back で追いかける（CSS）。
   var dob=document.querySelector('.dobadoba');
   if(dob&&!reduce){
-    var pc=window.matchMedia('(min-width: 1200px)'), sp=window.matchMedia('(max-width: 767px)');
+    var pc=window.matchMedia('(min-width:1280px)'), sp=window.matchMedia('(max-width:799px)');
     var dt=false;
     function dobUpdate(){
       dt=false;

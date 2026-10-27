@@ -1,6 +1,6 @@
 # プロジェクト詳細3ページ（同じ型）を書き出す
 import html
-IG_URL='https://www.instagram.com/water_loop_project?igsh=dWZhb2dpcjlmMnI='
+IG_URL='https://www.instagram.com/water_loop_project/'
 FORM_URL='https://forms.gle/ctRRV2kZaHnQCKRw9'
 ARROW='a207ac095b45fd81c1c1f05749896f171ba52e80'
 IGB='94982e9c917fd821a2dc483dae38bd09486c4ccb'; WEBB='92fef69bc280a0360c53a2c23d84a967229ad268'

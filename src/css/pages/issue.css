@@ -47,7 +47,7 @@
    PC：枠より上下に大きい 1042px（上に 121px はみ出す）／タブレット・スマホ：幅 983px・高さ 800px を中央に */
 .iss-photo__bg{position:absolute;left:0;right:0;top:-121px;height:1042px;will-change:translate}
 .iss .iss-photo img{width:100%;height:100%;max-width:none;object-fit:cover}
-@media (max-width:1199px){.iss-photo__bg{left:50%;right:auto;top:0;width:983px;height:800px;margin-left:-491.5px}}
+@media (max-width:1279px){.iss-photo__bg{left:50%;right:auto;top:0;width:983px;height:800px;margin-left:-491.5px}}
 
 /* APPROACH */
 .iss-approach{padding-top:160px}
@@ -72,7 +72,7 @@
 /* メンバーのアイコンにホバーの動きはない（今のサイトと同じ） */
 
 /* ===== タブレット ===== */
-@media (max-width:1199px){
+@media (max-width:1279px){
   .iss{--pad:48px}
   .iss-about{gap:48px}
   .iss-about__text{flex:1 1 auto}
@@ -93,7 +93,7 @@
 }
 
 /* ===== スマホ ===== */
-@media (max-width:767px){
+@media (max-width:799px){
   .iss{--pad:32px}
   .iss-heading__title{font-size:48px;line-height:62px}
   .iss-heading img.iss-heading__wave{margin:16px 0 20px}

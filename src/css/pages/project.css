@@ -59,7 +59,7 @@
 .pj-btn--back{width:160px;font-weight:700}
 
 /* ===== タブレット ===== */
-@media (max-width:1199px){
+@media (max-width:1279px){
   .pj-carousel{--slide:100%}
   .pj-carousel__btn--prev{left:44px}
   .pj-carousel__btn--next{right:44px}
@@ -67,7 +67,7 @@
 }
 
 /* ===== スマホ ===== */
-@media (max-width:767px){
+@media (max-width:799px){
   .pj-carousel{height:360px;margin-top:80px}
   .pj-carousel__btn{width:32px;height:32px;margin-top:-16px}
   .pj-carousel__btn--prev{left:16px}

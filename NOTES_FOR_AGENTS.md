@@ -38,7 +38,7 @@
 - 先頭に <!--#title ページ名｜WATER LOOP PROJECT--> <!--#desc 説明--> <!--#head <link rel="stylesheet" href="/css/pages/xxx.css">--> を書ける。
 - ページ固有のCSSは src/css/pages/<名前>.css、JSは src/js/pages/<名前>.js（<!--#head <script src=... defer>--> で読む）。
 - src/css/base.css のトークン（--blue など）、.btn-pill、.sec-title、.reveal（ふわっと出す）を使う。base.css を書き換えてよいのは担当A（ヘッダー・フッター・トップ）だけ。足りないものは自分のページCSSに書く。
-- 幅の区切り: スマホ 〜767px／タブレット 768〜1199px／PC 1200px〜。Figmaの3つのフレームを見て、それぞれの幅で合わせる。絶対配置の羅列にせず、flex/grid で組む。
+- 幅の区切り: スマホ 〜799px／タブレット 800〜1279px／PC 1280px〜（今のサイトと同じ区切り）。Figmaの3つのフレームを見て、それぞれの幅で合わせる。絶対配置の羅列にせず、flex/grid で組む。
 - 文言は Figma と今のサイトから一字一句そのまま写す。作文しない。Figma と今のサイトで違う場合は、今のサイト（raw/*.html）を正とし、報告する。
 - サイト内リンクは /issue のような絶対パス。外部リンクは今のサイトと同じURL。
 - 確認: `python3 build.py` のあと dist/ を `python3 -m http.server` などで出し、Playwright で 1280 / 800 / 375 の幅でスクリーンショットを撮り、Figma の get_screenshot と見比べて直す。

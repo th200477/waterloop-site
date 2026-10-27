@@ -31,13 +31,13 @@
 /* More ボタンにホバーの動きはない（今のサイトと同じ）。写真はホバーで 1.1 倍（.hv-scale） */
 
 /* ===== タブレット ===== */
-@media (max-width:1199px){
+@media (max-width:1279px){
   .pl-card,.pl-card--even{width:100%;margin-left:0}
   .pl-card--even .pl-card__cap{width:640px;padding-left:32px}
 }
 
 /* ===== スマホ ===== */
-@media (max-width:767px){
+@media (max-width:799px){
   .pl-br-sp{display:inline}
   .pl-list{margin-top:97px;gap:96px}
   .pl-card,.pl-card--even{height:auto}

@@ -6,10 +6,10 @@
 //     data-appear-y="50"     出てくる前のずれ（px）。省略すると 150
 //     data-appear-replay     画面の外に出たら元に戻り、また入ると出直す（今のサイトの「1回だけ再生」がオフのもの）
 //     data-appear-exit="0.6" 外に出たときの戻りの時間（秒）。省略すると 0.6
-//     data-appear-media="(min-width:1200px)"  この幅のときだけ動かす（ほかの幅では最初から見えている）
+//     data-appear-media="(min-width:1280px)"  この幅のときだけ動かす（ほかの幅では最初から見えている）
 //   data-appear-load         ページを開いたときに 1.8 秒かけて透明から出る
 //   data-parallax="1.05"     スクロールに合わせて縦にずれる。ずれ = スクロール量 ×（1 − 数字）。1 より大きいと上へ、小さいと下へ
-//     data-parallax-media="(min-width:1200px)"  この幅のときだけ
+//     data-parallax-media="(min-width:1280px)"  この幅のときだけ
 // 「画面に入った」は今のサイトと同じく、ずれた位置の要素が 1px でも画面に入ったとき（IntersectionObserver、しきい値 0）。
 // prefers-reduced-motion のときは何も動かさない（最初から見えている）。
 (function(){

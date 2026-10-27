@@ -13,10 +13,10 @@
 .col-card__body{display:flex;flex-direction:column;gap:4px}
 .col-card__title{font:700 20px/28px var(--font-jp);letter-spacing:.02em;color:var(--blue-dark)}
 .col-card__date{font:400 12px/22px var(--font-jp);letter-spacing:.01em;color:var(--green-40)}
-@media (max-width:1199px){
+@media (max-width:1279px){
   .col-cards--top{column-gap:64px;row-gap:48px;padding:0 48px}
 }
-@media (max-width:767px){
+@media (max-width:799px){
   .col-cards--top{gap:48px;padding:0 24px}
 }
 
@@ -37,12 +37,12 @@
 .news-cards--top .news-card__title{font:400 24px/33px var(--font-en);letter-spacing:.1em}
 .news-cards--top .news-card__body{gap:24px;padding-top:0}
 .news-cards--top .news-card__title{display:block;height:auto}
-@media (max-width:1199px){
+@media (max-width:1279px){
   .news-cards--top{width:100%;max-width:none;padding:0 96px}
   .news-cards--page .news-card__body{padding-top:0}
   .news-cards--page .news-card__title{height:67px}
 }
-@media (max-width:767px){
+@media (max-width:799px){
   .news-cards--top{padding:0 8px}
   .news-cards{align-items:center}
   .news-card{width:100%;max-width:300px;padding-top:16px;padding-bottom:15px}

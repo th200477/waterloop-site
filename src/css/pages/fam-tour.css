@@ -140,7 +140,7 @@ body:has(main.fam) > .site-footer{display:none}
 .fam-footer__copy{margin-top:32px !important;font:400 13px/18px var(--font-en)}
 
 /* ===== タブレット ===== */
-@media (max-width:1199px){
+@media (max-width:1279px){
   .fam-float{right:32px}
   .fam-hero{height:640px}
   .fam-hero__catch{top:132px}
@@ -178,7 +178,7 @@ body:has(main.fam) > .site-footer{display:none}
 }
 
 /* ===== スマホ ===== */
-@media (max-width:767px){
+@media (max-width:799px){
   .fam-float{right:16px;width:112px;padding:0 12px;white-space:nowrap}
   .fam-hero{height:560px}
   .fam-hero__catch span{font-size:20px;line-height:28px;width:36px;padding:8px 2px}
