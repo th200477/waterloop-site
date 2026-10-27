@@ -62,6 +62,8 @@ button{font:inherit;cursor:pointer}
 /* ホバー（マウスのときだけ。指で触れたときは動かさない＝今のサイトと同じ）。時間はどれも 0.3 秒 */
 .hv-scale,.hv-fade,.hv-turn,.hv-arrow img{transition:scale .3s var(--ease-out),rotate .3s var(--ease-out),translate .3s var(--ease-out),opacity .3s var(--ease-out)}
 .hv-arrow{overflow:hidden;border-radius:50%}
+/* 丸い矢印ボタン：今のサイトは中の絵（72px）を縮めずに真ん中に置き、ボタンの丸で切り抜いている（56px・32px のボタンでも矢印は 72px 用の大きさ） */
+.hv-arrow img{width:72px!important;height:72px!important;max-width:none;margin:calc(50% - 36px)}
 @media (hover:hover){
   .hv-scale:hover{scale:1.1}                 /* ボタン・カードの写真：1.1 倍 */
   .hv-fade:hover{opacity:.5}                 /* フッター・メニューの文字リンク：半透明 */

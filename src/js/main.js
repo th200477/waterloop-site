@@ -10,7 +10,7 @@
 //   data-appear-load         ページを開いたときに 1.8 秒かけて透明から出る
 //   data-parallax="1.05"     スクロールに合わせて縦にずれる。ずれ = スクロール量 ×（1 − 数字）。1 より大きいと上へ、小さいと下へ
 //     data-parallax-media="(min-width:1200px)"  この幅のときだけ
-// 「画面に入った」は今のサイトと同じく、ずれた位置の要素が 1px でも見えたとき（IntersectionObserver、しきい値 0）。
+// 「画面に入った」は今のサイトと同じく、ずれた位置の要素が 1px でも画面に入ったとき（IntersectionObserver、しきい値 0）。
 // prefers-reduced-motion のときは何も動かさない（最初から見えている）。
 (function(){
   window.__motion=true;
@@ -29,19 +29,26 @@
   var items=[].slice.call(document.querySelectorAll('[data-appear]'));
   if(reduce||!hasIO){ items.forEach(function(el){el.classList.add('is-static');}); }
   else {
-    var io=new IntersectionObserver(function(es){
-      es.forEach(function(e){ var st=e.target.__ap; if(st) (e.isIntersecting?st.enter:st.leave)(); });
-    });
+    // 判定は今のサイトと同じく「ずれた位置の要素」が 1px でも画面に入ったとき（しきい値 0、余白なし）
+    var ios={};
+    function ioFor(m){
+      return ios[m]||(ios[m]=new IntersectionObserver(function(es){
+        es.forEach(function(e){ var st=e.target.__ap; if(st&&st.io===ios[m]) (e.isIntersecting?st.enter:st.leave)(); });
+      },{rootMargin:'0px 0px '+m+'px 0px'}));
+    }
     items.forEach(function(el){
       var dur=parseFloat(el.getAttribute('data-appear'))||0.6;
       var exitDur=parseFloat(el.getAttribute('data-appear-exit'));if(isNaN(exitDur))exitDur=0.6;
       var replay=el.hasAttribute('data-appear-replay');
       var media=el.getAttribute('data-appear-media');
       var y=el.getAttribute('data-appear-y'); if(y!==null) el.style.setProperty('--appear-y',y+'px');
-      var visible=false, busy=false, timer=null;
+      var shift=0;
+      var visible=false, busy=false, timer=null, st={io:null};
+      function watch(m){ if(st.io) st.io.unobserve(el); st.io=m===null?null:ioFor(m); if(st.io) st.io.observe(el); }
       function show(){
         busy=true; el.style.setProperty('--appear-dur',dur+'s'); el.classList.add('is-shown');
-        if(!replay){ io.unobserve(el); return; }
+        if(!replay){ watch(null); return; }
+        watch(0);
         timer=setTimeout(function(){ busy=false; if(!visible) hide(); }, dur*1000);
       }
       function hide(){
@@ -49,21 +56,20 @@
         busy=true;
         timer=setTimeout(function(){
           el.style.setProperty('--appear-dur','0s'); el.classList.remove('is-shown');
-          void el.offsetWidth; busy=false;
-          if(visible) show();
+          void el.offsetWidth; busy=false; visible=false;
+          watch(shift);
         }, exitDur*1000);
       }
-      el.__ap={
-        enter:function(){ visible=true; if(!busy&&!el.classList.contains('is-shown')) show(); },
-        leave:function(){ visible=false; if(replay&&!busy&&el.classList.contains('is-shown')) hide(); }
-      };
+      st.enter=function(){ visible=true; if(!busy&&!el.classList.contains('is-shown')) show(); };
+      st.leave=function(){ visible=false; if(replay&&!busy&&el.classList.contains('is-shown')) hide(); };
+      el.__ap=st;
       function setup(){
-        clearTimeout(timer); busy=false; visible=false; io.unobserve(el);
-        if(mq(media)){ el.classList.remove('is-static'); if(!el.classList.contains('is-shown')||replay){ io.observe(el); } }
+        clearTimeout(timer); busy=false; visible=false; watch(null);
+        if(mq(media)){ el.classList.remove('is-static'); el.classList.remove('is-shown'); watch(shift); }
         else { el.classList.add('is-static'); }
       }
       setup();
-      if(media&&window.matchMedia){ var m=window.matchMedia(media); var on=function(){ el.classList.remove('is-shown'); setup(); }; m.addEventListener?m.addEventListener('change',on):m.addListener(on); }
+      if(media&&window.matchMedia){ var m=window.matchMedia(media); m.addEventListener?m.addEventListener('change',setup):m.addListener(setup); }
     });
   }
 
