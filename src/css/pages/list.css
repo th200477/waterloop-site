@@ -1,0 +1,19 @@
+/* /blog-list（Figma 3:4686 / 3:4709 / 3:4732）と /news-list（4:5939 / 4:5971 / 4:6003）。カードは components/cards.css */
+.list-page__head{display:flex;flex-direction:column;align-items:center;gap:32px;padding:120px 16px 80px;text-align:center}
+.list-page__title{display:flex;flex-direction:column;align-items:center;gap:12px}
+.list-page__title h1{font:400 24px/33px var(--font-en);letter-spacing:.1em;color:var(--green-40)}
+.list-page__title img{width:80px;height:14px}
+.list-page__lead{font:400 16px/32px var(--font-jp);letter-spacing:.005em;color:var(--green-40)}
+
+/* コラム一覧：上400pxだけ薄い緑、その下は白 */
+.list-page--columns{background:linear-gradient(var(--green-10) 0 400px,var(--white) 400px)}
+.list-page--columns .list-page__list{padding:0 96px 64px}
+@media (max-width:1199px){.list-page--columns .list-page__list{padding:0 48px 64px}}
+@media (max-width:767px){.list-page--columns .list-page__list{padding:0 24px 64px}}
+
+/* お知らせ一覧：見出しは薄い緑、一覧は青地 */
+.list-page--news{background:var(--blue)}
+.list-page--news .list-page__head{background:var(--green-10)}
+.list-page--news .list-page__list{padding:96px 320px}
+@media (max-width:1199px){.list-page--news .list-page__list{padding:96px 64px}}
+@media (max-width:767px){.list-page--news .list-page__list{padding:96px 8px}}

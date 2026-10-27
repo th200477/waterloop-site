@@ -1,0 +1,69 @@
+/* 記事ページ：コラム /blog/*（Figma 4:5100 / 4:5325 / 4:5550）とお知らせ /news-2/*（4:6664 / 4:6697 / 4:6730）
+   本文（.rt）は今のサイトの段落をそのまま並べたもの。段落の間は空けず、空の段落（.rt-space）を余白として使う。 */
+
+/* --- 本文 --- */
+.rt{font:400 16px/32px var(--font-jp);letter-spacing:.005em;color:inherit;word-break:break-word}
+.rt p{white-space:pre-wrap}
+.rt p,.rt h2,.rt h3,.rt h4,.rt ul,.rt ol{margin:0}
+.rt-space{height:32px}
+.rt-space--h2,.rt-space--h3{height:36px}
+.rt h2,.rt h3{font:700 28px/36px var(--font-jp);letter-spacing:.01em;white-space:pre-wrap}
+.rt h3.rt-en,.rt h2.rt-en{font:700 18px/24px var(--font-en);letter-spacing:.16em}
+.rt h4{font:600 24px/1.4 "Inter",var(--font-jp);letter-spacing:-.03em;white-space:pre-wrap}
+.rt ul,.rt ol{padding:0;margin-left:24px}
+.rt li{white-space:pre-wrap}
+.rt strong{font-weight:700}
+.rt a{color:inherit;text-decoration:underline}
+.rt-img img{display:inline-block;width:100%;height:auto;vertical-align:baseline}
+
+/* --- 共通の枠 --- */
+.article__title{font:700 48px/67px var(--font-jp);letter-spacing:.05em}
+.article__head .article__inner{display:flex;flex-direction:column;gap:24px}
+.article__hero{margin:0;overflow:hidden}
+.article__hero img{width:100%;height:100%;object-fit:cover}
+.article__more{display:flex;justify-content:center}
+.more-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:160px;height:48px;padding:0 16px;border:1px solid var(--blue);border-radius:40px;color:var(--blue);text-decoration:none;font:400 13px/18px var(--font-en);letter-spacing:.02em;transition:background .2s}
+.more-btn img{width:15.6px;height:15.2px}
+.more-btn:hover{background:rgba(0,122,170,.08)}
+
+/* --- コラム：薄い緑の地、文字は濃い青 --- */
+.article--column{background:var(--green-10);color:var(--blue-dark)}
+.article--column .article__inner{padding:0 160px}
+.article--column .article__head{padding-top:120px}
+.article--column .article__date{font:400 18px/32px var(--font-en);letter-spacing:.02em;color:rgba(0,0,0,.6)}
+.article--column .article__lead{margin-top:64px}
+.article--column .article__lead .article__inner{display:flex;flex-direction:column;gap:24px}
+.article--column .article__hero{aspect-ratio:16/9}
+.article--column .article__body{margin-top:64px;padding-bottom:64px}
+.article--column .article__body .article__inner{display:flex;flex-direction:column;gap:24px}
+@media (max-width:1199px){
+  .article--column .article__inner{padding:0 64px}
+  .article--column .article__title{font-size:32px;line-height:48px}
+  .article--column .article__lead,.article--column .article__body{margin-top:48px}
+}
+@media (max-width:767px){
+  .article--column .article__inner{padding:0 32px}
+  .article--column .article__head .article__inner{gap:12px}
+}
+
+/* --- お知らせ：白地、文字は黒 --- */
+.article--news{background:var(--white);color:#000}
+.article--news .article__head{padding-top:128px}
+.article--news .article__head .article__inner{padding:0 160px}
+.article--news .article__title{font-size:32px;line-height:48px}
+.article--news .article__date{font:400 13px/18px var(--font-en);color:rgba(0,0,0,.45)}
+.article--news .article__lead{margin-top:32px}
+.article--news .article__lead .article__inner{padding:0 160px}
+.article--news .article__hero{aspect-ratio:3/2}
+.article--news .article__body .article__inner{padding:80px 240px}
+.article--news .article__more{padding-bottom:64px}
+@media (max-width:1199px){
+  .article--news .article__head .article__inner,.article--news .article__lead .article__inner{padding:0 64px}
+  .article--news .article__body .article__inner{padding:64px 96px}
+}
+@media (max-width:767px){
+  .article--news .article__head .article__inner{padding:0 32px;gap:12px}
+  .article--news .article__title{font-size:22px;line-height:33px}
+  .article--news .article__lead .article__inner{padding:0 24px}
+  .article--news .article__body .article__inner{padding:40px 24px}
+}

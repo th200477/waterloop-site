@@ -1,2 +1,34 @@
-<!-- header: 担当エージェントAが仕上げる -->
-<header class="site-header"><a class="site-header__logo" href="/" aria-label="ホームへ戻る"><img src="/img/a62236e6947a8d7134920331178ce8fb514483de.webp" alt="WATER LOOP PROJECT" width="120"></a><button class="site-header__menu" aria-label="メニューを開く" aria-expanded="false">≡</button></header>
+<!-- 共通ヘッダー：ページの上に重なる固定ヘッダー。
+     ロゴは背景色で切り替え：既定は青ロゴ（明るい背景のページ）。
+     背景が青・写真のページは <main data-header="dark"> と書くと白ロゴになる（トップ、/projects-list）。 -->
+<header class="site-header" id="site-header">
+  <a class="site-header__logo" href="/" aria-label="ホームへ戻る">
+    <img class="site-header__logo-img site-header__logo-img--blue" src="/img/3f208557f89ab5de766b65cf12423df7b603c71c.webp" alt="WATER LOOP PROJECT" width="120" height="34">
+    <img class="site-header__logo-img site-header__logo-img--white" src="/img/a62236e6947a8d7134920331178ce8fb514483de.webp" alt="WATER LOOP PROJECT" width="120" height="34">
+  </a>
+  <button class="site-header__menu" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="site-menu">
+    <img class="site-header__icon site-header__icon--open" src="/svg/765e7364426cb4e4bf1376d01eebf253da408e07.svg" alt="" width="24" height="24">
+    <img class="site-header__icon site-header__icon--close" src="/svg/607d474b0021d0e44f6e03236a55c2106e4d39e9.svg" alt="" width="24" height="24">
+  </button>
+</header>
+<div class="site-menu" id="site-menu" aria-hidden="true">
+  <nav class="site-menu__panel" aria-label="メニュー">
+    <ul class="site-menu__nav">
+      <li><a href="/">Home</a></li>
+      <li><a href="/issue">Issue</a></li>
+      <li><a href="/projects-list">Projects</a></li>
+      <li><a href="/blog-list">Columns</a></li>
+      <li><a href="/news-list">News</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+    <ul class="site-menu__social">
+      <li><a href="https://www.instagram.com/water_loop_project?igsh=dWZhb2dpcjlmMnI=" target="_blank" rel="noopener" aria-label="Instagram"><img src="/svg/e18cb4844d66e67c1f826e9b621d32567c66cef6.svg" alt="" width="20" height="20"></a></li>
+      <li><a href="https://www.youtube.com/@WATERLOOPPROJECT" target="_blank" rel="noopener" aria-label="YouTube"><img src="/svg/3ddf44b908ae1cab07a7208cd0d519244ca49db9.svg" alt="" width="20" height="14"></a></li>
+      <li><a href="https://open.spotify.com/show/033kXwVAhQm9rn63rzANWh?si=z5HZ3Xj6QROUuLVPHhDM5w" aria-label="Podcast（Spotify）"><img src="/svg/baba1ad9e174174240fc817becee0bd1b6336043.svg" alt="" width="14" height="19"></a></li>
+    </ul>
+    <ul class="site-menu__legal">
+      <li><a href="/privacy-policy">プライバシポシー</a></li>
+      <li><a href="/terms-of-use">利用規約</a></li>
+    </ul>
+  </nav>
+</div>

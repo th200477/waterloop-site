@@ -1,0 +1,45 @@
+/* /contact（Figma 4:6918 / 4:6935 / 4:6952）、/privacy-policy（4:7131 / 4:7182 / 4:7233）、/terms-of-use（4:7468 / 4:7524 / 4:7580）
+   上に薄い緑の見出し帯（高さ250）、下は白地に幅560の本文。 */
+.legal{background:var(--white);color:#000;padding-bottom:64px}
+.legal__head{background:var(--green-10);display:flex;flex-direction:column;align-items:center;justify-content:flex-start;height:250px;padding:120px 16px 0;text-align:center}
+.legal__title{display:flex;flex-direction:column;align-items:center;gap:12px}
+.legal__title h1{font:400 24px/33px var(--font-en);letter-spacing:.1em;color:var(--green-40)}
+.legal__title img{width:80px;height:14px}
+.legal__body{max-width:560px;margin:96px auto 0;font:400 16px/32px var(--font-jp);letter-spacing:.005em}
+.legal__body p,.legal__body ul{margin:0}
+.legal__body ul{padding-left:24px}
+.legal__body li{list-style:disc}
+.legal__sec{margin-top:32px}
+.legal__sec h2{font:700 16px/32px var(--font-jp);letter-spacing:.005em;margin-bottom:4px}
+
+/* お問い合わせ */
+.contact{min-height:880px}
+.contact__lead{display:flex;flex-direction:column}
+.contact__open{margin:64px auto 0;display:flex;justify-content:center}
+.contact__btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 16px;border:1px solid var(--blue);border-radius:40px;background:transparent;color:var(--blue);font:400 13px/18px var(--font-en);letter-spacing:.02em;text-decoration:none;transition:background .2s}
+.contact__btn:hover{background:rgba(0,122,170,.08)}
+.contact__btn img{width:15.58px;height:15.19px;transition:transform .2s}
+.contact__btn[aria-expanded="true"] img{transform:rotate(90deg)}
+
+.contact-form{max-width:560px;margin:48px auto 0;display:flex;flex-direction:column;gap:24px}
+.contact-form[hidden]{display:none}
+.contact-form__field{display:flex;flex-direction:column;gap:8px}
+.contact-form label{font:700 14px/22px var(--font-jp);letter-spacing:.01em;color:var(--blue-dark)}
+.contact-form .req{margin-left:8px;font:400 12px/18px var(--font-jp);color:var(--blue)}
+.contact-form input,.contact-form textarea{width:100%;font:400 16px/28px var(--font-jp);color:#000;padding:10px 14px;border:1px solid #b9c9c4;border-radius:8px;background:var(--white)}
+.contact-form textarea{min-height:200px;resize:vertical}
+.contact-form input:focus,.contact-form textarea:focus{outline:2px solid var(--blue);outline-offset:1px;border-color:var(--blue)}
+.contact-form__note{font:400 14px/22px var(--font-jp);color:var(--blue-dark)}
+.contact-form__note a{color:var(--blue)}
+.contact-form__submit{align-self:center;height:48px;min-width:160px;padding:0 24px;border:0;border-radius:40px;background:var(--blue);color:var(--white);font:700 14px/18px var(--font-jp);letter-spacing:.05em;transition:background .2s}
+.contact-form__submit:hover{background:var(--blue-dark)}
+.contact-form .hp{position:absolute;left:-9999px}
+
+.thanks__body{text-align:center}
+.thanks__body .contact__open{margin-top:64px}
+
+@media (max-width:767px){
+  .legal__body{margin:48px 32px 0}
+  .contact .legal__body{margin-top:96px}
+  .contact-form{margin:48px 32px 0}
+}

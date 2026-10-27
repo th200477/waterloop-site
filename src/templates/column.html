@@ -1,0 +1,25 @@
+<!-- コラム記事の型（/blog/<slug>）。gen_articles.py が data/columns.json から {{...}} を埋める。Figma: Desktop 4:5100 / Tablet 4:5325 / Mobile 4:5550 -->
+<main class="article article--column">
+  <section class="article__head">
+    <div class="article__inner">
+      <h1 class="article__title">{{title}}</h1>
+      <p class="article__date">{{date_label}}</p>
+    </div>
+  </section>
+  <section class="article__lead">
+    <div class="article__inner">
+      <figure class="article__hero"><img src="/img/{{hero}}.webp" alt="{{hero_alt}}" width="{{hero_w}}" height="{{hero_h}}" fetchpriority="high"></figure>
+      <div class="rt article__profile">
+{{profile}}
+      </div>
+    </div>
+  </section>
+  <section class="article__body">
+    <div class="article__inner">
+      <div class="rt">
+{{body}}
+      </div>
+      <div class="article__more"><a class="more-btn" href="/blog-list">More<img src="/svg/a207ac095b45fd81c1c1f05749896f171ba52e80.svg" alt="" width="16" height="15"></a></div>
+    </div>
+  </section>
+</main>

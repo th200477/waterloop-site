@@ -1,0 +1,22 @@
+<!-- お知らせ記事の型（/news-2/<slug>）。gen_articles.py が data/news.json から {{...}} を埋める。Figma: Desktop 4:6664 / Tablet 4:6697 / Mobile 4:6730 -->
+<main class="article article--news">
+  <section class="article__head">
+    <div class="article__inner">
+      <h1 class="article__title">{{title}}</h1>
+      <p class="article__date">{{date_label}}</p>
+    </div>
+  </section>
+  <section class="article__lead">
+    <div class="article__inner">
+      <figure class="article__hero"><img src="/img/{{hero}}.webp" alt="{{hero_alt}}" width="{{hero_w}}" height="{{hero_h}}" fetchpriority="high"></figure>
+    </div>
+  </section>
+  <section class="article__body">
+    <div class="article__inner">
+      <div class="rt">
+{{body}}
+      </div>
+    </div>
+  </section>
+  <div class="article__more"><a class="more-btn" href="/news-list">More<img src="/svg/b9b8d0ad5fe67e4d7732b013b3f2b8518a6b3df7.svg" alt="" width="16" height="15"></a></div>
+</main>
