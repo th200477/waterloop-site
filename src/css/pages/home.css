@@ -72,17 +72,17 @@
 /* ---- パララックスのギャラリー ---- */
 .plx{position:relative;height:800px;overflow:hidden;background:#0b2a1a}
 .plx--water{background:#1aa3a3}
-.plx__bg{position:absolute;left:0;right:0;top:-121px;height:1042px;will-change:transform}
+.plx__bg{position:absolute;left:0;right:0;top:-121px;height:1042px;will-change:translate}  /* PC の 1 つ目だけパララックス（data-parallax） */
 .plx__bg img{width:100%;height:100%;max-width:none;object-fit:cover}
-.plx__row{position:absolute;left:50%;top:50%;width:1040px;display:flex;gap:160px;transform:translate(-50%,-50%)}
+.plx__row{position:absolute;left:50%;top:50%;width:1040px;display:flex;gap:160px;transform:translate(-50%,-50%);will-change:translate}  /* 3枚まとめてパララックス（data-parallax） */
 .plx__item{flex:none;width:240px;height:320px;overflow:hidden}
-.plx__item img{width:240px;height:341px;max-width:none;object-fit:cover;margin-top:-10.5px;will-change:transform}
+.plx__item img{width:240px;height:341px;max-width:none;object-fit:cover;margin-top:-10.5px}
 
 /* ---- PROJECTS（カルーセル） ---- */
 .projects{background:var(--blue);padding:128px 0;display:flex;flex-direction:column;gap:96px}
 .pcar{--card-w:720px;--gap:96px;position:relative;height:480px;overflow:hidden;touch-action:pan-y}
 .pcar__track{list-style:none;margin:0;padding:0;height:100%}
-.pcar__card{position:absolute;top:0;left:50%;width:var(--card-w);height:480px;margin-left:calc(var(--card-w) / -2);overflow:hidden;transition:transform .6s cubic-bezier(.4,0,.2,1)}
+.pcar__card{position:absolute;top:0;left:50%;width:var(--card-w);height:480px;margin-left:calc(var(--card-w) / -2);overflow:hidden;transition:transform .15s linear}  /* 今のサイト：0.15 秒・等速で切り替わる */
 .pcar__card picture{display:contents}
 .pcar__img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover}
 .pcar__num{position:absolute;top:0;left:0;padding:32px 32px 0;font:400 120px/120px var(--font-en);letter-spacing:.01em}
@@ -106,19 +106,21 @@
 /* ---- COLUMNS ---- */
 .columns{position:relative;background:var(--green-10);padding-top:128px;display:flex;flex-direction:column}
 .columns>.sec-title{margin-bottom:96px}
-.columns>.home-more{margin:48px 0 96px}
-.dobadoba{position:absolute;z-index:2;top:-102px;left:50%;width:171px;height:auto;transform:translateX(-50%)}
+.columns__blog{display:flex;flex-direction:column}  /* 一覧と More をまとめて動かす枠（今のサイトの Blog_List） */
+.columns__blog>.home-more{margin:48px 0 96px}
+.dobadoba{position:absolute;z-index:2;top:-102px;left:50%;width:171px;height:auto;transform:translateX(-50%);transition:scale .8s var(--ease-out-back)}  /* スクロールで 1.3 倍（スマホ 1.1 倍）まで。home.js */
 @media (max-width:1199px){
   .dobadoba{top:-118px}
 }
 @media (max-width:767px){
-  .columns>.home-more{margin:0 0 96px}
+  .columns__blog>.home-more{margin:0 0 96px}
   .dobadoba{top:-60px}
 }
 
 /* WATER LOOP の流れる文字 */
 .marquee{overflow:hidden;height:140px}
-.marquee__track{display:flex;width:max-content;animation:marquee 24s linear infinite}
+.marquee__track{display:flex;width:max-content;animation:marquee 24s linear infinite}  /* 速さは home.js が 50px/秒 に合わせる */
+.marquee:hover .marquee__track{animation-play-state:paused}  /* 今のサイト：マウスを乗せると止まる */
 .marquee__track span{flex:none;font:400 120px/140px var(--font-en);letter-spacing:19.2px;color:var(--blue);white-space:nowrap}
 @keyframes marquee{to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.marquee__track{animation:none}}
