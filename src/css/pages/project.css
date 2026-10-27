@@ -1,0 +1,82 @@
+/* ===== プロジェクト詳細（/projects-sugosugi /projects-table0 /projects-saunadobadoba 共通） =====
+   Figma: SUGOSUGI 4:7969/4:8071/4:8173、TABLE 0 4:9303/4:9443/4:9583、SAUNA DOBADOBA 4:9725/4:9808/4:9891
+   幅の区切り：スマホ 〜767px／タブレット 768〜1199px／PC 1200px〜 */
+.pj{background:var(--green-10);color:var(--blue);overflow:hidden;padding-bottom:93px}
+
+/* ---- 写真のカルーセル ---- */
+.pj-carousel{--slide:880px;position:relative;height:560px;overflow:hidden}
+.pj-carousel__viewport{height:100%}
+.pj-carousel__track{list-style:none;margin:0;padding:0;display:flex;height:100%;will-change:transform}
+.pj-carousel__track.is-anim{transition:transform .6s cubic-bezier(.4,0,.2,1)}
+.pj-carousel__slide{flex:0 0 var(--slide);height:100%}
+.pj-carousel__slide img{width:100%;height:100%;object-fit:cover}
+.pj-carousel__btn{position:absolute;top:50%;width:56px;height:56px;margin-top:-28px;padding:0;border:0;background:none;border-radius:50%;z-index:2;transition:transform .2s}
+.pj-carousel__btn img{width:100%;height:100%}
+.pj-carousel__btn--prev{left:calc(50% - var(--slide) / 2 - 40px)}
+.pj-carousel__btn--next{right:calc(50% - var(--slide) / 2 - 40px)}
+.pj-carousel__btn--next img{transform:scaleX(-1)}
+.pj-carousel__btn:hover{transform:scale(1.06)}
+.pj-carousel__btn:focus-visible{outline:2px solid var(--blue-dark);outline-offset:2px}
+
+/* ---- 本文 ---- */
+.pj-body{width:720px;max-width:100%;margin:0 auto;padding-top:144px}
+.pj-head{display:flex;flex-wrap:wrap;align-items:center;column-gap:24px}
+.pj-head__title{display:flex;gap:24px;font:400 34px/45px var(--font-en);letter-spacing:.1em}
+.pj-head__tag{border:1px solid currentColor;padding:2px 16px;font:400 13px/18px var(--font-en)}
+.pj-head__lead{flex:0 0 100%;margin-top:16px;font:700 32px/48px var(--font-jp);letter-spacing:.05em}
+
+.pj-video{margin-top:32px;aspect-ratio:3/2}
+.pj-video iframe{display:block;width:100%;height:100%;border:0}
+
+.pj-rows{margin-top:32px;border-bottom:1px solid rgba(0,122,170,.5)}
+.pj-row{display:grid;grid-template-columns:104px 1fr;column-gap:24px;padding:32px 0;border-top:1px solid rgba(0,122,170,.5)}
+.pj-row__label{font:400 18px/32px var(--font-en);letter-spacing:.02em;color:rgba(0,122,170,.5)}
+.pj-row__body{min-width:0}
+.pj-row__body>p{font:400 16px/32px var(--font-jp);letter-spacing:.005em}
+
+.pj-scope{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:16px}
+.pj-scope li{border:1px solid currentColor;border-radius:8px;padding:0 15px;font:400 16px/30px var(--font-jp);letter-spacing:.005em}
+
+.pj-figure{width:100%;height:auto;object-fit:cover}
+.pj-figure--partners{margin-top:16px}
+
+.pj-partner{padding-bottom:8px}
+.pj-partner+.pj-partner{margin-top:24px}
+.pj-partner__name{font:700 16px/32px var(--font-jp);letter-spacing:.005em}
+.pj-partner__text{margin-top:4px;font:400 14px/22px var(--font-jp);letter-spacing:.01em}
+.pj-partner__links{display:flex;flex-wrap:wrap;gap:16px;margin-top:14px}
+.pj-partner__links a,.pj-partner__links span{display:flex;align-items:center;justify-content:center;width:20px;height:20px}
+.pj-partner__links img{max-width:20px;max-height:20px;width:auto;height:auto}
+.pj-partner__links a:hover{opacity:.6}
+
+.pj-next .pj-btn-wrap{margin:12px 0 0}
+.pj-next .pj-btn-wrap+p{margin-top:32px}
+
+/* ボタン（Instagram／お問い合わせフォーム／All Project） */
+.pj-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 15px;border:1px solid currentColor;border-radius:40px;color:var(--blue);text-decoration:none;font:400 13px/18px var(--font-en);letter-spacing:.02em;transition:background .2s}
+.pj-btn img{width:16px;height:15px}
+.pj-btn:hover{background:rgba(0,122,170,.08)}
+.pj-back{margin-top:48px;text-align:center}
+.pj-btn--back{width:160px;font-weight:700}
+
+/* ===== タブレット ===== */
+@media (max-width:1199px){
+  .pj-carousel{--slide:100%}
+  .pj-carousel__btn--prev{left:44px}
+  .pj-carousel__btn--next{right:44px}
+  .pj-body{width:auto;padding:72px 64px 0}
+}
+
+/* ===== スマホ ===== */
+@media (max-width:767px){
+  .pj-carousel{height:360px;margin-top:80px}
+  .pj-carousel__btn{width:32px;height:32px;margin-top:-16px}
+  .pj-carousel__btn--prev{left:16px}
+  .pj-carousel__btn--next{right:16px}
+  .pj-body{padding:44px 32px 0}
+  .pj-head{display:block}
+  .pj-head__title{flex-direction:column;gap:8px}
+  .pj-head__tag{display:inline-block;margin-top:11px}
+  .pj-head__lead{margin-top:17px;font-size:22px;line-height:33px}
+  .pj-row{grid-template-columns:1fr;row-gap:12px}
+}
