@@ -89,7 +89,8 @@
 @media (max-width:767px){
   .iss{--pad:32px}
   .iss-heading__title{font-size:48px;line-height:62px}
-  .iss-heading img.iss-heading__wave{margin:16px 0 18px}
+  .iss-heading img.iss-heading__wave{margin:16px 0 20px}
+  .iss-approach img.iss-heading__wave,.iss-people img.iss-heading__wave{margin-bottom:12px}
   .iss-sec{padding-top:64px}
   .iss-label{font:400 13px/18px var(--font-en);letter-spacing:0;margin-bottom:24px}
   .iss-h3{font-size:22px;line-height:33px;margin-bottom:24px}
@@ -97,13 +98,13 @@
   .iss .iss-about__map{flex:none;width:100%;height:auto;aspect-ratio:311/348}
   .iss-context__fig img{aspect-ratio:311/820}
   .iss-scope__list{row-gap:48px}
-  .iss-scope__item{display:block;max-width:320px}
+  .iss-scope__item{display:block;width:320px}
   .iss-scope__photo img{aspect-ratio:320/304}
   .iss-scope__title{margin:32px 0 24px}
   .iss-approach{padding-top:48px}
   .iss-approach__list{margin-top:72px;gap:96px}
-  .iss-approach__item{flex-direction:column;align-items:stretch;gap:32px}
-  .iss-approach__item>img{flex:none;width:100%;max-width:320px}
+  .iss-approach__item{flex-direction:column;align-items:stretch;gap:32px;width:320px}
+  .iss-approach__item>img{flex:none;width:320px}
   .iss-photo--mural{margin-top:152px}
   .iss-people{padding-top:48px}
   .iss-people__list{grid-template-columns:1fr;row-gap:48px;margin-top:64px;padding:0 24px}
