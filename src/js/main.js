@@ -11,11 +11,11 @@
 //   data-parallax="1.05"     スクロールに合わせて縦にずれる。ずれ = スクロール量 ×（1 − 数字）。1 より大きいと上へ、小さいと下へ
 //     data-parallax-media="(min-width:1280px)"  この幅のときだけ
 // 「画面に入った」は今のサイトと同じく、ずれた位置の要素が 1px でも画面に入ったとき（IntersectionObserver、しきい値 0）。
-// prefers-reduced-motion のときは何も動かさない（最初から見えている）。
+// 端末の「視差効果を減らす」設定があっても動かす（今のサイトと同じ）。
 (function(){
   window.__motion=true;
   var root=document.documentElement;
-  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reduce=false; // 端末の「視差効果を減らす」設定でも動かす（今のサイトと同じ）
   var hasIO='IntersectionObserver' in window;
   function mq(q){return !q||!window.matchMedia||window.matchMedia(q).matches;}
 

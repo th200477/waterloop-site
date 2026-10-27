@@ -1,6 +1,6 @@
 // トップページの動き：ヒーロー動画、再生ボタンのポップアップ、プロジェクトのカルーセル、パララックス
 (function(){
-  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reduce=false; // 端末の「視差効果を減らす」設定でも動かす（今のサイトと同じ）
 
   // ヒーローの背景動画（PC・タブレットだけ読み込む。スマホは写真）
   var hv=document.querySelector('.hero__video');

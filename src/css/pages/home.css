@@ -28,7 +28,7 @@
 .hero-play__icon{position:relative;width:48px;height:48px}
 .hero-play:focus-visible{outline:2px solid var(--white);outline-offset:-40px;border-radius:50%}
 @keyframes hero-spin{to{transform:rotate(360deg)}}
-@media (prefers-reduced-motion:reduce){.hero-play__ring{animation:none}}
+
 @media (max-width:1279px){
   .hero{height:1030px}
   .hero-play{right:-33px;bottom:-21px}
@@ -121,7 +121,7 @@
 .marquee:hover .marquee__track{animation-play-state:paused}  /* 今のサイト：マウスを乗せると止まる */
 .marquee__track span{flex:none;font:400 120px/140px var(--font-en);letter-spacing:19.2px;color:var(--blue);white-space:nowrap}
 @keyframes marquee{to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion:reduce){.marquee__track{animation:none}}
+@media (max-width:799px){.marquee__track span{font-size:56px;letter-spacing:8.96px}}  /* Figma Mobile：56px、字間16% */
 
 /* ---- NEWS ---- */
 .news{background:var(--blue);padding:128px 0;display:flex;flex-direction:column;gap:96px}

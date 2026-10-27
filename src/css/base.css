@@ -76,10 +76,7 @@ button{font:inherit;cursor:pointer}
 }
 .hv-scale-pc{transition:scale .3s var(--ease-out)}
 
-@media (prefers-reduced-motion:reduce){
-  .js [data-appear],.js [data-appear-load]{opacity:1!important;translate:none!important;transition:none!important}
-  .hv-scale,.hv-scale-pc,.hv-fade,.hv-turn,.hv-arrow img{transition:none}
-}
+/* 端末の「視差効果を減らす」設定があっても、今のサイトと同じく動かす（宮地さんの判断） */
 
 /* ===== 共通ヘッダー（固定・ページの上に重なる） =====
    ロゴ：既定は青。<main data-header="dark"> のページは白（背景が青・写真のページ用）。 */
@@ -116,7 +113,7 @@ body:has(main[data-header="dark"]) .site-header__logo-img--white,body.is-header-
   .site-menu__panel{width:208px;padding-right:16px}
   .site-menu__nav a{font-size:24px;line-height:33px}
 }
-@media (prefers-reduced-motion:reduce){.site-menu__panel{transition:none}}
+
 
 /* ===== 共通フッター ===== */
 .site-footer{background:var(--green-10);color:var(--blue-dark);padding:64px 128px}
