@@ -65,27 +65,33 @@
     window.addEventListener('resize',function(){render(false);});
   });
 
-  // パララックス（背景と小さい写真がスクロールに合わせて少しずれる）
-  var plx=[].slice.call(document.querySelectorAll('.plx'));
-  if(plx.length&&!reduce){
-    var ticking=false;
-    function update(){
-      ticking=false;
-      var vh=window.innerHeight;
-      plx.forEach(function(sec){
-        var r=sec.getBoundingClientRect();
-        if(r.bottom<-200||r.top>vh+200) return;
-        // -1（画面の下）〜 1（画面の上）
-        var p=((r.top+r.height/2)-vh/2)/((vh+r.height)/2);
-        p=Math.max(-1,Math.min(1,p));
-        sec.querySelector('.plx__bg').style.transform='translate3d(0,'+(p*110).toFixed(1)+'px,0)';
-        sec.querySelectorAll('.plx__item img').forEach(function(img){
-          img.style.transform='translate3d(0,'+(-p*10).toFixed(1)+'px,0)';
-        });
-      });
+  // パララックスは共通の仕組み（main.js の data-parallax）。PC の1つ目の背景 0.85、写真3枚の列 1.05（今のサイトと同じ）
+
+  // COLUMNS の上の DOBADOBA マーク：画面の下から入ってきて、自分の高さぶん進むあいだに 1 → 1.3 倍（スマホは 1.1 倍）。
+  // 今のサイトの「スクロールで変形（このレイヤーが見えたら）」と同じ計算。値が変わるたびに 0.8 秒の ease-out-back で追いかける（CSS）。
+  var dob=document.querySelector('.dobadoba');
+  if(dob&&!reduce){
+    var pc=window.matchMedia('(min-width: 1200px)'), sp=window.matchMedia('(max-width: 767px)');
+    var dt=false;
+    function dobUpdate(){
+      dt=false;
+      var h=dob.offsetHeight, top=0, e=dob;
+      while(e){ top+=e.offsetTop; e=e.offsetParent; }   // 変形を含まない位置
+      if(pc.matches) top+=h/2;                           // 今のサイトの PC 版はマークの枠が上に半分ずれていて、その分だけ遅れて始まる
+      var p=(window.pageYOffset+window.innerHeight-top)/h; p=Math.max(0,Math.min(1,p));
+      var to=sp.matches?1.1:1.3;
+      dob.style.scale=(1+(to-1)*p).toFixed(4);
     }
-    window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(update);}},{passive:true});
-    window.addEventListener('resize',update);
-    update();
+    window.addEventListener('scroll',function(){ if(!dt){dt=true;requestAnimationFrame(dobUpdate);} },{passive:true});
+    window.addEventListener('resize',dobUpdate);
+    dobUpdate();
+  }
+
+  // WATER LOOP の流れる文字：今のサイトと同じ 50px/秒 で左へ
+  var mqTrack=document.querySelector('.marquee__track');
+  if(mqTrack){
+    function mqSpeed(){ var w=mqTrack.scrollWidth/2; if(w>0) mqTrack.style.animationDuration=(w/50).toFixed(2)+'s'; }
+    mqSpeed(); window.addEventListener('resize',mqSpeed);
+    if(document.fonts&&document.fonts.ready) document.fonts.ready.then(mqSpeed);
   }
 })();
