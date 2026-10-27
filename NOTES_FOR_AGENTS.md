@@ -43,3 +43,8 @@
 - サイト内リンクは /issue のような絶対パス。外部リンクは今のサイトと同じURL。
 - 確認: `python3 build.py` のあと dist/ を `python3 -m http.server` などで出し、Playwright で 1280 / 800 / 375 の幅でスクリーンショットを撮り、Figma の get_screenshot と見比べて直す。
 - 終わったら、作ったファイル、残った違い、分からなかったことを短く報告する。
+
+## 追記（公開先の変更）
+- 公開先は GitHub Pages。確認用のURLは https://th200477.github.io/waterloop-site/ になるため、ビルド時に BASE_PATH=/waterloop-site を付けると、HTMLの href/src/action/srcset と CSS/JS の url(/...) に自動で /waterloop-site が付く。
+- そのため、サイト内リンクと画像は必ず「/」で始まる絶対パスで、HTML属性かCSSのurl()に書く。JSの中でURLを組み立てる場合は (window.__BASE__||'') + '/img/...' のようにする。
+- Netlify 固有の機能（Netlify Forms、_redirects）は使わない。

@@ -1,0 +1,228 @@
+/* /fam-tour（Figma 4:11215 / 4:11394 / 4:11573）西条 水のフィールドツーリズム LP
+   このページは独自のフッターと「申し込む」固定ボタンを持つため、サイト共通のヘッダー・フッターは出さない。 */
+body:has(main.fam){background:var(--white)}
+body:has(main.fam) > .site-header,
+body:has(main.fam) > .site-footer{display:none}
+
+.fam{--cyan:#03b8df;--line:var(--green-10);background:var(--white);color:var(--blue-dark);font-family:var(--font-jp);overflow-x:clip}
+.fam p,.fam h1,.fam h2,.fam h3,.fam h4,.fam dl,.fam dd,.fam ol,.fam ul{margin:0;padding:0}
+.fam ol,.fam ul{list-style:none}
+.fam img{max-width:none}
+
+/* 申し込むボタン */
+.fam-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:160px;height:48px;padding:0 16px;border:1px solid var(--white);border-radius:40px;background:var(--cyan);color:var(--white);font:700 14px/18px var(--font-jp);text-decoration:none;transition:filter .2s}
+.fam-btn:hover{filter:brightness(1.08)}
+.fam-btn img{width:16px;height:15px}
+.fam-float{position:fixed;top:16px;right:32px;z-index:50}
+
+/* セクション見出し */
+.fam-title{display:flex;flex-direction:column;align-items:center;text-align:center}
+.fam-title h2{font:700 48px/67px var(--font-jp);letter-spacing:.05em;color:var(--blue-dark)}
+.fam-title h2 span{display:inline}
+.fam-title__en{font:400 18px/32px var(--font-en);letter-spacing:.02em;color:var(--blue)}
+.fam-title img{width:80px;height:14px;margin-top:12px}
+
+/* ヒーロー */
+.fam-hero{position:relative;height:800px}
+.fam-hero__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fam-hero__catch{position:absolute;top:212px;left:50%;transform:translateX(-50%);display:flex;flex-direction:row-reverse;align-items:flex-start;gap:40px}
+.fam-hero__catch span{writing-mode:vertical-rl;text-orientation:upright;background:var(--white);padding:8px 2px;width:36px;font:600 28px/32px "Noto Serif JP",var(--font-mincho);letter-spacing:8px;color:var(--blue-dark)}
+
+.fam-intro{position:relative;margin:-100px 96px 0;padding:64px 96px 32px;background:var(--green-10);border-radius:32px 32px 0 0;display:flex;flex-direction:column}
+.fam-intro__logo{width:139px;height:40px;object-fit:contain}
+.fam-intro__title{margin-top:16px !important;font:700 56px/72px var(--font-jp);letter-spacing:.05em}
+.fam-intro__date{margin-top:16px !important;font:700 26px/33px var(--font-jp);letter-spacing:.05em;color:var(--blue)}
+.fam-intro__text{margin-top:32px !important;font:400 16px/32px var(--font-jp);letter-spacing:.005em}
+.fam-intro .fam-btn{align-self:center;margin-top:24px}
+
+/* Insight（枠つきボックス） */
+.fam-insight{margin:0 96px;padding:96px 0 48px;border:8px solid var(--line);border-top:0;--inset:64px}
+.fam-insight > .fam-title{padding-bottom:48px}
+.fam-topic{margin:0 var(--inset);padding:48px 0;border-top:2px solid var(--line)}
+.fam-topic:last-child{padding-bottom:0}
+.fam-topic__label{font:400 18px/32px var(--font-en);letter-spacing:.02em;color:rgba(0,122,170,.5)}
+.fam-topic__title{margin-top:8px !important;font:700 32px/48px var(--font-jp);letter-spacing:.05em}
+.fam-topic__title span{display:inline}
+.fam-topic__text{margin-top:24px !important;font:400 16px/32px var(--font-jp);letter-spacing:.005em}
+.fam-topic--about{display:flex;gap:56px;align-items:flex-start}
+.fam-topic--about .fam-topic__body{flex:1;min-width:0}
+.fam-topic__map{width:309px;height:290px;object-fit:cover;flex:none}
+.fam-topic__diagram{display:block;margin-top:48px}
+.fam-topic__diagram img{display:block;width:880px;height:484px;object-fit:cover;margin:0 auto;max-width:none}
+
+.fam-issues{margin-top:40px;display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.fam-issue{display:flex;flex-direction:column;gap:32px}
+.fam-issue__img{position:relative;height:280px;overflow:hidden}
+.fam-issue__img img{width:100%;height:100%;object-fit:cover}
+.fam-issue__badge{position:absolute;top:50%;left:50%;width:120px;height:120px;margin:-60px 0 0 -60px;border:1px solid var(--white);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--white)}
+.fam-issue__badge span:first-child{font:500 40px/32px var(--font-jp);letter-spacing:.005em}
+.fam-issue__badge span:last-child{font:500 16px/32px var(--font-jp);letter-spacing:.05em;margin-top:4px}
+.fam-issue__body{display:flex;flex-direction:column;gap:12px}
+.fam-issue__body h4{font:700 22px/33px var(--font-jp);letter-spacing:.05em}
+.fam-issue__body p{font:400 16px/32px var(--font-jp);letter-spacing:.005em;text-align:justify}
+
+/* 持ち帰れること */
+.fam-merit{position:relative;margin-top:96px;color:var(--white);overflow:hidden}
+.fam-merit__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fam-merit::before{content:"";position:absolute;inset:0;background:rgba(0,81,114,.6);z-index:1}
+.fam-merit__inner{position:relative;z-index:2;padding:112px 64px}
+.fam-merit__title{text-align:center;font:700 32px/48px var(--font-jp);letter-spacing:.05em}
+.fam-merit__list{margin-top:80px;display:grid;grid-template-columns:repeat(3,1fr);gap:64px}
+.fam-merit__item img{width:80px;height:14px}
+.fam-merit__item h3{margin-top:32px !important;font:700 24px/40px var(--font-jp);letter-spacing:.05em}
+.fam-merit__item h3 span{display:block}
+.fam-merit__item p{margin-top:16px !important;font:400 16px/24px var(--font-jp)}
+
+/* 研修コンテンツ（カルーセル） */
+.fam-contents{padding:128px 0 88px}
+.fam-carousel{position:relative;max-width:1200px;margin:24px auto 0}
+.fam-carousel__viewport{overflow:hidden}
+.fam-carousel__track{display:flex;transition:transform .5s ease}
+.fam-slide{flex:0 0 100%;display:flex;background:var(--green-10);min-height:824px}
+.fam-slide__label{flex:0 0 80px;display:flex;align-items:center;justify-content:center;writing-mode:vertical-rl;font:700 16px/32px var(--font-jp);letter-spacing:.005em}
+.fam-slide__label--en{font:700 18px/32px var(--font-en);letter-spacing:.02em}
+.fam-slide__main{flex:1;min-width:0;padding:64px 48px 64px 0}
+.fam-slide__head{display:flex;align-items:baseline;gap:24px;padding-right:200px}
+.fam-slide__num{font:700 34px/45px var(--font-en);letter-spacing:.1em}
+.fam-slide__title{font:700 32px/48px var(--font-jp);letter-spacing:.05em}
+.fam-slide__title span{display:inline}
+.fam-slide__text{margin-top:24px;max-width:800px}
+.fam-slide__text p{font:400 16px/32px var(--font-jp);letter-spacing:.005em;text-align:justify}
+.fam-slide__imgs{margin-top:48px;display:grid;grid-template-columns:600px 1fr;grid-template-rows:228px 228px;gap:24px}
+.fam-slide__imgs img{width:100%;height:100%;object-fit:cover}
+.fam-slide__imgs img:first-child{grid-row:1 / span 2}
+.fam-carousel__nav{position:absolute;top:64px;right:56px;z-index:2;display:flex;gap:24px}
+.fam-carousel__arrow{width:72px;height:72px;padding:0;border:0;border-radius:50%;background:none;transition:transform .2s}
+.fam-carousel__arrow:hover{transform:scale(1.05)}
+.fam-carousel__arrow img{width:72px;height:72px}
+.fam-carousel__arrow--next img{transform:scaleX(-1)}
+
+/* タイムライン */
+.fam-timeline{padding:96px 64px}
+.fam-days{margin-top:64px}
+.fam-day{display:grid;grid-template-columns:528px 1fr 528px;grid-template-areas:"img line body";justify-content:center;max-width:1152px;margin:0 auto;padding:0}
+.fam-day--rev{grid-template-areas:"body line img"}
+.fam-day__img{grid-area:img;padding:32px 0 48px}
+.fam-day__img img{display:block;width:528px;height:400px;object-fit:cover}
+.fam-day__body{grid-area:body;padding:32px 16px 48px}
+.fam-day__line{grid-area:line;position:relative;display:flex;justify-content:center}
+.fam-day__line::before{content:"";position:absolute;left:50%;top:0;width:2px;height:48px;margin-left:-1px;background:#000}
+.fam-day__line::after{content:"";position:absolute;left:50%;top:79px;bottom:0;width:2px;margin-left:-1px;background:#000}
+.fam-day__line img{position:absolute;top:56px;width:15px;height:15px}
+.fam-day__no{font:700 48px/62px var(--font-en);letter-spacing:.02em}
+.fam-day__date{font:700 16px/33px var(--font-jp);letter-spacing:.05em}
+.fam-day__title{margin-top:32px !important;font:700 22px/33px var(--font-jp);letter-spacing:.05em}
+.fam-day__text{margin-top:12px !important;font:400 16px/32px var(--font-jp);letter-spacing:.005em}
+.fam-day--rev .fam-day__no,.fam-day--rev .fam-day__date{text-align:right}
+
+/* 概要 */
+.fam-guide{padding:96px 64px 120px}
+.fam-guide__cols{margin:80px auto 0;max-width:1056px;display:grid;grid-template-columns:480px 480px;justify-content:space-between}
+.fam-guide__list > div{border-top:1px solid #000;padding:24px 0}
+.fam-guide__list dt{font:700 16px/32px var(--font-jp);letter-spacing:.005em}
+.fam-guide__list dd{font:400 16px/32px var(--font-jp);letter-spacing:.005em}
+
+/* 申し込み */
+.fam-cta{position:relative;color:var(--white);text-align:center}
+.fam-cta__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fam-cta::before{content:"";position:absolute;inset:0;background:rgba(0,81,114,.4);z-index:1}
+.fam-cta__inner{position:relative;z-index:2;padding:112px 32px;display:flex;flex-direction:column;align-items:center}
+.fam-cta__title{font:700 48px/67px var(--font-jp);letter-spacing:.05em}
+.fam-cta__title span{display:block}
+.fam-cta__sub{margin-top:24px !important;font:400 16px/32px var(--font-jp);letter-spacing:.005em}
+.fam-cta .fam-btn{margin-top:32px}
+
+/* フッター */
+.fam-footer{background:var(--white);padding:48px 16px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.fam-footer__logo img{width:120px;height:34px;object-fit:contain}
+.fam-footer__links{margin-top:24px !important;display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+.fam-footer__links a{font:400 14px/22px var(--font-jp);letter-spacing:.01em;color:var(--blue-dark)}
+.fam-footer__copy{margin-top:32px !important;font:400 13px/18px var(--font-en)}
+
+/* ===== タブレット ===== */
+@media (max-width:1199px){
+  .fam-float{right:32px}
+  .fam-hero{height:640px}
+  .fam-hero__catch{top:132px}
+  .fam-intro{margin:-100px 32px 0;padding:64px 48px 32px}
+  .fam-intro__logo{width:111px;height:32px}
+  .fam-intro__title{font-size:42px;letter-spacing:.05em}
+  .fam-insight{margin:0 32px;--inset:48px}
+  .fam-topic--about{flex-direction:column;align-items:stretch;gap:48px}
+  .fam-topic__map{width:328px;height:364px;align-self:center}
+  .fam-topic__diagram img{width:700px;height:460px;max-width:calc(100vw - 100px)}
+  .fam-topic__diagram{margin-left:calc(var(--inset) * -1 + 18px);margin-right:calc(var(--inset) * -1 + 18px)}
+  .fam-issues{grid-template-columns:1fr;gap:32px}
+  .fam-issue{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+  .fam-issue__img{height:180px}
+  .fam-issue__body h4{font-size:20px}
+  .fam-merit__list{grid-template-columns:1fr;gap:64px}
+  .fam-merit__item h3 span{display:inline}
+  .fam-contents{padding:128px 16px 104px}
+  .fam-carousel{max-width:768px;margin-top:24px;display:flex;flex-direction:column}
+  .fam-carousel__nav{position:static;align-self:flex-end;margin:0 8px 8px 0;gap:8px}
+  .fam-slide{min-height:984px}
+  .fam-slide__main{padding:64px 48px 64px 0}
+  .fam-slide__head{padding-right:0}
+  .fam-slide__imgs{grid-template-columns:1fr 1fr;grid-template-rows:400px 200px}
+  .fam-slide__imgs img:first-child{grid-row:auto;grid-column:1 / span 2}
+  .fam-timeline{padding:96px 80px 96px 64px}
+  .fam-day,.fam-day--rev{grid-template-columns:32px 1fr;grid-template-areas:"line body" "line img";max-width:none;column-gap:48px}
+  .fam-day__body{padding:32px 0 0}
+  .fam-day__img{padding:32px 0 48px}
+  .fam-day__img img{width:100%;height:auto;aspect-ratio:3/2}
+  .fam-day--rev .fam-day__no,.fam-day--rev .fam-day__date{text-align:left}
+  .fam-guide__cols{grid-template-columns:minmax(0,480px);justify-content:center}
+  .fam-guide__list + .fam-guide__list > div:first-child{border-top:1px solid #000}
+}
+
+/* ===== スマホ ===== */
+@media (max-width:767px){
+  .fam-float{right:16px;width:112px}
+  .fam-hero{height:560px}
+  .fam-hero__catch span{font-size:20px;line-height:28px;letter-spacing:8px;width:36px;padding:8px 4px}
+  .fam-hero__catch{gap:24px}
+  .fam-intro{margin:-100px 12px 0;padding:48px 24px 32px}
+  .fam-intro__title{font-size:30px;line-height:44px;letter-spacing:.05em}
+  .fam-intro__date{font-size:22px;line-height:36px;margin-top:21px !important}
+  .fam-sp-br::before{content:"";display:block}
+  .fam-insight{margin:0 12px;--inset:24px}
+  .fam-title h2{font-size:32px;line-height:48px}
+  .fam-title h2 span{display:block}
+  .fam-topic__title{font-size:22px;line-height:33px;margin-top:12px !important}
+  .fam-topic__title span{display:block}
+  .fam-topic--about{gap:32px}
+  .fam-topic__map{width:100%;height:auto;aspect-ratio:303/316}
+  .fam-topic__diagram{margin:48px -4px 0}
+  .fam-topic__diagram img{width:100%;height:auto;max-width:none;aspect-ratio:312/816}
+  .fam-issue{display:flex;flex-direction:column;gap:24px}
+  .fam-issue__body h4{font-size:22px}
+  .fam-merit__inner{padding:64px 32px}
+  .fam-merit__title{font-size:22px;line-height:33px}
+  .fam-merit__list{margin-top:48px}
+  .fam-merit__item h3 span{display:block}
+  .fam-contents{padding:128px 12px 128px}
+  .fam-contents .fam-title h2 span{display:inline}
+  .fam-carousel{max-width:352px}
+  .fam-carousel__nav{order:2;align-self:center;margin:12px 0 0}
+  .fam-slide{flex-direction:column;min-height:600px;padding:24px}
+  .fam-slide__label{flex:none;writing-mode:horizontal-tb;justify-content:flex-start;font-size:14px;line-height:22px}
+  .fam-slide__label--en{font-size:14px;line-height:22px}
+  .fam-slide__main{padding:16px 0 0}
+  .fam-slide__head{gap:16px}
+  .fam-slide__num{font-size:26px;line-height:33px}
+  .fam-slide__title{font-size:24px;line-height:33px}
+  .fam-slide__title span{display:block}
+  .fam-slide__text{margin-top:16px}
+  .fam-slide__text p{line-height:28px}
+  .fam-slide__imgs{display:block;margin-top:16px}
+  .fam-slide__imgs img{height:220px}
+  .fam-slide__imgs img + img{display:none}
+  .fam-timeline{padding:96px 24px 96px 24px}
+  .fam-day,.fam-day--rev{grid-template-columns:32px 1fr;column-gap:12px}
+  .fam-day__no{font-size:40px}
+  .fam-day__title{font-size:22px}
+  .fam-guide{padding:96px 32px 120px}
+  .fam-cta__title{font-size:22px;line-height:33px}
+  .fam-footer__links{gap:16px;max-width:240px}
+}

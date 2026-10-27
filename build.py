@@ -23,10 +23,26 @@ def write(path, content):
 def meta(src, key, default=''):
     m=re.search(r'<!--#'+key+r' (.*?)-->', src, re.S)
     return m.group(1).strip() if m else default
+def rebase(base):
+    # 仮のURL（github.io/waterloop-site/）で見るときだけ、/ で始まるサイト内リンクに base を付ける
+    pat=re.compile(r'((?:href|src|action|poster|content|srcset)=")/(?!/)')
+    for dp,_,fs in os.walk(DIST):
+        for f in fs:
+            p=os.path.join(dp,f)
+            if f.endswith('.html'):
+                s=open(p,encoding='utf-8').read()
+                s=pat.sub(lambda m: m.group(1)+base+'/', s)
+                s=re.sub(r'url\((["\']?)/(?!/)', lambda m: 'url('+m.group(1)+base+'/', s)
+                open(p,'w',encoding='utf-8').write(s)
+            elif f.endswith(('.css','.js')):
+                s=open(p,encoding='utf-8').read()
+                s=re.sub(r'url\((["\']?)/(?!/)', lambda m: 'url('+m.group(1)+base+'/', s)
+                if f.endswith('.js'): s="window.__BASE__='"+base+"';\n"+s
+                open(p,'w',encoding='utf-8').write(s)
 def main():
     if os.path.exists(DIST): shutil.rmtree(DIST)
     os.makedirs(DIST)
-    for d in ('css','js','img','svg','fonts'):
+    for d in ('css','js','img','svg','fonts','video'):
         if os.path.exists(os.path.join(SRC,d)): shutil.copytree(os.path.join(SRC,d), os.path.join(DIST,d))
     for f in glob.glob(os.path.join(SRC,'pages','**','*.html'), recursive=True):
         rel=os.path.relpath(f, os.path.join(SRC,'pages'))[:-5]
@@ -41,5 +57,8 @@ def main():
     for f in ('_redirects','_headers','robots.txt','favicon.png'):
         p=os.path.join(SRC,f)
         if os.path.exists(p): shutil.copy(p, DIST)
+    base=os.environ.get('BASE_PATH','').rstrip('/')
+    if base: rebase(base)
+    open(os.path.join(DIST,'.nojekyll'),'w').close()
     print('built', sum(len(fs) for _,_,fs in os.walk(DIST)), 'files')
 if __name__=='__main__': main()

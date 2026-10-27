@@ -1,0 +1,126 @@
+/* ===== トップページ（Figma Desktop 1:895 / Tablet 1:955 / Mobile 1:1015） ===== */
+.home{color:var(--white);overflow-x:clip}
+.only-sp{display:none}
+@media (max-width:1199px){.only-pc{display:none}.only-sp{display:inline}}
+
+/* セクション見出し（英字＋波線＋説明） */
+.home-title__head{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.home-title h2{color:inherit}
+.home-title--dark{color:var(--blue-dark)}
+.home-more{display:flex;justify-content:center}
+.home-more .btn-pill{color:var(--white)}
+.home-more .btn-pill--blue{color:var(--blue)}
+.home-more .btn-pill--blue:hover{background:rgba(0,122,170,.08)}
+.btn-pill img{width:15.58px;height:15.19px}
+
+/* ---- ヒーロー ---- */
+.hero{position:relative;height:838px;padding:24px 32px;display:flex;align-items:flex-end;overflow:hidden;background:var(--blue)}
+.hero__video,.hero__image{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover}
+.hero__image{display:none}
+.hero__copy{position:relative;z-index:1;display:flex;align-items:flex-end;gap:20px;margin:0;font:400 48px/64px var(--font-mincho);color:var(--white)}
+.hero__copy-v{display:flex;flex-direction:column;width:48px;padding-bottom:6px;text-align:center}
+.hero__copy-v span{display:block;height:64px}
+.hero__copy-h{line-height:70px;letter-spacing:.2em;white-space:nowrap}
+.hero-play{position:absolute;z-index:2;right:-15px;bottom:-26px;width:240px;height:240px;padding:0;border:0;background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.hero-play__ring{position:absolute;inset:0;width:100%;height:100%;overflow:visible;animation:hero-spin 12.8s linear infinite;transform-origin:center}
+.hero-play__text{font:500 23px -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;letter-spacing:4px}
+.hero-play__icon{position:relative;width:48px;height:48px}
+.hero-play:focus-visible{outline:2px solid var(--white);outline-offset:-40px;border-radius:50%}
+@keyframes hero-spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.hero-play__ring{animation:none}}
+@media (max-width:1199px){
+  .hero{height:1030px}
+  .hero-play{right:-33px;bottom:-21px}
+}
+@media (max-width:767px){
+  .hero{height:668px;padding:16px}
+  .hero__video{display:none}
+  .hero__image{display:block}
+  .hero__copy{gap:4px;font-size:24px;line-height:32px}
+  .hero__copy-v{width:32px;padding-bottom:3px}
+  .hero__copy-v span{height:32px}
+  .hero__copy-h{line-height:35px;letter-spacing:.2em}
+  .hero-play{right:-24px;bottom:-29px}
+}
+
+/* 動画のポップアップ */
+.video-modal{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.7)}
+.video-modal[hidden]{display:none}
+.video-modal__inner{position:relative;width:90%;height:90%;padding:16px;display:flex;align-items:center;justify-content:center}
+.video-modal__video{width:100%;height:100%;object-fit:contain;border-radius:6px;background:#000}
+.video-modal__close{position:absolute;top:-16px;right:-16px;width:32px;height:32px;padding:0;border:0;border-radius:50%;background:#fff;color:#000;font-size:20px;line-height:32px}
+
+/* ---- WATER LOOP PROJECTとは？ ---- */
+.intro{background:var(--blue);padding:192px 64px}
+.intro__inner{display:flex;align-items:center;justify-content:center;gap:96px}
+.intro__visual{flex:none;width:400px}
+.intro__visual img{width:100%;height:auto}
+.intro__content{flex:none;width:385px;display:flex;flex-direction:column;gap:48px;align-items:flex-start}
+.intro__content h2{margin-bottom:-24px}
+.intro__cta{font:400 14px/18px var(--font-jp)}
+@media (max-width:1199px){
+  .intro{padding:160px 64px}
+  .intro__inner{flex-direction:column;gap:64px}
+}
+@media (max-width:767px){
+  .intro{padding:192px 32px}
+  .intro__visual,.intro__content{width:100%}
+}
+
+/* ---- パララックスのギャラリー ---- */
+.plx{position:relative;height:800px;overflow:hidden;background:#0b2a1a}
+.plx--water{background:#1aa3a3}
+.plx__bg{position:absolute;left:0;right:0;top:-121px;height:1042px;will-change:transform}
+.plx__bg img{width:100%;height:100%;max-width:none;object-fit:cover}
+.plx__row{position:absolute;left:50%;top:50%;width:1040px;display:flex;gap:160px;transform:translate(-50%,-50%)}
+.plx__item{flex:none;width:240px;height:320px;overflow:hidden}
+.plx__item img{width:240px;height:341px;max-width:none;object-fit:cover;margin-top:-10.5px;will-change:transform}
+
+/* ---- PROJECTS（カルーセル） ---- */
+.projects{background:var(--blue);padding:128px 0;display:flex;flex-direction:column;gap:96px}
+.pcar{--card-w:720px;--gap:96px;position:relative;height:480px;overflow:hidden;touch-action:pan-y}
+.pcar__track{list-style:none;margin:0;padding:0;height:100%}
+.pcar__card{position:absolute;top:0;left:50%;width:var(--card-w);height:480px;margin-left:calc(var(--card-w) / -2);overflow:hidden;transition:transform .6s cubic-bezier(.4,0,.2,1)}
+.pcar__card picture{display:contents}
+.pcar__img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover}
+.pcar__num{position:absolute;top:0;left:0;padding:32px 32px 0;font:400 120px/120px var(--font-en);letter-spacing:.01em}
+.pcar__label{position:absolute;top:152px;left:32px;width:32px;height:190px;display:flex;align-items:center;justify-content:center;writing-mode:vertical-rl;font:400 8px/32px var(--font-en);letter-spacing:2.4px;white-space:nowrap}
+.pcar__text{position:absolute;left:0;bottom:0;display:flex;flex-direction:column;gap:8px;padding:24px 24px 0 16px;background:var(--blue);border-top-right-radius:var(--radius-max);white-space:nowrap}
+.pcar__title{font:700 24px/33px var(--font-en);letter-spacing:.1em}
+.pcar__desc{font:400 14px/22px var(--font-jp);letter-spacing:.01em}
+.pcar__nav{position:absolute;top:50%;left:50%;width:800px;max-width:100%;display:flex;justify-content:space-between;transform:translate(-50%,-50%);pointer-events:none}
+.pcar__btn{pointer-events:auto;width:72px;height:72px;padding:0;border:0;border-radius:50%;background:transparent}
+.pcar__btn img{width:100%;height:100%}
+.pcar__btn--next img{transform:scaleX(-1)}
+.pcar__btn:focus-visible{outline:2px solid var(--white);outline-offset:2px}
+@media (max-width:767px){
+  .projects{gap:48px}
+  .pcar{--card-w:min(360px,calc(100vw - 15px));--gap:20px}
+  .pcar__text{right:24px;white-space:normal}
+  .pcar__nav{width:auto;left:3px;right:3px;transform:translateY(-50%)}
+  .pcar__btn{width:56px;height:56px}
+}
+
+/* ---- COLUMNS ---- */
+.columns{position:relative;background:var(--green-10);padding-top:128px;display:flex;flex-direction:column}
+.columns>.sec-title{margin-bottom:96px}
+.columns>.home-more{margin:48px 0 96px}
+.dobadoba{position:absolute;z-index:2;top:-102px;left:50%;width:171px;height:auto;transform:translateX(-50%)}
+@media (max-width:1199px){
+  .dobadoba{top:-118px}
+}
+@media (max-width:767px){
+  .columns>.home-more{margin:0 0 96px}
+  .dobadoba{top:-60px}
+}
+
+/* WATER LOOP の流れる文字 */
+.marquee{overflow:hidden;height:140px}
+.marquee__track{display:flex;width:max-content;animation:marquee 24s linear infinite}
+.marquee__track span{flex:none;font:400 120px/140px var(--font-en);letter-spacing:19.2px;color:var(--blue);white-space:nowrap}
+@keyframes marquee{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.marquee__track{animation:none}}
+
+/* ---- NEWS ---- */
+.news{background:var(--blue);padding:128px 0;display:flex;flex-direction:column;gap:96px}
+/* 一覧の並び・幅はカード側（css/components/cards.css の --top）が持つ */
