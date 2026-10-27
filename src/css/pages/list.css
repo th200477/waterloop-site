@@ -14,6 +14,6 @@
 /* お知らせ一覧：見出しは薄い緑、一覧は青地 */
 .list-page--news{background:var(--blue)}
 .list-page--news .list-page__head{background:var(--green-10)}
-.list-page--news .list-page__list{padding:96px 320px}
+.list-page--news .list-page__list{padding:96px max(320px,calc(50% - 320px))}  /* 今のサイト：一覧は幅 640px の箱。広い画面でも 640px のまま中央に置く */
 @media (max-width:1199px){.list-page--news .list-page__list{padding:96px 64px}}
 @media (max-width:767px){.list-page--news .list-page__list{padding:96px 8px}}
