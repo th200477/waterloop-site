@@ -75,9 +75,9 @@ body:has(main[data-header="dark"]) .site-header__logo-img--white,body.is-header-
 .site-menu__social{display:flex;gap:24px;margin-top:48px!important}
 .site-menu__social a,.site-footer__social a{display:flex;align-items:center;justify-content:center;width:24px;height:24px}
 .site-menu__legal{display:flex;flex-direction:column;gap:16px;margin-top:48px!important}
-.site-menu__legal a{font:400 14px/22px var(--font-jp);letter-spacing:.01em}
+.site-menu__legal a{font:400 14px/22px var(--font-jp);letter-spacing:.01em;white-space:nowrap}
 @media (max-width:767px){
-  .site-menu__panel{width:208px}
+  .site-menu__panel{width:208px;padding-right:16px}
   .site-menu__nav a{font-size:24px;line-height:33px}
 }
 @media (prefers-reduced-motion:reduce){.site-menu__panel{transition:none}}
