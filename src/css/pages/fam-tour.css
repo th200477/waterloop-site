@@ -179,7 +179,7 @@ body:has(main.fam) > .site-footer{display:none}
 
 /* ===== スマホ ===== */
 @media (max-width:767px){
-  .fam-float{right:16px;width:112px}
+  .fam-float{right:16px;width:112px;padding:0 12px;white-space:nowrap}
   .fam-hero{height:560px}
   .fam-hero__catch span{font-size:20px;line-height:28px;width:36px;padding:8px 2px}
   .fam-hero__catch{gap:24px}
