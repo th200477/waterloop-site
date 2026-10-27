@@ -80,7 +80,7 @@
   .pj-head__lead{margin-top:16px;font-size:22px;line-height:33px}
   .pj-head__name{white-space:nowrap}
   .pj-scope{gap:8px}
-  .pj-figure{width:var(--sp-w);max-width:none;margin-left:calc(50% - var(--sp-w) / 2)}
+  .pj-figure{width:var(--sp-w);max-width:none;margin-left:calc(50% - var(--sp-w) / 2);margin-bottom:var(--sp-mb,0)}
   .pj-figure img{aspect-ratio:var(--sp-ar)}
   .pj-row{grid-template-columns:1fr;row-gap:12px}
 }
