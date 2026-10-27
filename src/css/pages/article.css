@@ -28,7 +28,7 @@
 
 /* --- コラム：薄い緑の地、文字は濃い青 --- */
 .article--column{background:var(--green-10);color:var(--blue-dark)}
-.article--column .article__inner{padding:0 160px}
+.article--column .article__inner{padding:0 max(160px,calc(50% - 480px))}  /* 今のサイト：本文の箱は幅 960px。広い画面でも 960px のまま中央に置く */
 .article--column .article__head{padding-top:120px}
 .article--column .article__date{font:400 18px/32px var(--font-en);letter-spacing:.02em;color:rgba(0,0,0,.6)}
 .article--column .article__lead{margin-top:64px}
@@ -49,13 +49,13 @@
 /* --- お知らせ：白地、文字は黒 --- */
 .article--news{background:var(--white);color:#000}
 .article--news .article__head{padding-top:128px}
-.article--news .article__head .article__inner{padding:0 160px}
+.article--news .article__head .article__inner{padding:0 max(160px,calc(50% - 480px))}  /* 見出し・写真は幅 960px、本文は 800px の箱を中央に（今のサイトと同じ） */
 .article--news .article__title{font-size:32px;line-height:48px}
 .article--news .article__date{font:400 13px/18px var(--font-en);color:rgba(0,0,0,.45)}
 .article--news .article__lead{margin-top:32px}
-.article--news .article__lead .article__inner{padding:0 160px}
+.article--news .article__lead .article__inner{padding:0 max(160px,calc(50% - 480px))}
 .article--news .article__hero{aspect-ratio:3/2}
-.article--news .article__body .article__inner{padding:80px 240px}
+.article--news .article__body .article__inner{padding:80px max(240px,calc(50% - 400px))}
 .article--news .article__more{padding-bottom:64px}
 @media (max-width:1199px){
   .article--news .article__head .article__inner,.article--news .article__lead .article__inner{padding:0 64px}
