@@ -79,8 +79,8 @@ body:has(main.fam) > .site-footer{display:none}
 .fam-carousel__viewport{overflow:hidden}
 .fam-carousel__track{display:flex;transition:transform .5s ease}
 .fam-slide{flex:0 0 100%;display:flex;background:var(--green-10);min-height:824px}
-.fam-slide__label{flex:0 0 80px;align-self:center;padding:0 24px;font:700 16px/32px var(--font-jp);letter-spacing:.005em;text-align:center;word-break:break-all;line-break:anywhere}
-.fam-slide__label--en{font:700 18px/32px var(--font-en);letter-spacing:.02em;writing-mode:vertical-rl;padding:0;display:flex;justify-content:center}
+.fam-slide__label{flex:0 0 80px;display:flex;align-items:center;justify-content:center;writing-mode:vertical-rl;text-orientation:sideways;font:700 16px/32px var(--font-jp);letter-spacing:.005em}
+.fam-slide__label--en{font:700 18px/32px var(--font-en);letter-spacing:.02em}
 .fam-slide__main{flex:1;min-width:0;padding:64px 48px 64px 0}
 .fam-slide__head{display:flex;align-items:baseline;gap:24px;padding-right:200px}
 .fam-slide__num{font:700 34px/45px var(--font-en);letter-spacing:.1em}
@@ -146,7 +146,8 @@ body:has(main.fam) > .site-footer{display:none}
   .fam-hero__catch{top:132px}
   .fam-intro{margin:-100px 32px 0;padding:64px 48px 32px}
   .fam-intro__logo{width:111px;height:32px}
-  .fam-intro__title{font-size:42px;letter-spacing:.05em}
+  .fam-intro__title{font-size:42px;letter-spacing:.05em;font-feature-settings:"palt"}
+  .fam-merit__title{font-feature-settings:"palt"}
   .fam-insight{margin:0 32px;--inset:40px}
   .fam-topic--about{flex-direction:column;align-items:stretch;gap:48px}
   .fam-topic__map{width:328px;height:364px;align-self:center}
@@ -206,8 +207,8 @@ body:has(main.fam) > .site-footer{display:none}
   .fam-carousel{max-width:352px}
   .fam-carousel__nav{order:2;align-self:center;margin:12px 0 0}
   .fam-slide{flex-direction:column;min-height:600px;padding:24px}
-  .fam-slide__label{flex:none;align-self:flex-start;padding:0;text-align:left;word-break:normal;line-break:auto;font-size:14px;line-height:22px}
-  .fam-slide__label--en{writing-mode:horizontal-tb;font-size:14px;line-height:22px}
+  .fam-slide__label{flex:none;writing-mode:horizontal-tb;justify-content:flex-start;font-size:14px;line-height:22px}
+  .fam-slide__label--en{font-size:14px;line-height:22px}
   .fam-slide__main{padding:16px 0 0}
   .fam-slide__head{gap:16px}
   .fam-slide__num{font-size:26px;line-height:33px}

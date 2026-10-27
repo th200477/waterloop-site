@@ -10,6 +10,7 @@
 .iss-heading img.iss-heading__wave{width:80px;height:14px;margin:16px 0 20px}
 .iss-heading__lead{font:400 16px/32px var(--font-jp);letter-spacing:.005em}
 .iss-bigwave{display:block}
+.iss-approach img.iss-heading__wave,.iss-people img.iss-heading__wave{margin-bottom:28px}
 
 .iss-hero{padding-top:192px}
 
@@ -29,7 +30,7 @@
 .iss-context__fig img{aspect-ratio:960/600;object-fit:cover}
 
 /* Scope：街・山・里の3枚 */
-.iss-scope__list{list-style:none;margin:64px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,328px);justify-content:space-between}
+.iss-scope__list{list-style:none;margin:64px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,328px);column-gap:48px}
 .iss-scope__photo{position:relative}
 .iss-scope__photo img{aspect-ratio:328/304;object-fit:cover}
 .iss-scope__badge{position:absolute;left:50%;top:50%;width:120px;height:120px;margin:-60px 0 0 -60px;border:1px solid #fff;border-radius:50%;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--font-jp);font-weight:500}
