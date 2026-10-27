@@ -1,0 +1,5 @@
+/* トップ「WATER LOOP PROJECTとは？」のつぶつぶのイラストが落ちてくる動き（js/pages/home-dots.js）
+   JS が動いて準備ができたときだけ静止画を隠し、canvas を重ねる。終わったら静止画に戻す（0.4 秒で重ねて入れ替え） */
+.intro__visual[data-dots]{position:relative}
+.intro__visual .dots-canvas{position:absolute;left:0;display:block;pointer-events:none;transition:opacity .4s linear}
+.intro__visual.is-dots img{opacity:0}

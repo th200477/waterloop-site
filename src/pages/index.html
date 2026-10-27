@@ -2,7 +2,9 @@
 <!--#desc WATER LOOP PROJECTとは、持続可能な水の街を実現させるプロジェクトです。 街の魅力を集合知で商品化し、そこで得た気づきや収益の一部を水を守る新しい動きに再投資することを目指します。-->
 <!--#head <meta property="og:image" content="https://waterloop.jp/img/6b1c1d89b2b5a84376f7b677e67675e30a8044aa.webp">
 <link rel="stylesheet" href="/css/pages/home.css">
-<script src="/js/pages/home.js" defer></script>-->
+<script src="/js/pages/home.js" defer></script>
+<link rel="stylesheet" href="/css/pages/home-dots.css">
+<script src="/js/pages/home-dots.js" defer></script>-->
 <main class="home" data-header="dark">
 
   <!-- ヒーロー（Figma 1:897 / 1:957 / 1:1017）。PC・タブレットは動画、スマホは写真 -->
@@ -32,7 +34,8 @@
   <!-- WATER LOOP PROJECTとは？（Figma 1:909） -->
   <section class="intro">
     <div class="intro__inner">
-      <figure class="intro__visual" data-appear="0.6" data-appear-exit="0.7"><img src="/img/c6e5b358e170921460712e745c51741bbc594628.webp" alt="" width="1200" height="1213" loading="lazy"></figure>
+      <!-- つぶつぶのイラスト：画面に入ると上からドットが落ちてきてこの形に収まる（js/pages/home-dots.js。JSなしでは静止画のまま） -->
+      <figure class="intro__visual" data-dots><img src="/img/c6e5b358e170921460712e745c51741bbc594628.webp" alt="" width="1200" height="1213" loading="lazy"></figure>
       <div class="intro__content">
         <h2 class="t-h3-jp" data-appear="0.5">WATER LOOP PROJECTとは？</h2>
         <p class="t-text-jp" data-appear="0.7" data-appear-replay>持続可能な水の街を実現させるプロジェクトです。<br>街の魅力を集合知で商品化し、<br>そこで得た気づきや収益の一部を<br>水を守る新しい動きに再投資することを目指します。</p>
