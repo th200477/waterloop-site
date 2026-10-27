@@ -32,7 +32,7 @@
 .article--column{background:var(--green-10);color:var(--text-on-light)}
 .article--column .article__inner{padding:0 max(160px,calc(50% - 480px))}  /* 今のサイト：本文の箱は幅 960px。広い画面でも 960px のまま中央に置く */
 .article--column .article__date{font:var(--type-sm-en);letter-spacing:var(--ls-sm-en);color:var(--date-on-light)}
-@media (min-width:1280px){.article--column .article__date{font-size:9px}}  /* PC：宮地さん指定で Text sm_EN（13）より 4px 小さく */
+@media (min-width:1280px){main.article .article__date{font-size:12px}}  /* PC：コラム・お知らせとも 12px（9px は小さすぎたため。宮地さん指定） */
 .article--column .article__lead .article__inner{display:flex;flex-direction:column;gap:24px}
 .article--column .article__hero{aspect-ratio:16/9}
 .article--column .article__body{margin-top:var(--s64);padding-bottom:var(--s128)}  /* More の下（今のサイトは PC 128／タブレット 112／スマホ 114。段にそろえて 128） */
