@@ -7,15 +7,14 @@
 .pj-carousel{--slide:880px;position:relative;height:560px;overflow:hidden}
 .pj-carousel__viewport{height:100%}
 .pj-carousel__track{list-style:none;margin:0;padding:0;display:flex;height:100%;will-change:transform}
-.pj-carousel__track.is-anim{transition:transform .6s cubic-bezier(.4,0,.2,1)}
+.pj-carousel__track.is-anim{transition:transform .15s linear}  /* 今のサイト：0.15 秒・等速 */
 .pj-carousel__slide{flex:0 0 var(--slide);height:100%}
 .pj-carousel__slide img{width:100%;height:100%;object-fit:cover}
-.pj-carousel__btn{position:absolute;top:50%;width:56px;height:56px;margin-top:-28px;padding:0;border:0;background:none;border-radius:50%;z-index:2;transition:transform .2s}
+.pj-carousel__btn{position:absolute;top:50%;width:56px;height:56px;margin-top:-28px;padding:0;border:0;background:none;border-radius:50%;z-index:2}  /* ホバーは .hv-arrow */
 .pj-carousel__btn img{width:100%;height:100%}
 .pj-carousel__btn--prev{left:calc(50% - var(--slide) / 2 - 40px)}
 .pj-carousel__btn--next{right:calc(50% - var(--slide) / 2 - 40px)}
 .pj-carousel__btn--next img{transform:scaleX(-1)}
-.pj-carousel__btn:hover{transform:scale(1.06)}
 .pj-carousel__btn:focus-visible{outline:2px solid var(--blue-dark);outline-offset:2px}
 
 /* ---- 本文 ---- */
@@ -47,15 +46,15 @@
 .pj-partner__links{display:flex;flex-wrap:wrap;gap:16px;margin-top:12px}
 .pj-partner__links a,.pj-partner__links span{display:flex;align-items:center;justify-content:center;width:20px;height:20px}
 .pj-partner__links img{max-width:20px;max-height:20px;width:auto;height:auto}
-.pj-partner__links a:hover{opacity:.6}
+/* 提携先のアイコンにホバーの動きはない（今のサイトと同じ） */
 
 .pj-next .pj-btn-wrap{margin:12px 0 0}
 .pj-next .pj-btn-wrap+p{margin-top:32px}
 
 /* ボタン（Instagram／お問い合わせフォーム／All Project） */
-.pj-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 15px;border:1px solid currentColor;border-radius:40px;color:var(--blue);text-decoration:none;font:400 13px/18px var(--font-en);letter-spacing:.02em;transition:background .2s}
+.pj-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 15px;border:1px solid currentColor;border-radius:40px;color:var(--blue);text-decoration:none;font:400 13px/18px var(--font-en);letter-spacing:.02em;transition:scale .3s var(--ease-out)}
 .pj-btn img{width:16px;height:15px}
-.pj-btn:hover{background:rgba(0,122,170,.08)}
+@media (hover:hover){.pj-btn:hover{scale:1.1}}  /* 今のサイト：ボタンは 0.3 秒で 1.1 倍 */
 .pj-back{margin-top:48px;text-align:center}
 .pj-btn--back{width:160px;font-weight:700}
 

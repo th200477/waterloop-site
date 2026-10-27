@@ -26,9 +26,9 @@
 .pl-card__desc{font:400 14px/22px var(--font-jp);letter-spacing:.01em}
 
 /* More / Coming soon ボタン */
-.pl-btn{flex:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;width:160px;height:48px;border:1px solid #fff;border-radius:40px;color:#fff;text-decoration:none;font:400 13px/18px var(--font-en);letter-spacing:.02em;transition:background .2s}
+.pl-btn{flex:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;width:160px;height:48px;border:1px solid #fff;border-radius:40px;color:#fff;text-decoration:none;font:400 13px/18px var(--font-en);letter-spacing:.02em}
 .pl-btn img{width:16px;height:15px}
-a.pl-btn:hover{background:rgba(255,255,255,.12)}
+/* More ボタンにホバーの動きはない（今のサイトと同じ）。写真はホバーで 1.1 倍（.hv-scale） */
 
 /* ===== タブレット ===== */
 @media (max-width:1199px){

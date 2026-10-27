@@ -121,7 +121,7 @@ for slug,d in PAGES.items():
     for it in d['next']:
         if it[0]=='p': nxt.append(f'          <p>{br(it[1])}</p>')
         else: nxt.append(f'          <p class="pj-btn-wrap">{btn(*it[1:])}</p>')
-    video=(f'''    <div class="pj-video reveal"><iframe src="{d['video']}" title="{e(d['title'])}の動画" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>\n''' if d['video'] else '')
+    video=(f'''    <div class="pj-video"><iframe src="{d['video']}" title="{e(d['title'])}の動画" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>\n''' if d['video'] else '')
     scope=''.join(f'<li>{e(s)}</li>' for s in d['scope'])
     page=f'''<!--#title {d['title']}｜WATER LOOP PROJECT-->
 <!--#desc {d['desc']}-->
@@ -133,35 +133,35 @@ for slug,d in PAGES.items():
 {slides}
       </ul>
     </div>
-    <button class="pj-carousel__btn pj-carousel__btn--prev" type="button" aria-label="前の写真"><img src="/svg/cacc5ed7e09c9c2f3056f20c4921c5bf48fc4a96.svg" alt="" width="72" height="72"></button>
-    <button class="pj-carousel__btn pj-carousel__btn--next" type="button" aria-label="次の写真"><img src="/svg/cacc5ed7e09c9c2f3056f20c4921c5bf48fc4a96.svg" alt="" width="72" height="72"></button>
+    <button class="pj-carousel__btn pj-carousel__btn--prev hv-arrow" type="button" aria-label="前の写真"><img src="/svg/cacc5ed7e09c9c2f3056f20c4921c5bf48fc4a96.svg" alt="" width="72" height="72"></button>
+    <button class="pj-carousel__btn pj-carousel__btn--next hv-arrow hv-arrow--next" type="button" aria-label="次の写真"><img src="/svg/cacc5ed7e09c9c2f3056f20c4921c5bf48fc4a96.svg" alt="" width="72" height="72"></button>
   </section>
 
   <article class="pj-body">
-    <header class="pj-head reveal">
+    <header class="pj-head">
       <h1 class="pj-head__title"><span class="pj-head__num">{d['num']}</span><span class="pj-head__name">{e(d['title'])}</span></h1>
       <p class="pj-head__tag">Products</p>
       <p class="pj-head__lead">{e(d['desc'])}</p>
     </header>
 {video}    <div class="pj-rows">
-      <section class="pj-row reveal">
+      <section class="pj-row">
         <h2 class="pj-row__label">Scope</h2>
         <div class="pj-row__body"><ul class="pj-scope">{scope}</ul></div>
       </section>
-      <section class="pj-row reveal">
+      <section class="pj-row">
         <h2 class="pj-row__label">Overview</h2>
         <div class="pj-row__body">
 {paras(d['overview'])}
         </div>
       </section>
-      <section class="pj-row reveal">
+      <section class="pj-row">
         <h2 class="pj-row__label">Highlights</h2>
         <div class="pj-row__body">
 {paras(d['highlights'])}
           {img(d['hl_img'],d['hl_opt'])}
         </div>
       </section>
-      <section class="pj-row reveal">
+      <section class="pj-row">
         <h2 class="pj-row__label">Partners</h2>
         <div class="pj-row__body">
 {paras(d['partners_text'])}
@@ -169,7 +169,7 @@ for slug,d in PAGES.items():
 {chr(10).join(partners)}
         </div>
       </section>
-      <section class="pj-row reveal">
+      <section class="pj-row">
         <h2 class="pj-row__label">Next Action</h2>
         <div class="pj-row__body pj-next">
 {chr(10).join(nxt)}

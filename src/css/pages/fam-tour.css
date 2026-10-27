@@ -10,8 +10,7 @@ body:has(main.fam) > .site-footer{display:none}
 .fam img{max-width:none}
 
 /* 申し込むボタン */
-.fam-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:160px;height:48px;padding:0 16px;border:1px solid var(--white);border-radius:40px;background:var(--cyan);color:var(--white);font:700 14px/18px var(--font-jp);text-decoration:none;transition:filter .2s}
-.fam-btn:hover{filter:brightness(1.08)}
+.fam-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:160px;height:48px;padding:0 16px;border:1px solid var(--white);border-radius:40px;background:var(--cyan);color:var(--white);font:700 14px/18px var(--font-jp);text-decoration:none}  /* ホバー：0.3 秒で 1.1 倍（.hv-scale） */
 .fam-btn img{width:16px;height:15px}
 .fam-float{position:fixed;top:16px;right:32px;z-index:50}
 
@@ -77,7 +76,7 @@ body:has(main.fam) > .site-footer{display:none}
 .fam-contents{padding:128px 0 88px}
 .fam-carousel{position:relative;max-width:1200px;margin:24px auto 0}
 .fam-carousel__viewport{overflow:hidden}
-.fam-carousel__track{display:flex;transition:transform .5s ease}
+.fam-carousel__track{display:flex;transition:transform .3s linear}  /* 今のサイト：0.3 秒・等速 */
 .fam-slide{flex:0 0 100%;display:flex;background:var(--green-10);min-height:824px}
 .fam-slide__label{flex:0 0 80px;display:flex;align-items:center;justify-content:center;writing-mode:vertical-rl;text-orientation:sideways;font:700 16px/32px var(--font-jp);letter-spacing:.005em}
 .fam-slide__label--en{font:700 18px/32px var(--font-en);letter-spacing:.02em}
@@ -92,8 +91,7 @@ body:has(main.fam) > .site-footer{display:none}
 .fam-slide__imgs img{width:100%;height:100%;object-fit:cover}
 .fam-slide__imgs img:first-child{grid-row:1 / span 2}
 .fam-carousel__nav{position:absolute;top:64px;right:56px;z-index:2;display:flex;gap:24px}
-.fam-carousel__arrow{width:72px;height:72px;padding:0;border:0;border-radius:50%;background:none;transition:transform .2s}
-.fam-carousel__arrow:hover{transform:scale(1.05)}
+.fam-carousel__arrow{width:72px;height:72px;padding:0;border:0;border-radius:50%;background:none}  /* ホバーは .hv-arrow */
 .fam-carousel__arrow img{width:72px;height:72px}
 .fam-carousel__arrow--next img{transform:scaleX(-1)}
 

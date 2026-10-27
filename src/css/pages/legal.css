@@ -16,8 +16,7 @@
 .contact{min-height:880px}
 .contact__lead{display:flex;flex-direction:column}
 .contact__open{margin:64px auto 0;display:flex;justify-content:center}
-.contact__btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 16px;border:1px solid var(--blue);border-radius:40px;background:transparent;color:var(--blue);font:400 13px/18px var(--font-en);letter-spacing:.02em;text-decoration:none;transition:background .2s}
-.contact__btn:hover{background:rgba(0,122,170,.08)}
+.contact__btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 16px;border:1px solid var(--blue);border-radius:40px;background:transparent;color:var(--blue);font:400 13px/18px var(--font-en);letter-spacing:.02em;text-decoration:none}  /* ホバー：0.3 秒で 1.1 倍（.hv-scale） */
 .contact__btn img{width:15.58px;height:15.19px;transition:transform .2s}
 .contact__btn[aria-expanded="true"] img{transform:rotate(90deg)}
 
