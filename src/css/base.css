@@ -9,12 +9,12 @@
   /* --- 色：Figma の変数（WLP_*／Base/*） --- */
   --blue:#007aaa;          /* WLP_Blue/30 = Fill/Brand/primary, Icon/Brand/primary, Stroke/Brand/primary */
   --blue-dark:#005172;     /* WLP_Blue/40 = Stroke/Brand/secondary */
-  --blue-50:var(--blue-50);  /* WLP_Blue/30 の 50%（英字ラベル・区切り線） */
+  --blue-50:rgba(0,122,170,.5);  /* WLP_Blue/30 の 50%（英字ラベル・区切り線） */
   --green-10:#e5eeea;      /* WLP_Green/10 */
   --green-20:#b9c7bd;      /* WLP_Green/20 */
   --green-40:#7a928c;      /* WLP_Green/40 */
-  --white:var(--white);            /* Base/White = Text/Brand/secondary */
-  --black:var(--black);            /* Base/Black = Text/Brand/primary */
+  --white:#fff;                    /* Base/White = Text/Brand/secondary */
+  --black:#000;                    /* Base/Black = Text/Brand/primary */
   --cyan:#03b8df;          /* fam-tour の「申し込む」だけ */
   /* --- 色：役割（地の色ごとに固定） --- */
   --text-on-light:var(--blue-dark);  /* 白地・薄緑地の本文・見出し */
