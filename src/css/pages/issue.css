@@ -19,6 +19,8 @@
 .iss-h3{font:700 32px/48px var(--font-jp);letter-spacing:.05em;margin:0 0 32px}
 .iss-body p{font:400 16px/32px var(--font-jp);letter-spacing:.005em}
 .iss-sec{padding:96px var(--pad) 0}
+/* 広い画面（1280px より広い）：今のサイトと同じく、中身を幅 1280px の箱に入れて中央に置く（大見出し・大きな波線・全幅の写真は横いっぱいのまま） */
+.iss-sec,.iss-approach__list,.iss-people__list{padding-left:max(var(--pad),calc(50% - 640px + var(--pad)));padding-right:max(var(--pad),calc(50% - 640px + var(--pad)))}
 
 /* About SAIJO：本文と地図の2列 */
 .iss-about{display:flex;align-items:center;gap:64px}
@@ -49,7 +51,7 @@
 
 /* APPROACH */
 .iss-approach{padding-top:160px}
-.iss-approach__list{list-style:none;margin:120px 0 0;padding:0 var(--pad);display:flex;flex-direction:column;gap:112px}
+.iss-approach__list{list-style:none;margin:120px 0 0;display:flex;flex-direction:column;gap:112px}
 .iss-approach__item{display:flex;align-items:flex-start;gap:64px}
 .iss-approach__item>img{flex:0 0 320px;width:320px;aspect-ratio:320/256;object-fit:contain}
 .iss-approach__text{flex:1;min-width:0}
@@ -58,8 +60,9 @@
 
 /* PEOPLE */
 .iss-people{padding-top:160px}
-.iss-people__list{list-style:none;margin:96px 0 0;padding:0 var(--pad);display:grid;grid-template-columns:repeat(3,328px);justify-content:space-between;row-gap:48px}
-.iss-person{color:#000}
+.iss-people__list{list-style:none;margin:96px 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:48px;row-gap:48px}
+/* 今のサイト：3等分の列（すき間 48px）に、幅 328px のカードを左寄せで置く（画面が広くても列のすき間は広がらない） */
+.iss-person{color:#000;width:328px;max-width:100%}
 .iss .iss-person__photo{aspect-ratio:328/254;object-fit:cover;border-radius:16px}
 .iss-person__role{font:400 14px/22px var(--font-jp);letter-spacing:.01em;margin-top:28px}
 .iss-person__name{font:400 16px/32px var(--font-jp);letter-spacing:.005em;margin-top:3px}
@@ -86,7 +89,7 @@
   .iss-photo--mural{margin-top:152px}
   .iss-approach,.iss-people{padding-top:156px}
   .iss-people__list{grid-template-columns:repeat(2,1fr);column-gap:48px;row-gap:48px}
-  .iss-people__list,.iss-approach__list{padding:0 var(--pad)}
+  .iss-person{width:auto}
 }
 
 /* ===== スマホ ===== */
