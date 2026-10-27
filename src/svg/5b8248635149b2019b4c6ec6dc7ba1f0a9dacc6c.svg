@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" height="72" overflow="visible" preserveAspectRatio="none" style="display: block;" viewBox="0 0 72 72" width="72">
+<g id="Frame 26">
+<circle cx="36" cy="36" fill="var(--fill-0, #03B8DF)" id="Ellipse 1" r="35.5" stroke="var(--stroke-0, white)" transform="matrix(-1 0 0 1 72 0)"/>
+<path d="M43 36.5925H31.83L36.71 41.4725C37.1 41.8625 37.1 42.5025 36.71 42.8925C36.32 43.2825 35.69 43.2825 35.3 42.8925L28.71 36.3025C28.32 35.9125 28.32 35.2825 28.71 34.8925L35.29 28.2925C35.68 27.9025 36.31 27.9025 36.7 28.2925C37.09 28.6825 37.09 29.3125 36.7 29.7025L31.83 34.5925H43C43.55 34.5925 44 35.0425 44 35.5925C44 36.1425 43.55 36.5925 43 36.5925Z" fill="var(--fill-0, white)" id="Vector"/>
+</g>
+</svg>
