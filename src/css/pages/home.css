@@ -103,6 +103,9 @@
   .pcar__text{right:24px;white-space:normal}
   .pcar__nav{width:auto;left:3px;right:3px;transform:translateY(-50%)}
   .pcar__btn{width:56px;height:56px}
+  /* 番号を小さく（120 → 64px）、縦のラベルと一緒に写真の左上へ寄せる（宮地さん指定） */
+  .pcar__num{padding:var(--s4) var(--s12) 0;font-size:64px;line-height:64px}
+  .pcar__label{top:76px;left:var(--s4)}
 }
 
 /* ---- COLUMNS ---- */
@@ -115,7 +118,8 @@
   .dobadoba{top:-118px}
 }
 @media (max-width:799px){
-  .columns__blog>.home-more{margin:0 0 96px}
+  .columns>.sec-title{margin-bottom:var(--s48)}  /* 説明文 → 1つ目のサムネ：カード同士の間（48）と同じ */
+  .columns__blog>.home-more{margin:var(--s48) 0 96px}  /* 最後の記事 → More：48 */
   .dobadoba{top:-112px}  /* 1.1 倍になっても COLUMNS の見出しにかからない高さ（以前は -60 で重なっていた） */
 }
 
@@ -130,6 +134,11 @@
 /* ---- NEWS ---- */
 .news{background:var(--blue);padding:128px 0;display:flex;flex-direction:column;gap:96px}
 /* 一覧の並び・幅はカード側（css/components/cards.css の --top）が持つ */
+@media (max-width:799px){
+  .news{gap:0}
+  .news>.sec-title{margin-bottom:var(--s24)}  /* 見出し → 1つ目の記事を詰める（96 → 24） */
+  .news>.home-more{margin-top:96px}           /* 最後の記事 → More は今のまま */
+}
 
 /* カルーセルのカードから各プロジェクトの詳細へ */
 .pcar__link{position:absolute;inset:0;z-index:2}

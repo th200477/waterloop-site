@@ -111,5 +111,8 @@
   .iss-approach__item>img{flex:none;width:100%}
   .iss-photo--mural{margin-top:var(--s160)}
   .iss-people{padding-top:48px}
+  /* 田んぼ・祭りの写真：スマホは画面幅いっぱいの 4:3（高さ 800 の枠をやめる）。パララックスもなし（HTML の data-parallax-media） */
+  .iss-photo{height:auto;aspect-ratio:4/3}
+  .iss-photo__bg{inset:0;width:auto;height:auto;margin-left:0}
   .iss-people__list{grid-template-columns:1fr;row-gap:48px;margin-top:64px;padding:0 24px}
 }

@@ -38,8 +38,27 @@ def block_html(b):
         return '<%s>%s</%s>' % (t, ''.join('<li>%s</li>' % i for i in b['items']), t)
     raise ValueError('unknown block: %r' % t)
 
+HEADINGS = ('h2', 'h3', 'h4')
+
+def drop_heading_spaces(blocks):
+    """見出しの直前・直後の空き段落（space）を外す。見出しの前後の間隔は CSS（article.css の .rt h2 など）で一定にする。
+    今のサイトから写した記事は、見出しの前の空き段落が 0〜4 個、後ろが 0〜1 個とまちまちだったため。"""
+    out = []
+    for i, b in enumerate(blocks):
+        if b['t'] == 'space':
+            j = i
+            while j < len(blocks) and blocks[j]['t'] == 'space':
+                j += 1
+            k = i
+            while k >= 0 and blocks[k]['t'] == 'space':
+                k -= 1
+            if (j < len(blocks) and blocks[j]['t'] in HEADINGS) or (k >= 0 and blocks[k]['t'] in HEADINGS):
+                continue
+        out.append(b)
+    return out
+
 def blocks_html(blocks):
-    return '\n'.join('        ' + block_html(b) for b in blocks)
+    return '\n'.join('        ' + block_html(b) for b in drop_heading_spaces(blocks))
 
 def plain(blocks, n=110):
     """説明文（meta description）用に本文の先頭を文字だけにする。"""

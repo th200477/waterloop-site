@@ -9,7 +9,11 @@
 .rt-space--h2,.rt-space--h3{height:36px}
 .rt h2,.rt h3{font:var(--type-article-h);letter-spacing:var(--ls-article-h);white-space:pre-wrap}
 .rt h3.rt-en,.rt h2.rt-en{font:700 18px/24px var(--font-en);letter-spacing:.16em}
-.rt :is(h2,h3,h4):not(.rt-en)+:is(p,ul,ol):not(.rt-space){margin-top:var(--s16)}  /* 見出しのすぐ下の本文との間（宮地さん指定で少し空ける）。スマホは 12 */
+/* 見出しの前後の間隔：全記事で一定（データの空き段落は gen_articles.py が見出しの前後だけ外す）。
+   前 64（スマホ 48）／見出し → 本文 16（スマホ 12） */
+.rt>:is(h2,h3,h4){margin-top:var(--s64)}
+.rt>:is(h2,h3,h4):first-child{margin-top:0}
+.rt>:is(h2,h3,h4)+*{margin-top:var(--s16)}
 .rt h4{font:var(--type-h3-jp);letter-spacing:var(--ls-h3-jp);white-space:pre-wrap}  /* Headline 3_JP/Bold（今のサイトは Inter だった） */
 .rt ul,.rt ol{padding:0;margin-left:24px}
 .rt li{white-space:pre-wrap}
@@ -32,7 +36,7 @@
 .article--column{background:var(--green-10);color:var(--text-on-light)}
 .article--column .article__inner{padding:0 max(160px,calc(50% - 480px))}  /* 今のサイト：本文の箱は幅 960px。広い画面でも 960px のまま中央に置く */
 .article--column .article__date{font:var(--type-sm-en);letter-spacing:var(--ls-sm-en);color:var(--date-on-light)}
-@media (min-width:1280px){.article--column .article__date{font-size:9px}}  /* PC：宮地さん指定で Text sm_EN（13）より 4px 小さく */
+@media (min-width:1280px){main.article .article__date{font-size:12px}}  /* PC：コラム・お知らせとも 12px（9px は小さすぎたため。宮地さん指定） */
 .article--column .article__lead .article__inner{display:flex;flex-direction:column;gap:24px}
 .article--column .article__hero{aspect-ratio:16/9}
 .article--column .article__body{margin-top:var(--s64);padding-bottom:var(--s128)}  /* More の下（今のサイトは PC 128／タブレット 112／スマホ 114。段にそろえて 128） */
@@ -70,6 +74,8 @@
 @media (max-width:799px){
   .article__title,.article--column .article__title,.article--news .article__title{font:var(--type-h3-jp);letter-spacing:var(--ls-h3-jp)}
   .rt h2:not(.rt-en),.rt h3:not(.rt-en){font:var(--type-h3-jp);letter-spacing:var(--ls-h3-jp)}
-  .rt :is(h2,h3,h4):not(.rt-en)+:is(p,ul,ol):not(.rt-space){margin-top:var(--s12)}
+  .rt>:is(h2,h3,h4){margin-top:var(--s48)}
+  .rt>:is(h2,h3,h4):first-child{margin-top:0}
+  .rt>:is(h2,h3,h4)+*{margin-top:var(--s12)}
   .article__lead{margin-top:var(--s16)}
 }
