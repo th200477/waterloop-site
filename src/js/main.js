@@ -103,14 +103,15 @@
   var menu=document.getElementById('site-menu');
   if(!btn||!menu) return;
   var root=document.documentElement;
-  function setOpen(open){
+  function setOpen(open,byKey){
     root.classList.toggle('menu-open',open);
     btn.setAttribute('aria-expanded',open?'true':'false');
     btn.setAttribute('aria-label',open?'メニューを閉じる':'メニューを開く');
     menu.setAttribute('aria-hidden',open?'false':'true');
-    if(open){var first=menu.querySelector('a');if(first)setTimeout(function(){first.focus({preventScroll:true});},50);}
+    if(open&&byKey){var first=menu.querySelector('a');if(first)setTimeout(function(){first.focus({preventScroll:true});},50);}
   }
-  btn.addEventListener('click',function(){setOpen(!root.classList.contains('menu-open'));});
+  // キーボードで開いたときだけ、最初のリンクに移る（指やマウスのときは枠を出さない）
+  btn.addEventListener('click',function(e){setOpen(!root.classList.contains('menu-open'),e.detail===0);});
   // パネルの外（左側）を押したら閉じる
   menu.addEventListener('click',function(e){
     if(!e.target.closest('.site-menu__panel')) setOpen(false);
