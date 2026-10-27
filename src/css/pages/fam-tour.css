@@ -185,7 +185,7 @@ body:has(main.fam) > .site-footer{display:none}
   .fam-hero__catch{gap:24px}
   .fam-intro{margin:-100px 12px 0;padding:48px 24px 32px}
   .fam-intro__title{font-size:30px;line-height:44px;letter-spacing:.05em}
-  .fam-intro__date{font-size:22px;line-height:36px;margin-top:21px !important}
+  .fam-intro__date{font-size:22px;line-height:36px;margin-top:21px !important;letter-spacing:.02em;font-feature-settings:"palt"}
   .fam-sp-br::before{content:"";display:block}
   .fam-insight{margin:0 12px;--inset:16px}
   .fam-title h2{font-size:32px;line-height:48px}
