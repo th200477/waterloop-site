@@ -6,37 +6,118 @@
 @font-face{font-family:"Manrope";font-style:normal;font-weight:700;font-display:block;src:url("/fonts/Manrope-Bold.woff2") format("woff2")}
 
 :root{
-  --blue:#007aaa;          /* fill/brand/primary, wlp_blue/30 */
-  --blue-dark:#005172;      /* wlp_blue/40, stroke/brand/secondary */
-  --green-10:#e5eeea;       /* wlp_green/10 */
-  --green-40:#7a928c;       /* wlp_green/40 */
-  --white:#fff;
+  /* --- 色：Figma の変数（WLP_*／Base/*） --- */
+  --blue:#007aaa;          /* WLP_Blue/30 = Fill/Brand/primary, Icon/Brand/primary, Stroke/Brand/primary */
+  --blue-dark:#005172;     /* WLP_Blue/40 = Stroke/Brand/secondary */
+  --blue-50:var(--blue-50);  /* WLP_Blue/30 の 50%（英字ラベル・区切り線） */
+  --green-10:#e5eeea;      /* WLP_Green/10 */
+  --green-20:#b9c7bd;      /* WLP_Green/20 */
+  --green-40:#7a928c;      /* WLP_Green/40 */
+  --white:var(--white);            /* Base/White = Text/Brand/secondary */
+  --black:var(--black);            /* Base/Black = Text/Brand/primary */
+  --cyan:#03b8df;          /* fam-tour の「申し込む」だけ */
+  /* --- 色：役割（地の色ごとに固定） --- */
+  --text-on-light:var(--blue-dark);  /* 白地・薄緑地の本文・見出し */
+  --text-on-blue:var(--white);       /* 青地の本文・見出し */
+  --label:var(--blue-50);            /* 英字ラベル（About SAIJO など） */
+  --date-on-light:var(--green-40);   /* 白地・薄緑地の日付 */
+  --date-on-blue:rgba(255,255,255,.5);
+  --line:var(--green-20);            /* お知らせ一覧の区切り線 */
+
+  /* --- 書体 --- */
   --font-jp:"Noto Sans JP",sans-serif;
   --font-en:"Manrope","Noto Sans JP",sans-serif;
   --font-mincho:"Zen Old Mincho",serif;
-  --s4:4px;--s8:8px;--s12:12px;--s16:16px;--s24:24px;--s32:32px;--s48:48px;--s64:64px;--s96:96px;--s128:128px;--s192:192px;
-  --radius-max:32px;
+
+  /* --- 文字スタイル（Figma のテキストスタイル）。font と letter-spacing を組で使う --- */
+  --type-display-en:700 72px/81px var(--font-en);  --ls-display-en:.1em;   /* Display_EN/Bold */
+  --type-h1-en:700 48px/62px var(--font-en);       --ls-h1-en:.1em;        /* Headline 1_EN/Bold */
+  --type-h2-en:400 34px/45px var(--font-en);       --ls-h2-en:.1em;        /* Headline 2_EN/Regular */
+  --type-h2-en-b:700 34px/45px var(--font-en);     --ls-h2-en-b:.1em;      /* Headline 2_EN/Bold */
+  --type-h3-en:400 24px/33px var(--font-en);       --ls-h3-en:.1em;        /* Headline 3_EN/Regular */
+  --type-h3-en-b:700 24px/33px var(--font-en);     --ls-h3-en-b:.1em;      /* Headline 3_EN/Bold */
+  --type-h1-jp:700 48px/67px var(--font-jp);       --ls-h1-jp:.05em;       /* Headline 1_JP/Bold */
+  --type-h2-jp:700 32px/48px var(--font-jp);       --ls-h2-jp:.05em;       /* Headline 2_JP/Bold（32） */
+  --type-article-h:700 28px/36px var(--font-jp);   --ls-article-h:.01em;   /* 記事の見出し（Figma では「Headline 2_JP/Bold」28 として登録） */
+  --type-h3-jp:700 22px/33px var(--font-jp);       --ls-h3-jp:.05em;       /* Headline 3_JP/Bold */
+  --type-h3-jp-r:400 22px/33px var(--font-jp);     --ls-h3-jp-r:.05em;     /* Headline 3_JP/Regular */
+  --type-text-jp:400 16px/32px var(--font-jp);     --ls-text-jp:.005em;    /* Text no_JP/Regular */
+  --type-text-jp-b:700 16px/32px var(--font-jp);   --ls-text-jp-b:.005em;  /* Text no_JP/Bold */
+  --type-sm-jp:400 14px/22px var(--font-jp);       --ls-sm-jp:.01em;       /* Text sm_JP/Regular */
+  --type-sm-jp-b:700 14px/22px var(--font-jp);     --ls-sm-jp-b:.01em;     /* Text sm_JP/Bold */
+  --type-text-en:400 18px/32px var(--font-en);     --ls-text-en:.02em;     /* Text no_EN/Regular */
+  --type-text-en-b:700 18px/32px var(--font-en);   --ls-text-en-b:.02em;   /* Text no_EN/Bold */
+  --type-sm-en:400 13px/18px var(--font-en);       --ls-sm-en:0;           /* Text sm_EN/Regular（日付・タグ・著作権表示） */
+  --type-btn-en:400 13px/18px var(--font-en);      --ls-btn-en:.02em;      /* BUtton&Tag_EN/Regular */
+  --type-btn-jp:400 14px/18px var(--font-jp);      --ls-btn-jp:0;          /* Button&Tag_JP/Regular */
+  /* Figma にスタイルがない（ページ固有の飾り）。Figma 側に足すときはこの名前で */
+  --type-card-title-jp:700 20px/28px var(--font-jp); --ls-card-title-jp:.02em;  /* コラムカードの見出し */
+  --type-number:400 120px/120px var(--font-en);    --ls-number:.01em;      /* プロジェクトの大きい番号 */
+  --type-vertical-label:400 8px/32px var(--font-en); --ls-vertical-label:.3em;  /* カードの縦書きラベル */
+  --type-vision:400 72px/88px var(--font-mincho);  --ls-vision:.2em;       /* フッターの標語 */
+
+  /* --- 余白（Figma の spacing-*） --- */
+  --s4:4px;--s8:8px;--s12:12px;--s16:16px;--s24:24px;--s32:32px;--s48:48px;--s64:64px;--s96:96px;--s128:128px;--s160:160px;--s192:192px;
+  --page-top:120px;        /* ページ上端（固定ヘッダーの下）から最初の見出しまで */
+  /* 見出しまわりの間隔の段 */
+  --gap-title-lead:24px;   /* 英字セクション見出し（＋波線）→ 説明文 */
+  --gap-label-heading:8px; /* 英字ラベル → 和文見出し */
+  --gap-heading-body:24px; /* 和文見出し → 本文 */
+
+  /* --- 角丸 --- */
+  --radius-m:8px;          /* br_m（タグ・入力欄） */
+  --radius-card:16px;      /* border-radius/bento（写真の角） */
+  --radius-max:32px;       /* br_max */
+  --radius-pill:40px;      /* ボタン */
 }
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;scroll-behavior:smooth}
-body{margin:0;font-family:var(--font-jp);color:var(--blue-dark);background:var(--blue);line-height:1.8;font-feature-settings:"palt" 0}
+body{margin:0;font-family:var(--font-jp);color:var(--text-on-light);background:var(--blue);line-height:1.8;font-feature-settings:"palt" 0}
 img,svg,video{display:block;max-width:100%}
 a{color:inherit}
 h1,h2,h3,p,figure{margin:0}
 button{font:inherit;cursor:pointer}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-/* 文字スタイル（Figmaのテキストスタイル名に対応） */
-.t-h3-jp{font:700 22px/33px var(--font-jp);letter-spacing:.05em}
-.t-text-jp{font:400 16px/32px var(--font-jp);letter-spacing:.005em}
-.t-sm-jp{font:400 14px/22px var(--font-jp);letter-spacing:.01em}
-.t-h3-en{font:400 24px/33px var(--font-en);letter-spacing:.1em}
-.t-h3-en-b{font:700 24px/33px var(--font-en);letter-spacing:.1em}
-.t-btn-en{font:400 13px/18px var(--font-en);letter-spacing:.02em}
-.t-text-en{font:400 18px/32px var(--font-en);letter-spacing:.02em}
+/* 文字スタイルのクラス（Figma のテキストスタイル名に対応）。ページの CSS では var(--type-*) / var(--ls-*) を使ってもよい */
+.t-display-en{font:var(--type-display-en);letter-spacing:var(--ls-display-en)}
+.t-h1-en{font:var(--type-h1-en);letter-spacing:var(--ls-h1-en)}
+.t-h2-en{font:var(--type-h2-en);letter-spacing:var(--ls-h2-en)}
+.t-h2-en-b{font:var(--type-h2-en-b);letter-spacing:var(--ls-h2-en-b)}
+.t-h3-en{font:var(--type-h3-en);letter-spacing:var(--ls-h3-en)}
+.t-h3-en-b{font:var(--type-h3-en-b);letter-spacing:var(--ls-h3-en-b)}
+.t-h1-jp{font:var(--type-h1-jp);letter-spacing:var(--ls-h1-jp)}
+.t-h2-jp{font:var(--type-h2-jp);letter-spacing:var(--ls-h2-jp)}
+.t-article-h{font:var(--type-article-h);letter-spacing:var(--ls-article-h)}
+.t-h3-jp{font:var(--type-h3-jp);letter-spacing:var(--ls-h3-jp)}
+.t-h3-jp-r{font:var(--type-h3-jp-r);letter-spacing:var(--ls-h3-jp-r)}
+.t-text-jp{font:var(--type-text-jp);letter-spacing:var(--ls-text-jp)}
+.t-text-jp-b{font:var(--type-text-jp-b);letter-spacing:var(--ls-text-jp-b)}
+.t-sm-jp{font:var(--type-sm-jp);letter-spacing:var(--ls-sm-jp)}
+.t-sm-jp-b{font:var(--type-sm-jp-b);letter-spacing:var(--ls-sm-jp-b)}
+.t-text-en{font:var(--type-text-en);letter-spacing:var(--ls-text-en)}
+.t-text-en-b{font:var(--type-text-en-b);letter-spacing:var(--ls-text-en-b)}
+.t-sm-en{font:var(--type-sm-en);letter-spacing:var(--ls-sm-en)}
+.t-btn-en{font:var(--type-btn-en);letter-spacing:var(--ls-btn-en)}
+.t-btn-jp{font:var(--type-btn-jp);letter-spacing:var(--ls-btn-jp)}
+/* 英字ラベル（About SAIJO・Scope など）：Text no_EN/Regular、青50%（PC・スマホ同じ） */
+.t-label{font:var(--type-text-en);letter-spacing:var(--ls-text-en);color:var(--label)}
+/* 日付：Text sm_EN/Regular。色は地の色で使い分ける（.on-blue の中では白50%） */
+.t-date{font:var(--type-sm-en);letter-spacing:var(--ls-sm-en);color:var(--date-on-light)}
+.on-blue .t-date,.t-date.on-blue{color:var(--date-on-blue)}
 
-/* ボタン（More など）。ホバーの動きは下の「動き」の .hv-scale などで付ける（今のサイトは色が変わらず、大きくなるだけ） */
-.btn-pill{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;width:160px;padding:0 16px;border:1px solid currentColor;border-radius:40px;text-decoration:none;background:transparent;color:inherit}
+/* ボタン：2種類だけ。
+   英字ボタン = .btn-pill.btn--en（BUtton&Tag_EN）／和文ボタン = .btn-pill.btn--jp（Button&Tag_JP）。
+   幅160（文字が長いときは伸びる）・高さ48・左右16・角丸40・枠は文字色。ホバーは 0.3 秒で 1.1 倍（マウスのときだけ）。 */
+.btn-pill{display:inline-flex;flex:none;align-items:center;justify-content:center;gap:8px;height:48px;min-width:160px;padding:0 var(--s16);border:1px solid currentColor;border-radius:var(--radius-pill);text-decoration:none;background:transparent;color:inherit;white-space:nowrap;transition:scale .3s var(--ease-out)}
+.btn-pill img{flex:none;width:16px;height:15px}
+.btn--en{font:var(--type-btn-en);letter-spacing:var(--ls-btn-en)}
+.btn--jp{font:var(--type-btn-jp);letter-spacing:var(--ls-btn-jp)}
+.btn--blue{color:var(--blue)}
+.btn--white{color:var(--white)}
+.btn--cyan{background:var(--cyan);border-color:var(--white);color:var(--white)}
+@media (hover:hover){a.btn-pill:hover,button.btn-pill:hover{scale:1.1}}
+@media (prefers-reduced-motion:reduce){.btn-pill{transition:none}}
 
 /* セクション見出し（PROJECTS など：英字＋波線＋説明） */
 .sec-title{display:flex;flex-direction:column;gap:24px;align-items:flex-start;padding:0 64px}
@@ -87,7 +168,7 @@ button{font:inherit;cursor:pointer}
 .site-header__logo-img--white{display:none}
 body:has(main[data-header="dark"]) .site-header__logo-img--blue,body.is-header-dark .site-header__logo-img--blue{display:none}
 body:has(main[data-header="dark"]) .site-header__logo-img--white,body.is-header-dark .site-header__logo-img--white{display:block}
-.site-header__menu{display:flex;align-items:center;justify-content:center;width:48px;height:48px;padding:0;border:0;border-radius:40px;background:var(--white)}  /* ホバーは .hv-turn */
+.site-header__menu{display:flex;align-items:center;justify-content:center;width:48px;height:48px;padding:0;border:0;border-radius:var(--radius-pill);background:var(--white)}  /* ホバーは .hv-turn */
 .site-header__icon{width:24px;height:24px}
 .site-header__icon--close{display:none}
 .menu-open .site-header__icon--open{display:none}
@@ -104,11 +185,11 @@ body:has(main[data-header="dark"]) .site-header__logo-img--white,body.is-header-
 .site-menu a{transition:opacity .3s var(--ease-out)}
 @media (hover:hover){.site-menu a:hover{opacity:.5}}
 .site-menu__nav{display:flex;flex-direction:column;gap:24px}
-.site-menu__nav a{display:inline-block;font:400 34px/45px var(--font-en);letter-spacing:.1em}
+.site-menu__nav a{display:inline-block;font:var(--type-h2-en);letter-spacing:var(--ls-h2-en)}
 .site-menu__social{display:flex;gap:24px;margin-top:48px!important}
 .site-menu__social a,.site-footer__social a{display:flex;align-items:center;justify-content:center;width:24px;height:24px}
 .site-menu__legal{display:flex;flex-direction:column;gap:16px;margin-top:48px!important}
-.site-menu__legal a{font:400 14px/22px var(--font-jp);letter-spacing:.01em;white-space:nowrap}
+.site-menu__legal a{font:var(--type-sm-jp);letter-spacing:var(--ls-sm-jp);white-space:nowrap}
 @media (max-width:799px){
   .site-menu__panel{width:208px;padding-right:16px}
   .site-menu__nav a{font-size:24px;line-height:33px}
@@ -128,13 +209,13 @@ body:has(main[data-header="dark"]) .site-header__logo-img--white,body.is-header-
 .site-footer__body{flex:1 0 0;min-width:240px;display:flex;flex-direction:column;gap:24px}
 .site-footer__links{display:flex;flex-wrap:wrap;gap:48px}
 .site-footer__col{display:flex;flex-direction:column;gap:16px;white-space:nowrap}
-.site-footer__col a{display:block;font:400 18px/32px var(--font-en);letter-spacing:.02em}
-.site-footer__col--legal a{display:flex;align-items:center;height:32px;font:400 14px/22px var(--font-jp);letter-spacing:.01em}
+.site-footer__col a{display:block;font:var(--type-text-en);letter-spacing:var(--ls-text-en)}
+.site-footer__col--legal a{display:flex;align-items:center;height:32px;font:var(--type-sm-jp);letter-spacing:var(--ls-sm-jp)}
 .site-footer__info{display:flex;flex-direction:column;gap:32px}
-.site-footer__address{font:400 14px/22px var(--font-jp);letter-spacing:.01em}
+.site-footer__address{font:var(--type-sm-jp);letter-spacing:var(--ls-sm-jp)}
 .site-footer__social{display:flex;gap:24px}
-.site-footer__vision{font:400 72px/88px var(--font-mincho);letter-spacing:.2em}
-.site-footer__copy{font:400 13px/18px var(--font-en)}
+.site-footer__vision{font:var(--type-vision);letter-spacing:var(--ls-vision)}
+.site-footer__copy{font:var(--type-sm-en);letter-spacing:var(--ls-sm-en)}
 @media (max-width:1279px){.site-footer{padding:64px}.site-footer__vision{font-size:64px;letter-spacing:12.8px}}
 @media (max-width:799px){
   .site-footer{padding:64px 32px}
@@ -144,4 +225,4 @@ body:has(main[data-header="dark"]) .site-header__logo-img--white,body.is-header-
 /* フッターの地の色：今のサイトと同じく、/issue・プロジェクト詳細・コラム記事だけ白 */
 body:has(main.iss) .site-footer,
 body:has(main.pj) .site-footer,
-body:has(main.article--column) .site-footer{background:#fff}
+body:has(main.article--column) .site-footer{background:var(--white)}

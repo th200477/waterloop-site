@@ -1,5 +1,5 @@
 /* ===== トップページ（Figma Desktop 1:895 / Tablet 1:955 / Mobile 1:1015） ===== */
-.home{color:var(--white);overflow-x:clip}
+.home{color:var(--text-on-blue);overflow-x:clip}
 .only-sp{display:none}
 @media (max-width:1279px){.only-pc{display:none}.only-sp{display:inline}}
 
@@ -8,17 +8,14 @@
 @media (max-width:799px){.home .home-title{padding:0 32px}.home .news .home-title{padding:0 64px}}
 .home-title__head{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
 .home-title h2{color:inherit}
-.home-title--dark{color:var(--blue-dark)}
+.home-title--dark{color:var(--text-on-light)}
 .home-more{display:flex;justify-content:center}
-.home-more .btn-pill{color:var(--white)}
-.home-more .btn-pill--blue{color:var(--blue)}
-.btn-pill img{width:15.58px;height:15.19px}
 
 /* ---- ヒーロー ---- */
 .hero{position:relative;height:838px;padding:24px 32px;display:flex;align-items:flex-end;overflow:hidden;background:var(--blue)}
 .hero__video,.hero__image{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover}
 .hero__image{display:none}
-.hero__copy{position:relative;z-index:1;display:flex;align-items:flex-end;gap:20px;margin:0;font:400 48px/64px var(--font-mincho);color:var(--white)}
+.hero__copy{position:relative;z-index:1;display:flex;align-items:flex-end;gap:var(--s24);margin:0;font:400 48px/64px var(--font-mincho);color:var(--white)}
 .hero__copy-v{display:flex;flex-direction:column;width:48px;padding-bottom:6px;text-align:center}
 .hero__copy-v span{display:block;height:64px}
 .hero__copy-h{line-height:70px;letter-spacing:.2em;white-space:nowrap}
@@ -48,8 +45,8 @@
 .video-modal{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.7)}
 .video-modal[hidden]{display:none}
 .video-modal__inner{position:relative;width:90%;height:90%;padding:16px;display:flex;align-items:center;justify-content:center}
-.video-modal__video{width:100%;height:100%;object-fit:contain;border-radius:6px;background:#000}
-.video-modal__close{position:absolute;top:-16px;right:-16px;width:32px;height:32px;padding:0;border:0;border-radius:50%;background:#fff;color:#000;font-size:20px;line-height:32px}
+.video-modal__video{width:100%;height:100%;object-fit:contain;border-radius:6px;background:var(--black)}
+.video-modal__close{position:absolute;top:-16px;right:-16px;width:32px;height:32px;padding:0;border:0;border-radius:50%;background:var(--white);color:var(--black);font-size:20px;line-height:32px}
 
 /* ---- WATER LOOP PROJECTとは？ ---- */
 .intro{background:var(--blue);padding:192px 64px}
@@ -58,7 +55,7 @@
 .intro__visual img{width:100%;height:auto}
 .intro__content{flex:none;width:385px;display:flex;flex-direction:column;gap:48px;align-items:flex-start}
 .intro__content h2{margin-bottom:-24px}
-.intro__cta{font:400 14px/18px var(--font-jp)}
+
 @media (max-width:1279px){
   .intro{padding:160px 64px}
   .intro__inner{flex-direction:column;gap:64px}
@@ -83,11 +80,11 @@
 .pcar__card{position:absolute;top:0;left:50%;width:var(--card-w);height:480px;margin-left:calc(var(--card-w) / -2);overflow:hidden;transition:transform .15s linear}  /* 今のサイト：0.15 秒・等速で切り替わる */
 .pcar__card picture{display:contents}
 .pcar__img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover}
-.pcar__num{position:absolute;top:0;left:0;padding:32px 32px 0;font:400 120px/120px var(--font-en);letter-spacing:.01em}
-.pcar__label{position:absolute;top:152px;left:32px;width:32px;height:190px;display:flex;align-items:center;justify-content:center;writing-mode:vertical-rl;font:400 8px/32px var(--font-en);letter-spacing:2.4px;white-space:nowrap}
+.pcar__num{position:absolute;top:0;left:0;padding:32px 32px 0;font:var(--type-number);letter-spacing:var(--ls-number)}
+.pcar__label{position:absolute;top:152px;left:32px;width:32px;height:190px;display:flex;align-items:center;justify-content:center;writing-mode:vertical-rl;font:var(--type-vertical-label);letter-spacing:var(--ls-vertical-label);white-space:nowrap}
 .pcar__text{position:absolute;left:0;bottom:0;display:flex;flex-direction:column;gap:8px;padding:24px 24px 0 16px;background:var(--blue);border-top-right-radius:var(--radius-max);white-space:nowrap}
-.pcar__title{font:700 24px/33px var(--font-en);letter-spacing:.1em}
-.pcar__desc{font:400 14px/22px var(--font-jp);letter-spacing:.01em}
+.pcar__title{font:var(--type-h3-en-b);letter-spacing:var(--ls-h3-en-b)}
+.pcar__desc{font:var(--type-sm-jp);letter-spacing:var(--ls-sm-jp)}
 .pcar__nav{position:absolute;top:50%;left:50%;width:800px;max-width:100%;display:flex;justify-content:space-between;transform:translate(-50%,-50%);pointer-events:none}
 .pcar__btn{pointer-events:auto;width:72px;height:72px;padding:0;border:0;border-radius:50%;background:transparent}
 .pcar__btn img{width:100%;height:100%}
@@ -95,7 +92,7 @@
 .pcar__btn:focus-visible{outline:2px solid var(--white);outline-offset:2px}
 @media (max-width:799px){
   .projects{gap:48px}
-  .pcar{--card-w:min(360px,calc(100vw - 15px));--gap:20px}
+  .pcar{--card-w:min(360px,calc(100vw - 15px));--gap:var(--s24)}
   .pcar__text{right:24px;white-space:normal}
   .pcar__nav{width:auto;left:3px;right:3px;transform:translateY(-50%)}
   .pcar__btn{width:56px;height:56px}

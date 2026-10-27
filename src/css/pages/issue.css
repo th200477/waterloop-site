@@ -1,23 +1,24 @@
 /* ===== /issue（水をめぐる課題） =====
    Figma: Desktop 3:2972 / Tablet 3:3083 / Mobile 3:3194
    幅の区切り：スマホ 〜767px／タブレット 768〜1199px／PC 1200px〜 */
-.iss{--pad:96px;background:var(--green-10);color:var(--blue);overflow:hidden;padding-bottom:128px}
+.iss{--pad:96px;background:var(--green-10);color:var(--text-on-light);overflow:hidden;padding-bottom:128px}
 .iss img{width:100%;height:auto}
 
 /* 大見出し（ISSUE / APPROACH / PEOPLE）＋波線＋説明 */
 .iss-heading{padding:0 var(--pad)}
-.iss-heading__title{font:700 72px/81px var(--font-en);letter-spacing:.1em;margin:0}
-.iss-heading img.iss-heading__wave{width:80px;height:14px;margin:16px 0 20px}
-.iss-heading__lead{font:400 16px/32px var(--font-jp);letter-spacing:.005em}
+.iss-heading__title{font:var(--type-display-en);letter-spacing:var(--ls-display-en);margin:0}
+.iss-heading img.iss-heading__wave{width:80px;height:14px;margin:var(--s12) 0 var(--gap-title-lead)}
+.iss-heading__lead{font:var(--type-text-jp);letter-spacing:var(--ls-text-jp)}
 .iss-bigwave{display:block}
-.iss-approach img.iss-heading__wave,.iss-people img.iss-heading__wave{margin-bottom:28px}
 
 .iss-hero{padding-top:192px}
 
 /* 小見出し・本文 */
-.iss-label{font:700 24px/33px var(--font-en);letter-spacing:.1em;color:rgba(0,122,170,.5);margin:0 0 32px}
-.iss-h3{font:700 32px/48px var(--font-jp);letter-spacing:.05em;margin:0 0 32px}
-.iss-body p{font:400 16px/32px var(--font-jp);letter-spacing:.005em}
+/* 見出しは青、本文は濃い青（--text-on-light） */
+.iss-heading__title,.iss-h3,.iss-scope__title{color:var(--blue)}
+.iss-label{font:var(--type-text-en);letter-spacing:var(--ls-text-en);color:var(--label);margin:0 0 var(--gap-label-heading)}  /* 英字ラベル：Text no_EN/Regular（PC・スマホ同じ） */
+.iss-h3{font:var(--type-h2-jp);letter-spacing:var(--ls-h2-jp);margin:0 0 var(--gap-heading-body)}
+.iss-body p{font:var(--type-text-jp);letter-spacing:var(--ls-text-jp)}
 .iss-sec{padding:96px var(--pad) 0}
 /* 広い画面（1280px より広い）：今のサイトと同じく、中身を幅 1280px の箱に入れて中央に置く（大見出し・大きな波線・全幅の写真は横いっぱいのまま） */
 .iss-sec,.iss-approach__list,.iss-people__list{padding-left:max(var(--pad),calc(50% - 640px + var(--pad)));padding-right:max(var(--pad),calc(50% - 640px + var(--pad)))}
@@ -35,11 +36,11 @@
 .iss-scope__list{list-style:none;margin:64px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,328px);column-gap:48px}
 .iss-scope__photo{position:relative}
 .iss-scope__photo img{aspect-ratio:328/304;object-fit:cover}
-.iss-scope__badge{position:absolute;left:50%;top:50%;width:120px;height:120px;margin:-60px 0 0 -60px;border:1px solid #fff;border-radius:50%;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--font-jp);font-weight:500}
+.iss-scope__badge{position:absolute;left:50%;top:50%;width:120px;height:120px;margin:-60px 0 0 -60px;border:1px solid var(--white);border-radius:50%;color:var(--white);display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--font-jp);font-weight:500}
 .iss-scope__kanji{font-size:40px;line-height:32px;letter-spacing:.005em;margin-top:4px}
 .iss-scope__sub{font-size:16px;line-height:32px;letter-spacing:.05em}
-.iss-scope__title{font:700 22px/33px var(--font-jp);letter-spacing:.05em;margin:32px 0 24px}
-.iss-scope__text p{font:400 16px/32px var(--font-jp);letter-spacing:.005em}
+.iss-scope__title{font:var(--type-h3-jp);letter-spacing:var(--ls-h3-jp);margin:var(--s32) 0 var(--gap-heading-body)}
+.iss-scope__text p{font:var(--type-text-jp);letter-spacing:var(--ls-text-jp)}
 
 /* 全幅の写真 */
 .iss-photo{position:relative;height:800px;margin-top:128px;overflow:hidden}
@@ -51,21 +52,20 @@
 
 /* APPROACH */
 .iss-approach{padding-top:160px}
-.iss-approach__list{list-style:none;margin:120px 0 0;display:flex;flex-direction:column;gap:112px}
+.iss-approach__list{list-style:none;margin:var(--s128) 0 0;display:flex;flex-direction:column;gap:var(--s128)}
 .iss-approach__item{display:flex;align-items:flex-start;gap:64px}
 .iss-approach__item>img{flex:0 0 320px;width:320px;aspect-ratio:320/256;object-fit:contain}
 .iss-approach__text{flex:1;min-width:0}
-.iss-approach .iss-h3{margin-bottom:48px}
-.iss-photo--mural{margin-top:150px}
+.iss-photo--mural{margin-top:var(--s160)}
 
 /* PEOPLE */
 .iss-people{padding-top:160px}
 .iss-people__list{list-style:none;margin:96px 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:48px;row-gap:48px}
 /* 今のサイト：3等分の列（すき間 48px）に、幅 328px のカードを左寄せで置く（画面が広くても列のすき間は広がらない） */
-.iss-person{color:#000;width:328px;max-width:100%}
-.iss .iss-person__photo{aspect-ratio:328/254;object-fit:cover;border-radius:16px}
-.iss-person__role{font:400 14px/22px var(--font-jp);letter-spacing:.01em;margin-top:28px}
-.iss-person__name{font:400 16px/32px var(--font-jp);letter-spacing:.005em;margin-top:3px}
+.iss-person{width:328px;max-width:100%}
+.iss .iss-person__photo{aspect-ratio:328/254;object-fit:cover;border-radius:var(--radius-card)}
+.iss-person__role{font:var(--type-sm-jp);letter-spacing:var(--ls-sm-jp);margin-top:var(--s32)}
+.iss-person__name{font:var(--type-text-jp);letter-spacing:var(--ls-text-jp);margin-top:3px}
 .iss-person__links{display:flex;flex-wrap:wrap;gap:16px;margin-top:16px}
 .iss-person__links a,.iss-person__links span{display:block;width:20px;height:20px}
 .iss .iss-person__links img{width:20px;height:20px;object-fit:contain}
@@ -83,11 +83,10 @@
   .iss-scope__item{display:grid;grid-template-columns:336px 1fr;gap:32px;align-items:start}
   .iss-scope__title{margin-top:0}
   .iss-scope__photo img{aspect-ratio:336/304}
-  .iss-approach__list{margin-top:88px;gap:96px}
+  .iss-approach__list{margin-top:var(--s96);gap:96px}
   .iss-approach__item{align-items:center;gap:32px}
-  .iss-approach .iss-h3{margin-bottom:32px}
-  .iss-photo--mural{margin-top:152px}
-  .iss-approach,.iss-people{padding-top:156px}
+  .iss-photo--mural{margin-top:var(--s160)}
+  .iss-approach,.iss-people{padding-top:var(--s160)}
   .iss-people__list{grid-template-columns:repeat(2,1fr);column-gap:48px;row-gap:48px}
   .iss-person{width:auto}
 }
@@ -96,11 +95,8 @@
 @media (max-width:799px){
   .iss{--pad:32px}
   .iss-heading__title{font-size:48px;line-height:62px}
-  .iss-heading img.iss-heading__wave{margin:16px 0 20px}
-  .iss-approach img.iss-heading__wave,.iss-people img.iss-heading__wave{margin-bottom:12px}
   .iss-sec{padding-top:64px}
-  .iss-label{font:400 13px/18px var(--font-en);letter-spacing:0;margin-bottom:24px}
-  .iss-h3{font-size:22px;line-height:33px;margin-bottom:24px}
+  .iss-h3{font-size:22px;line-height:33px}
   .iss-about{flex-direction:column;align-items:stretch;gap:32px}
   .iss .iss-about__map{flex:none;width:100%;height:auto;aspect-ratio:311/348}
   .iss-context__fig img{aspect-ratio:311/820}
@@ -109,10 +105,10 @@
   .iss-scope__photo img{aspect-ratio:320/304}
   .iss-scope__title{margin:32px 0 24px}
   .iss-approach{padding-top:48px}
-  .iss-approach__list{margin-top:72px;gap:96px}
+  .iss-approach__list{margin-top:var(--s64);gap:96px}
   .iss-approach__item{flex-direction:column;align-items:stretch;gap:32px;width:320px}
   .iss-approach__item>img{flex:none;width:320px}
-  .iss-photo--mural{margin-top:152px}
+  .iss-photo--mural{margin-top:var(--s160)}
   .iss-people{padding-top:48px}
   .iss-people__list{grid-template-columns:1fr;row-gap:48px;margin-top:64px;padding:0 24px}
 }

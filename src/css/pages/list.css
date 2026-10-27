@@ -1,9 +1,9 @@
 /* /blog-list（Figma 3:4686 / 3:4709 / 3:4732）と /news-list（4:5939 / 4:5971 / 4:6003）。カードは components/cards.css */
-.list-page__head{display:flex;flex-direction:column;align-items:center;gap:32px;padding:120px 16px 80px;text-align:center}
+.list-page__head{display:flex;flex-direction:column;align-items:center;gap:var(--gap-title-lead);padding:var(--page-top) 16px var(--s64);text-align:center}
 .list-page__title{display:flex;flex-direction:column;align-items:center;gap:12px}
-.list-page__title h1{font:400 24px/33px var(--font-en);letter-spacing:.1em;color:var(--green-40)}
+.list-page__title h1{font:var(--type-h3-en);letter-spacing:var(--ls-h3-en);color:var(--green-40)}
 .list-page__title img{width:80px;height:14px}
-.list-page__lead{font:400 16px/32px var(--font-jp);letter-spacing:.005em;color:var(--green-40)}
+.list-page__lead{font:var(--type-text-jp);letter-spacing:var(--ls-text-jp);color:var(--green-40)}
 
 /* コラム一覧：上400pxだけ薄い緑、その下は白 */
 .list-page--columns{background:linear-gradient(var(--green-10) 0 400px,var(--white) 400px)}

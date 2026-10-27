@@ -20,9 +20,6 @@ jobs:
           python-version: '3.11'
       - name: サイトを組み立てる
         run: python3 build.py
-        env:
-          # 独自ドメイン（waterloop.jp）に切り替えるまでは /waterloop-site の下で見る
-          BASE_PATH: /waterloop-site
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

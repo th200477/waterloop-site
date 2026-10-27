@@ -1,5 +1,5 @@
 # プロジェクト詳細3ページ（同じ型）を書き出す
-import html
+import html, re
 IG_URL='https://www.instagram.com/water_loop_project/'
 FORM_URL='https://forms.gle/ctRRV2kZaHnQCKRw9'
 ARROW='a207ac095b45fd81c1c1f05749896f171ba52e80'
@@ -106,7 +106,8 @@ def img(t,o,cls='pj-figure'):
     return f'<picture class="{cls}" style="{st}">{src}{tag}</picture>'
 def btn(label,url,blank):
     tb=' target="_blank" rel="noopener"' if blank else ''
-    return f'<a class="pj-btn" href="{e(url)}"{tb}>{e(label)}<img src="/svg/{ARROW}.svg" alt="" width="16" height="15"></a>'
+    lang='jp' if re.search(r'[\u3040-\u30ff\u4e00-\u9fff]',label) else 'en'  # 和文ボタン／英字ボタン
+    return f'<a class="btn-pill btn--{lang} btn--blue pj-btn" href="{e(url)}"{tb}>{e(label)}<img src="/svg/{ARROW}.svg" alt="" width="16" height="15"></a>'
 for slug,d in PAGES.items():
     slides='\n'.join(f'        <li class="pj-carousel__slide"><img src="/img/{h}.webp" alt=""{"" if i==0 else " loading=\"lazy\""}></li>' for i,h in enumerate(d['slides']))
     partners=[]
@@ -176,7 +177,7 @@ for slug,d in PAGES.items():
         </div>
       </section>
     </div>
-    <p class="pj-back"><a class="pj-btn pj-btn--back" href="/projects-list">All Project<img src="/svg/f5febb17932b6c3fce114298116ffcaefaaa2604.svg" alt="" width="16" height="15"></a></p>
+    <p class="pj-back"><a class="btn-pill btn--en btn--blue pj-btn" href="/projects-list">All Project<img src="/svg/f5febb17932b6c3fce114298116ffcaefaaa2604.svg" alt="" width="16" height="15"></a></p>
   </article>
 </main>
 '''
