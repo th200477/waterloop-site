@@ -1,8 +1,12 @@
 /* ===== WATER LOOP PROJECT 共通スタイル =====
    Figmaの変数に合わせたトークン。ページ固有のスタイルは css/pages/*.css に置く。
    幅の区切り：スマホ 〜767px／タブレット 768〜1199px／PC 1200px〜（Figmaの Mobile 375／Tablet 800／Desktop 1280 に対応） */
+/* Manrope：今のサイト（Figma Sites）が /_user_fonts/v1/ で配っているのと同じファイル（v4.504、SIL OFL 1.1。src/fonts/OFL.txt） */
+@font-face{font-family:"Manrope";font-style:normal;font-weight:400;font-display:block;src:url("/fonts/Manrope-Regular.woff2") format("woff2")}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:700;font-display:block;src:url("/fonts/Manrope-Bold.woff2") format("woff2")}
+
 :root{
-  --blue:#007aaa;           /* fill/brand/primary, wlp_blue/30 */
+  --blue:#007aaa;          /* fill/brand/primary, wlp_blue/30 */
   --blue-dark:#005172;      /* wlp_blue/40, stroke/brand/secondary */
   --green-10:#e5eeea;       /* wlp_green/10 */
   --green-40:#7a928c;       /* wlp_green/40 */
@@ -31,9 +35,8 @@ button{font:inherit;cursor:pointer}
 .t-btn-en{font:400 13px/18px var(--font-en);letter-spacing:.02em}
 .t-text-en{font:400 18px/32px var(--font-en);letter-spacing:.02em}
 
-/* ボタン（More など） */
-.btn-pill{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;width:160px;padding:0 16px;border:1px solid currentColor;border-radius:40px;text-decoration:none;background:transparent;color:inherit;transition:background .2s,color .2s}
-.btn-pill:hover{background:rgba(255,255,255,.12)}
+/* ボタン（More など）。ホバーの動きは下の「動き」の .hv-scale などで付ける（今のサイトは色が変わらず、大きくなるだけ） */
+.btn-pill{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;width:160px;padding:0 16px;border:1px solid currentColor;border-radius:40px;text-decoration:none;background:transparent;color:inherit}
 
 /* セクション見出し（PROJECTS など：英字＋波線＋説明） */
 .sec-title{display:flex;flex-direction:column;gap:24px;align-items:flex-start;padding:0 64px}
@@ -41,10 +44,40 @@ button{font:inherit;cursor:pointer}
 @media (max-width:1199px){.sec-title{padding:0 32px}}
 @media (max-width:767px){.sec-title{padding:0 16px}}
 
-/* 出てくるときのふわっとした動き */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
-.reveal.is-in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+/* ===== 動き（今のサイト＝Figma Sites の設定値をそのまま写したもの） =====
+   イージング：Figma の「Ease out」は実際には cubic-bezier(0,0,.58,1)（framer-motion の easeOut）で動いている。
+   「Ease out back」は cubic-bezier(.45,1.45,.8,1)。
+   動かし方は src/js/main.js の先頭のコメントを参照。transform は使わず translate / scale / rotate を使う
+   （要素がもともと持っている transform とぶつからないように）。 */
+:root{--ease-out:cubic-bezier(0,0,.58,1);--ease-out-back:cubic-bezier(.45,1.45,.8,1)}
+
+/* 出てくる動き（data-appear）：見える前は下に 150px（data-appear-y）ずれて透明 */
+.js [data-appear]{opacity:0;translate:0 var(--appear-y,150px);
+  transition:opacity var(--appear-dur,0s) var(--ease-out),translate var(--appear-dur,0s) var(--ease-out),scale .3s var(--ease-out),rotate .3s var(--ease-out)}
+.js [data-appear].is-shown,.js [data-appear].is-static{opacity:1;translate:none}
+/* ページを開いたときに出る（data-appear-load）：透明から 1.8 秒で出るだけ */
+.js [data-appear-load]{opacity:0;transition:opacity 1.8s var(--ease-out)}
+.js [data-appear-load].is-shown{opacity:1}
+
+/* ホバー（マウスのときだけ。指で触れたときは動かさない＝今のサイトと同じ）。時間はどれも 0.3 秒 */
+.hv-scale,.hv-fade,.hv-turn,.hv-arrow img{transition:scale .3s var(--ease-out),rotate .3s var(--ease-out),translate .3s var(--ease-out),opacity .3s var(--ease-out)}
+.hv-arrow{overflow:hidden;border-radius:50%}
+@media (hover:hover){
+  .hv-scale:hover{scale:1.1}                 /* ボタン・カードの写真：1.1 倍 */
+  .hv-fade:hover{opacity:.5}                 /* フッター・メニューの文字リンク：半透明 */
+  .hv-turn:hover{rotate:90deg;scale:1.1}     /* メニューボタン：90°回って 1.1 倍 */
+  .hv-arrow:hover img{scale:1.3;translate:-6.94% 0} /* 丸い矢印ボタン：中身が 1.3 倍になり、矢印の向きへ 5/72 ずれる */
+  .hv-arrow--next:hover img{translate:6.94% 0}
+}
+@media (hover:hover) and (min-width:1200px){
+  .hv-scale-pc:hover{scale:1.1}              /* 今のサイトで PC 幅だけに付いているボタン */
+}
+.hv-scale-pc{transition:scale .3s var(--ease-out)}
+
+@media (prefers-reduced-motion:reduce){
+  .js [data-appear],.js [data-appear-load]{opacity:1!important;translate:none!important;transition:none!important}
+  .hv-scale,.hv-scale-pc,.hv-fade,.hv-turn,.hv-arrow img{transition:none}
+}
 
 /* ===== 共通ヘッダー（固定・ページの上に重なる） =====
    ロゴ：既定は青。<main data-header="dark"> のページは白（背景が青・写真のページ用）。 */
@@ -55,21 +88,22 @@ button{font:inherit;cursor:pointer}
 .site-header__logo-img--white{display:none}
 body:has(main[data-header="dark"]) .site-header__logo-img--blue,body.is-header-dark .site-header__logo-img--blue{display:none}
 body:has(main[data-header="dark"]) .site-header__logo-img--white,body.is-header-dark .site-header__logo-img--white{display:block}
-.site-header__menu{display:flex;align-items:center;justify-content:center;width:48px;height:48px;padding:0;border:0;border-radius:40px;background:var(--white)}
+.site-header__menu{display:flex;align-items:center;justify-content:center;width:48px;height:48px;padding:0;border:0;border-radius:40px;background:var(--white)}  /* ホバーは .hv-turn */
 .site-header__icon{width:24px;height:24px}
 .site-header__icon--close{display:none}
 .menu-open .site-header__icon--open{display:none}
 .menu-open .site-header__icon--close{display:block}
 @media (max-width:767px){.site-header{padding:16px}}
 
-/* ===== メニュー（開いた状態：右から出るパネル） ===== */
-.site-menu{position:fixed;inset:0;z-index:90;visibility:hidden;transition:visibility 0s linear .35s}
+/* ===== メニュー（開いた状態：右側のパネル）。今のサイトと同じく、その場で 0.15 秒（等速）でふっと切り替わる ===== */
+.site-menu{position:fixed;inset:0;z-index:90;visibility:hidden;transition:visibility 0s linear .15s}
 .menu-open .site-menu{visibility:visible;transition:none}
-.site-menu__panel{position:absolute;top:0;right:0;bottom:0;width:280px;overflow-y:auto;padding:168px 48px 48px;background:var(--green-10);box-shadow:-8px 0 24px rgba(0,40,60,.12);transform:translateX(100%);transition:transform .35s ease}
-.menu-open .site-menu__panel{transform:none}
+.site-menu__panel{position:absolute;top:0;right:0;bottom:0;width:280px;overflow-y:auto;padding:168px 48px 48px;background:var(--green-10);box-shadow:-8px 0 24px rgba(0,40,60,.12);opacity:0;transition:opacity .15s linear}
+.menu-open .site-menu__panel{opacity:1}
 .site-menu ul{list-style:none;margin:0;padding:0}
 .site-menu a{color:var(--blue-dark);text-decoration:none}
-.site-menu a:hover{opacity:.7}
+.site-menu a{transition:opacity .3s var(--ease-out)}
+@media (hover:hover){.site-menu a:hover{opacity:.5}}
 .site-menu__nav{display:flex;flex-direction:column;gap:24px}
 .site-menu__nav a{display:inline-block;font:400 34px/45px var(--font-en);letter-spacing:.1em}
 .site-menu__social{display:flex;gap:24px;margin-top:48px!important}
@@ -85,7 +119,8 @@ body:has(main[data-header="dark"]) .site-header__logo-img--white,body.is-header-
 /* ===== 共通フッター ===== */
 .site-footer{background:var(--green-10);color:var(--blue-dark);padding:64px 128px}
 .site-footer a{color:inherit;text-decoration:none}
-.site-footer a:hover{opacity:.7}
+.site-footer a:not(.site-footer__logo){transition:opacity .3s var(--ease-out)}
+@media (hover:hover){.site-footer a:not(.site-footer__logo):hover{opacity:.5}}  /* 今のサイト：0.3 秒で半透明（ロゴは変わらない） */
 .site-footer ul{list-style:none;margin:0;padding:0}
 .site-footer__inner{display:flex;flex-direction:column;gap:48px}
 .site-footer__top{display:flex;flex-wrap:wrap;row-gap:48px}

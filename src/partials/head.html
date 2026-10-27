@@ -12,9 +12,13 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="WATER LOOP PROJECT">
 <link rel="icon" href="/favicon.png">
+<!-- 動き：JSが動くときだけ「出てくる前」の状態で隠す。main.js が3秒たっても動かなければ隠すのをやめる（消えたままにしない保険） -->
+<script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.__motion)document.documentElement.classList.remove('js');},3000);</script>
+<!-- Manrope は今のサイトと同じファイルを自前で置く（src/fonts/、OFL）。Noto Sans JP / Zen Old Mincho は Google Fonts -->
+<link rel="preload" href="/fonts/Manrope-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/base.css">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6TF6ET18RQ"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6TF6ET18RQ');</script>

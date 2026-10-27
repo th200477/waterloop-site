@@ -1,19 +1,88 @@
-// 共通の動き：メニュー開閉、ふわっと出す。ページ固有の動きは js/pages/*.js に置く。
+// 共通の動き：今のサイト（Figma Sites）の動きの設定値をそのまま写したもの。メニュー開閉もここ。
+// ページ固有の動き（カルーセル・DOBADOBA の拡大・流れる文字など）は js/pages/*.js に置く。
+//
+// HTML への書き方
+//   data-appear="0.7"        画面に入ったら下から出てくる。数字は時間（秒）。イージングは ease-out（CSS の --ease-out）
+//     data-appear-y="50"     出てくる前のずれ（px）。省略すると 150
+//     data-appear-replay     画面の外に出たら元に戻り、また入ると出直す（今のサイトの「1回だけ再生」がオフのもの）
+//     data-appear-exit="0.6" 外に出たときの戻りの時間（秒）。省略すると 0.6
+//     data-appear-media="(min-width:1200px)"  この幅のときだけ動かす（ほかの幅では最初から見えている）
+//   data-appear-load         ページを開いたときに 1.8 秒かけて透明から出る
+//   data-parallax="1.05"     スクロールに合わせて縦にずれる。ずれ = スクロール量 ×（1 − 数字）。1 より大きいと上へ、小さいと下へ
+//     data-parallax-media="(min-width:1200px)"  この幅のときだけ
+// 「画面に入った」は今のサイトと同じく、ずれた位置の要素が 1px でも見えたとき（IntersectionObserver、しきい値 0）。
+// prefers-reduced-motion のときは何も動かさない（最初から見えている）。
 (function(){
-  var io=('IntersectionObserver' in window)?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -10% 0px'}):null;
-  document.querySelectorAll('.reveal').forEach(function(el){io?io.observe(el):el.classList.add('is-in');});
-  // 速くスクロールして通り過ぎたものも出しておく
-  if(io){
-    var t=false;
-    window.addEventListener('scroll',function(){
-      if(t) return; t=true;
-      requestAnimationFrame(function(){
-        t=false;
-        document.querySelectorAll('.reveal:not(.is-in)').forEach(function(el){
-          if(el.getBoundingClientRect().top<window.innerHeight){el.classList.add('is-in');io.unobserve(el);}
-        });
-      });
-    },{passive:true});
+  window.__motion=true;
+  var root=document.documentElement;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasIO='IntersectionObserver' in window;
+  function mq(q){return !q||!window.matchMedia||window.matchMedia(q).matches;}
+
+  // ---- ページを開いたときに出る ----
+  var loads=document.querySelectorAll('[data-appear-load]');
+  requestAnimationFrame(function(){requestAnimationFrame(function(){
+    for(var i=0;i<loads.length;i++) loads[i].classList.add('is-shown');
+  });});
+
+  // ---- 画面に入ったら出てくる ----
+  var items=[].slice.call(document.querySelectorAll('[data-appear]'));
+  if(reduce||!hasIO){ items.forEach(function(el){el.classList.add('is-static');}); }
+  else {
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ var st=e.target.__ap; if(st) (e.isIntersecting?st.enter:st.leave)(); });
+    });
+    items.forEach(function(el){
+      var dur=parseFloat(el.getAttribute('data-appear'))||0.6;
+      var exitDur=parseFloat(el.getAttribute('data-appear-exit'));if(isNaN(exitDur))exitDur=0.6;
+      var replay=el.hasAttribute('data-appear-replay');
+      var media=el.getAttribute('data-appear-media');
+      var y=el.getAttribute('data-appear-y'); if(y!==null) el.style.setProperty('--appear-y',y+'px');
+      var visible=false, busy=false, timer=null;
+      function show(){
+        busy=true; el.style.setProperty('--appear-dur',dur+'s'); el.classList.add('is-shown');
+        if(!replay){ io.unobserve(el); return; }
+        timer=setTimeout(function(){ busy=false; if(!visible) hide(); }, dur*1000);
+      }
+      function hide(){
+        // 外に出たら：「出たあとの状態」（見た目は同じ）へ exitDur 秒 → 一瞬で出る前の状態に戻す
+        busy=true;
+        timer=setTimeout(function(){
+          el.style.setProperty('--appear-dur','0s'); el.classList.remove('is-shown');
+          void el.offsetWidth; busy=false;
+          if(visible) show();
+        }, exitDur*1000);
+      }
+      el.__ap={
+        enter:function(){ visible=true; if(!busy&&!el.classList.contains('is-shown')) show(); },
+        leave:function(){ visible=false; if(replay&&!busy&&el.classList.contains('is-shown')) hide(); }
+      };
+      function setup(){
+        clearTimeout(timer); busy=false; visible=false; io.unobserve(el);
+        if(mq(media)){ el.classList.remove('is-static'); if(!el.classList.contains('is-shown')||replay){ io.observe(el); } }
+        else { el.classList.add('is-static'); }
+      }
+      setup();
+      if(media&&window.matchMedia){ var m=window.matchMedia(media); var on=function(){ el.classList.remove('is-shown'); setup(); }; m.addEventListener?m.addEventListener('change',on):m.addListener(on); }
+    });
+  }
+
+  // ---- パララックス ----
+  var plx=[].slice.call(document.querySelectorAll('[data-parallax]'));
+  if(plx.length&&!reduce){
+    var ticking=false;
+    var upd=function(){
+      ticking=false;
+      var sy=window.pageYOffset||root.scrollTop||0;
+      for(var i=0;i<plx.length;i++){
+        var el=plx[i], sp=parseFloat(el.getAttribute('data-parallax'));
+        if(!mq(el.getAttribute('data-parallax-media'))){ el.style.translate=''; continue; }
+        el.style.translate='0 '+(sy*(1-sp)).toFixed(2)+'px';
+      }
+    };
+    window.addEventListener('scroll',function(){ if(!ticking){ticking=true;requestAnimationFrame(upd);} },{passive:true});
+    window.addEventListener('resize',upd);
+    upd();
   }
 })();
 
