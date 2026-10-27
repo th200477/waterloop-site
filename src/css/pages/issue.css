@@ -16,7 +16,7 @@
 /* 小見出し・本文 */
 /* 見出しは青、本文は濃い青（--text-on-light） */
 .iss-heading__title,.iss-h3,.iss-scope__title{color:var(--blue)}
-.iss-label{font:var(--type-text-en);letter-spacing:var(--ls-text-en);color:var(--label);margin:0 0 var(--gap-label-heading)}  /* 英字ラベル：Text no_EN/Regular（PC・スマホ同じ） */
+.iss-label{font:400 14px/20px var(--font-en);letter-spacing:var(--ls-text-en);color:var(--label);margin:0}  /* 英字ラベル。PC・タブレット：宮地さん指定で Text no_EN（18）から 4px 小さく、和文見出しとの間は元の約半分（見た目 約23 → 約11px）。スマホは下で 18px */
 .iss-h3{font:var(--type-h2-jp);letter-spacing:var(--ls-h2-jp);margin:0 0 var(--gap-heading-body)}
 .iss-body p{font:var(--type-text-jp);letter-spacing:var(--ls-text-jp)}
 .iss-sec{padding:96px var(--pad) 0}
@@ -93,21 +93,22 @@
 
 /* ===== スマホ ===== */
 @media (max-width:799px){
-  .iss{--pad:32px}
+  .iss{--pad:24px}  /* 左右の余白（32 → 24） */
+  .iss-label{font:var(--type-text-en);letter-spacing:var(--ls-text-en);margin-bottom:0}  /* スマホは 18px のまま、和文見出しとの間だけ詰める（8 → 0） */
   .iss-heading__title{font-size:48px;line-height:62px}
   .iss-sec{padding-top:64px}
-  .iss-h3{font-size:22px;line-height:33px}
+  .iss-h3{font-size:22px;line-height:33px;margin-bottom:var(--s16)}  /* 見出し → 本文 24 → 16 */
   .iss-about{flex-direction:column;align-items:stretch;gap:32px}
   .iss .iss-about__map{flex:none;width:100%;height:auto;aspect-ratio:311/348}
   .iss-context__fig img{aspect-ratio:311/820}
   .iss-scope__list{row-gap:48px}
-  .iss-scope__item{display:block;width:320px}
+  .iss-scope__item{display:block;width:auto}  /* 幅 320 固定をやめ、左右の余白を均等に */
   .iss-scope__photo img{aspect-ratio:320/304}
-  .iss-scope__title{margin:32px 0 24px}
+  .iss-scope__title{margin:32px 0 var(--s16)}
   .iss-approach{padding-top:48px}
   .iss-approach__list{margin-top:var(--s64);gap:96px}
-  .iss-approach__item{flex-direction:column;align-items:stretch;gap:32px;width:320px}
-  .iss-approach__item>img{flex:none;width:320px}
+  .iss-approach__item{flex-direction:column;align-items:stretch;gap:32px;width:auto}
+  .iss-approach__item>img{flex:none;width:100%}
   .iss-photo--mural{margin-top:var(--s160)}
   .iss-people{padding-top:48px}
   .iss-people__list{grid-template-columns:1fr;row-gap:48px;margin-top:64px;padding:0 24px}

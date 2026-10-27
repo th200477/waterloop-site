@@ -5,7 +5,7 @@
 
 /* セクション見出し（英字＋波線＋説明） */
 .home .home-title{padding:0 64px}
-@media (max-width:799px){.home .home-title{padding:0 32px}.home .news .home-title{padding:0 64px}}
+@media (max-width:799px){.home .home-title{padding:0 24px}.home .news .home-title{padding:0 64px}}  /* スマホ：左右 32 → 24（コラムの一覧と同じ） */
 .home-title__head{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
 .home-title h2{color:inherit}
 .home-title--dark{color:var(--text-on-light)}
@@ -25,6 +25,13 @@
 .hero-play__icon{position:relative;width:48px;height:48px}
 .hero-play:focus-visible{outline:2px solid var(--white);outline-offset:-40px;border-radius:50%}
 @keyframes hero-spin{to{transform:rotate(360deg)}}
+/* PC：宮地さん指定でコピーを約120%に（48 → 58px。行送り・縦組みの枠も同じ比率） */
+@media (min-width:1280px){
+  .hero__copy{font-size:58px;line-height:77px}
+  .hero__copy-v{width:58px;padding-bottom:7px}
+  .hero__copy-v span{height:77px}
+  .hero__copy-h{line-height:84px}
+}
 
 @media (max-width:1279px){
   .hero{height:1030px}
@@ -61,7 +68,7 @@
   .intro__inner{flex-direction:column;gap:64px}
 }
 @media (max-width:799px){
-  .intro{padding:192px 32px}
+  .intro{padding:192px 16px}  /* 左右 32 → 16：「WATER LOOP PROJECTとは？」（約334px）を375幅で1行に */
   .intro__visual,.intro__content{width:100%}
 }
 
@@ -109,7 +116,7 @@
 }
 @media (max-width:799px){
   .columns__blog>.home-more{margin:0 0 96px}
-  .dobadoba{top:-60px}
+  .dobadoba{top:-112px}  /* 1.1 倍になっても COLUMNS の見出しにかからない高さ（以前は -60 で重なっていた） */
 }
 
 /* WATER LOOP の流れる文字 */

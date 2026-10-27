@@ -38,12 +38,13 @@
 @media (max-width:799px){
   .pl{padding-bottom:var(--s64)}  /* スマホは最後のカードからフッターまでが短い（今のサイトは 63） */
   .pl-br-sp{display:inline}
-  .pl-list{margin-top:97px;gap:96px}
+  .pl-list{margin-top:var(--s48);gap:var(--s64)}  /* 見出し → カード 97 → 48、カード同士 96 → 64 */
   .pl-card,.pl-card--even{height:auto}
-  .pl-card__media{position:relative;height:440px}
-  .pl-card__num{top:31px;font-size:80px;line-height:120px;letter-spacing:.01em}
-  .pl-card__tag{top:175px}
-  .pl-card__cap,.pl-card--even .pl-card__cap{position:relative;width:348px;max-width:calc(100% - 27px);margin-top:-51px;display:block;padding:32px 16px 0 32px}
+  .pl-card__media{position:relative;height:352px}  /* 写真を横長に：440 の 80% */
+  .pl-card__num{top:16px;font-size:80px;line-height:120px;letter-spacing:.01em}
+  .pl-card__tag{top:120px}  /* 写真が低くなった分、縦のラベルが下の枠に隠れないよう番号の下に寄せる */
+  .pl-card__cap,.pl-card--even .pl-card__cap{position:relative;width:348px;max-width:calc(100% - 27px);margin-top:calc(-1 * var(--radius-max));display:block;padding:var(--s24) var(--s16) 0 var(--s24)}  /* 枠の端 → 文字 32 → 24 */
+  .pl-card__title{margin-bottom:var(--s4)}
   .pl-card__desc{margin-top:0}
-  .pl-btn{margin-top:32px}
+  .pl-btn{margin-top:var(--s16);height:40px;min-width:128px}  /* More を少し小さく（48×160 → 40×128） */
 }

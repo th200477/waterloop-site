@@ -36,6 +36,8 @@
 .news-cards--top{width:calc(100% - 640px);max-width:800px;margin:0 auto}  /* PC：今のサイトと同じく左右に最低 320px、幅は最大 800px（1280幅で640px、1440幅以上で800px） */
 .news-cards--top .news-card__body{gap:24px;padding-top:0}
 .news-cards--top .news-card__title{display:block;height:auto}
+/* PC・タブレット：宮地さん指定で見出しを Headline 3_JP/Regular（22）から 4px 小さく（トップ・一覧共通） */
+@media (min-width:800px){.news-card__title{font-size:18px;line-height:28px}}
 @media (max-width:1279px){
   .news-cards--top{width:100%;max-width:none;padding:0 96px}
   .news-cards--page .news-card__body{padding-top:0}
@@ -51,4 +53,8 @@
   .news-cards--page .news-card__title{height:118px}
   .news-card__title{font:var(--type-text-jp);letter-spacing:var(--ls-text-jp)}
   .news-cards--top .news-card__body{gap:8px}
+  /* 一覧ページ（スマホ）：写真・見出し・日付の間を大きく詰める（見出しの高さ固定 118 をやめる） */
+  .news-cards--page .news-card__row{gap:var(--s12)}
+  .news-cards--page .news-card__body{gap:var(--s4)}
+  .news-cards--page .news-card__title{display:block;height:auto;line-height:28px}
 }

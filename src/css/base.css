@@ -206,6 +206,7 @@ body:has(main[data-header="dark"]) .site-header__logo-img--white,body.is-header-
 .site-footer__top{display:flex;flex-wrap:wrap;row-gap:48px}
 .site-footer__logo{display:block;width:240px;min-width:240px}
 .site-footer__logo img{width:130px;height:154px}
+.site-footer__logo .site-footer__logo-h{display:none}  /* 横組みロゴ（ヘッダーと同じ青ロゴ）はスマホだけ */
 .site-footer__body{flex:1 0 0;min-width:240px;display:flex;flex-direction:column;gap:24px}
 .site-footer__links{display:flex;flex-wrap:wrap;gap:48px}
 .site-footer__col{display:flex;flex-direction:column;gap:16px;white-space:nowrap}
@@ -218,8 +219,18 @@ body:has(main[data-header="dark"]) .site-header__logo-img--white,body.is-header-
 .site-footer__copy{font:var(--type-sm-en);letter-spacing:var(--ls-sm-en)}
 @media (max-width:1279px){.site-footer{padding:64px}.site-footer__vision{font-size:64px;letter-spacing:12.8px}}
 @media (max-width:799px){
-  .site-footer{padding:64px 32px}
+  .site-footer{padding:var(--s32)}  /* 上下 64 → 32（コピーライトの下も 1/2） */
   .site-footer__vision{font-size:44px;line-height:64px;letter-spacing:8.8px}
+  /* スマホ：宮地さん指定で横組みロゴにし、各部の間・リンク同士の間を 1/2 に */
+  .site-footer__logo{width:auto;min-width:0}
+  .site-footer__logo .site-footer__logo-v{display:none}
+  .site-footer__logo .site-footer__logo-h{display:block;width:168px;height:auto}
+  .site-footer__inner{gap:var(--s24)}
+  .site-footer__top{row-gap:var(--s24)}
+  .site-footer__body{gap:var(--s12)}
+  .site-footer__links{gap:var(--s24)}
+  .site-footer__col{gap:var(--s8)}
+  .site-footer__info{gap:var(--s16)}
 }
 
 /* フッターの地の色：今のサイトと同じく、/issue・プロジェクト詳細・コラム記事だけ白 */

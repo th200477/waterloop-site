@@ -9,6 +9,7 @@
 .rt-space--h2,.rt-space--h3{height:36px}
 .rt h2,.rt h3{font:var(--type-article-h);letter-spacing:var(--ls-article-h);white-space:pre-wrap}
 .rt h3.rt-en,.rt h2.rt-en{font:700 18px/24px var(--font-en);letter-spacing:.16em}
+.rt :is(h2,h3,h4):not(.rt-en)+:is(p,ul,ol):not(.rt-space){margin-top:var(--s16)}  /* 見出しのすぐ下の本文との間（宮地さん指定で少し空ける）。スマホは 12 */
 .rt h4{font:var(--type-h3-jp);letter-spacing:var(--ls-h3-jp);white-space:pre-wrap}  /* Headline 3_JP/Bold（今のサイトは Inter だった） */
 .rt ul,.rt ol{padding:0;margin-left:24px}
 .rt li{white-space:pre-wrap}
@@ -18,7 +19,9 @@
 
 /* --- 共通の枠 --- */
 .article__title{font:var(--type-h1-jp);letter-spacing:var(--ls-h1-jp)}
-.article__head .article__inner{display:flex;flex-direction:column;gap:24px}
+.article__head{padding-top:var(--page-top)}  /* コラム・お知らせ共通（お知らせもコラムに合わせる） */
+.article__head .article__inner{display:flex;flex-direction:column;gap:var(--s8)}  /* タイトル → 日付 */
+.article__lead{margin-top:var(--s24)}  /* 日付 → 写真（写真 → 人名と同じ 24）。スマホは 16 */
 .article__hero{margin:0;overflow:hidden}
 .article__hero img{width:100%;height:100%;object-fit:cover}
 .article__more{display:flex;justify-content:center}
@@ -28,9 +31,8 @@
 /* --- コラム：薄い緑の地、文字は濃い青 --- */
 .article--column{background:var(--green-10);color:var(--text-on-light)}
 .article--column .article__inner{padding:0 max(160px,calc(50% - 480px))}  /* 今のサイト：本文の箱は幅 960px。広い画面でも 960px のまま中央に置く */
-.article--column .article__head{padding-top:var(--page-top)}
 .article--column .article__date{font:var(--type-sm-en);letter-spacing:var(--ls-sm-en);color:var(--date-on-light)}
-.article--column .article__lead{margin-top:64px}
+@media (min-width:1280px){.article--column .article__date{font-size:9px}}  /* PC：宮地さん指定で Text sm_EN（13）より 4px 小さく */
 .article--column .article__lead .article__inner{display:flex;flex-direction:column;gap:24px}
 .article--column .article__hero{aspect-ratio:16/9}
 .article--column .article__body{margin-top:var(--s64);padding-bottom:var(--s128)}  /* More の下（今のサイトは PC 128／タブレット 112／スマホ 114。段にそろえて 128） */
@@ -38,20 +40,18 @@
 @media (max-width:1279px){
   .article--column .article__inner{padding:0 64px}
   .article--column .article__title{font-size:32px;line-height:48px}
-  .article--column .article__lead,.article--column .article__body{margin-top:48px}
+  .article--column .article__body{margin-top:48px}
 }
 @media (max-width:799px){
   .article--column .article__inner{padding:0 32px}
-  .article--column .article__head .article__inner{gap:12px}
+  .article--column .article__lead .article__inner{gap:var(--s16)}  /* 写真 → 人名 */
 }
 
 /* --- お知らせ：白地、文字は黒 --- */
 .article--news{background:var(--white);color:var(--text-on-light)}
-.article--news .article__head{padding-top:128px}
 .article--news .article__head .article__inner{padding:0 max(160px,calc(50% - 480px))}  /* 見出し・写真は幅 960px、本文は 800px の箱を中央に（今のサイトと同じ） */
 .article--news .article__title{font-size:32px;line-height:48px}
 .article--news .article__date{font:var(--type-sm-en);letter-spacing:var(--ls-sm-en);color:var(--date-on-light)}
-.article--news .article__lead{margin-top:32px}
 .article--news .article__lead .article__inner{padding:0 max(160px,calc(50% - 480px))}
 .article--news .article__hero{aspect-ratio:3/2}
 .article--news .article__body .article__inner{padding:var(--s64) max(240px,calc(50% - 400px))}
@@ -61,8 +61,15 @@
   .article--news .article__body .article__inner{padding:64px 96px}
 }
 @media (max-width:799px){
-  .article--news .article__head .article__inner{padding:0 32px;gap:12px}
-  .article--news .article__title{font-size:22px;line-height:33px}
+  .article--news .article__head .article__inner{padding:0 32px}
   .article--news .article__lead .article__inner{padding:0 24px}
-  .article--news .article__body .article__inner{padding:var(--s48) 24px}
+  .article--news .article__body .article__inner{padding:var(--s16) 24px var(--s48)}  /* 写真 → 本文を近づける */
+}
+
+/* --- スマホ：コラム・お知らせで、タイトルと本文中の見出しを同じ大きさ（Headline 3_JP/Bold 22/33）にそろえる --- */
+@media (max-width:799px){
+  .article__title,.article--column .article__title,.article--news .article__title{font:var(--type-h3-jp);letter-spacing:var(--ls-h3-jp)}
+  .rt h2:not(.rt-en),.rt h3:not(.rt-en){font:var(--type-h3-jp);letter-spacing:var(--ls-h3-jp)}
+  .rt :is(h2,h3,h4):not(.rt-en)+:is(p,ul,ol):not(.rt-space){margin-top:var(--s12)}
+  .article__lead{margin-top:var(--s16)}
 }
