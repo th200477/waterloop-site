@@ -29,7 +29,7 @@
 .pj-video iframe{display:block;width:100%;height:100%;border:0}
 
 .pj-rows{margin-top:32px;border-bottom:1px solid rgba(0,122,170,.5)}
-.pj-row{display:grid;grid-template-columns:104px 1fr;column-gap:24px;padding:32px 0;border-top:1px solid rgba(0,122,170,.5)}
+.pj-row{display:grid;grid-template-columns:104px 1fr;column-gap:24px;padding:31px 0 32px;border-top:1px solid rgba(0,122,170,.5)}
 .pj-row__label{font:400 18px/32px var(--font-en);letter-spacing:.02em;color:rgba(0,122,170,.5)}
 .pj-row__body{min-width:0}
 .pj-row__body>p{font:400 16px/32px var(--font-jp);letter-spacing:.005em}
@@ -37,14 +37,14 @@
 .pj-scope{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:16px}
 .pj-scope li{border:1px solid currentColor;border-radius:8px;padding:0 15px;font:400 16px/30px var(--font-jp);letter-spacing:.005em}
 
-.pj-figure{width:100%;height:auto;object-fit:cover}
-.pj-figure--partners{margin-top:16px}
+.pj-figure{display:block;margin:var(--mt,0) 0 var(--mb,0)}
+.pj-figure img{width:100%;height:auto;aspect-ratio:var(--ar);object-fit:cover}
 
 .pj-partner{padding-bottom:8px}
 .pj-partner+.pj-partner{margin-top:24px}
 .pj-partner__name{font:700 16px/32px var(--font-jp);letter-spacing:.005em}
 .pj-partner__text{margin-top:4px;font:400 14px/22px var(--font-jp);letter-spacing:.01em}
-.pj-partner__links{display:flex;flex-wrap:wrap;gap:16px;margin-top:14px}
+.pj-partner__links{display:flex;flex-wrap:wrap;gap:16px;margin-top:12px}
 .pj-partner__links a,.pj-partner__links span{display:flex;align-items:center;justify-content:center;width:20px;height:20px}
 .pj-partner__links img{max-width:20px;max-height:20px;width:auto;height:auto}
 .pj-partner__links a:hover{opacity:.6}
@@ -76,7 +76,11 @@
   .pj-body{padding:44px 32px 0}
   .pj-head{display:block}
   .pj-head__title{flex-direction:column;gap:8px}
-  .pj-head__tag{display:inline-block;margin-top:11px}
-  .pj-head__lead{margin-top:17px;font-size:22px;line-height:33px}
+  .pj-head__tag{display:inline-block;margin-top:8px}
+  .pj-head__lead{margin-top:16px;font-size:22px;line-height:33px}
+  .pj-head__name{white-space:nowrap}
+  .pj-scope{gap:8px}
+  .pj-figure{width:var(--sp-w);max-width:none;margin-left:calc(50% - var(--sp-w) / 2)}
+  .pj-figure img{aspect-ratio:var(--sp-ar)}
   .pj-row{grid-template-columns:1fr;row-gap:12px}
 }
