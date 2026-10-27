@@ -2,6 +2,19 @@
 (function(){
   var io=('IntersectionObserver' in window)?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -10% 0px'}):null;
   document.querySelectorAll('.reveal').forEach(function(el){io?io.observe(el):el.classList.add('is-in');});
+  // 速くスクロールして通り過ぎたものも出しておく
+  if(io){
+    var t=false;
+    window.addEventListener('scroll',function(){
+      if(t) return; t=true;
+      requestAnimationFrame(function(){
+        t=false;
+        document.querySelectorAll('.reveal:not(.is-in)').forEach(function(el){
+          if(el.getBoundingClientRect().top<window.innerHeight){el.classList.add('is-in');io.unobserve(el);}
+        });
+      });
+    },{passive:true});
+  }
 })();
 
 // ヘッダーのロゴ色：<main data-header="dark"> なら白ロゴ（:has() が使えないブラウザ向けの保険）

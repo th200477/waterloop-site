@@ -22,7 +22,7 @@
   form.addEventListener('submit',function(e){
     if(!window.fetch||!window.FormData) return; // 古いブラウザは通常のPOST
     e.preventDefault();
-    var thanks=form.getAttribute('data-thanks')||'/contact/thanks';
+    var thanks=(window.__BASE__||'')+(form.getAttribute('data-thanks')||'/contact/thanks');
     var bot=form.querySelector('[name=bot-field]');
     if(bot&&bot.value){ location.href=thanks; return; } // ボットらしい送信は送らない
     var endpoint=form.getAttribute('action')||'';

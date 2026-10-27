@@ -26,7 +26,7 @@ body:has(main.fam) > .site-footer{display:none}
 .fam-hero{position:relative;height:800px}
 .fam-hero__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .fam-hero__catch{position:absolute;top:212px;left:50%;transform:translateX(-50%);display:flex;flex-direction:row-reverse;align-items:flex-start;gap:40px}
-.fam-hero__catch span{writing-mode:vertical-rl;text-orientation:upright;background:var(--white);padding:8px 2px;width:36px;font:600 28px/32px "Noto Serif JP",var(--font-mincho);letter-spacing:8px;color:var(--blue-dark)}
+.fam-hero__catch span{display:block;background:var(--white);padding:8px 2px;width:36px;font:600 28px/36px "Noto Serif JP",var(--font-mincho);text-align:center;word-break:break-all;line-break:anywhere;color:var(--blue-dark)}
 
 .fam-intro{position:relative;margin:-100px 96px 0;padding:64px 96px 32px;background:var(--green-10);border-radius:32px 32px 0 0;display:flex;flex-direction:column}
 .fam-intro__logo{width:139px;height:40px;object-fit:contain}
@@ -36,7 +36,7 @@ body:has(main.fam) > .site-footer{display:none}
 .fam-intro .fam-btn{align-self:center;margin-top:24px}
 
 /* Insight（枠つきボックス） */
-.fam-insight{margin:0 96px;padding:96px 0 48px;border:8px solid var(--line);border-top:0;--inset:64px}
+.fam-insight{margin:0 96px;padding:96px 0 48px;border:8px solid var(--line);border-top:0;--inset:56px}
 .fam-insight > .fam-title{padding-bottom:48px}
 .fam-topic{margin:0 var(--inset);padding:48px 0;border-top:2px solid var(--line)}
 .fam-topic:last-child{padding-bottom:0}
@@ -54,7 +54,7 @@ body:has(main.fam) > .site-footer{display:none}
 .fam-issue{display:flex;flex-direction:column;gap:32px}
 .fam-issue__img{position:relative;height:280px;overflow:hidden}
 .fam-issue__img img{width:100%;height:100%;object-fit:cover}
-.fam-issue__badge{position:absolute;top:50%;left:50%;width:120px;height:120px;margin:-60px 0 0 -60px;border:1px solid var(--white);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--white)}
+.fam-issue__badge{position:absolute;top:50%;left:50%;width:120px;height:120px;transform:translate(-50%,-50%);border:1px solid var(--white);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--white)}
 .fam-issue__badge span:first-child{font:500 40px/32px var(--font-jp);letter-spacing:.005em}
 .fam-issue__badge span:last-child{font:500 16px/32px var(--font-jp);letter-spacing:.05em;margin-top:4px}
 .fam-issue__body{display:flex;flex-direction:column;gap:12px}
@@ -79,8 +79,8 @@ body:has(main.fam) > .site-footer{display:none}
 .fam-carousel__viewport{overflow:hidden}
 .fam-carousel__track{display:flex;transition:transform .5s ease}
 .fam-slide{flex:0 0 100%;display:flex;background:var(--green-10);min-height:824px}
-.fam-slide__label{flex:0 0 80px;display:flex;align-items:center;justify-content:center;writing-mode:vertical-rl;font:700 16px/32px var(--font-jp);letter-spacing:.005em}
-.fam-slide__label--en{font:700 18px/32px var(--font-en);letter-spacing:.02em}
+.fam-slide__label{flex:0 0 80px;align-self:center;padding:0 24px;font:700 16px/32px var(--font-jp);letter-spacing:.005em;text-align:center;word-break:break-all;line-break:anywhere}
+.fam-slide__label--en{font:700 18px/32px var(--font-en);letter-spacing:.02em;writing-mode:vertical-rl;padding:0;display:flex;justify-content:center}
 .fam-slide__main{flex:1;min-width:0;padding:64px 48px 64px 0}
 .fam-slide__head{display:flex;align-items:baseline;gap:24px;padding-right:200px}
 .fam-slide__num{font:700 34px/45px var(--font-en);letter-spacing:.1em}
@@ -99,7 +99,7 @@ body:has(main.fam) > .site-footer{display:none}
 
 /* タイムライン */
 .fam-timeline{padding:96px 64px}
-.fam-days{margin-top:64px}
+.fam .fam-days{margin-top:64px}
 .fam-day{display:grid;grid-template-columns:528px 1fr 528px;grid-template-areas:"img line body";justify-content:center;max-width:1152px;margin:0 auto;padding:0}
 .fam-day--rev{grid-template-areas:"body line img"}
 .fam-day__img{grid-area:img;padding:32px 0 48px}
@@ -147,7 +147,7 @@ body:has(main.fam) > .site-footer{display:none}
   .fam-intro{margin:-100px 32px 0;padding:64px 48px 32px}
   .fam-intro__logo{width:111px;height:32px}
   .fam-intro__title{font-size:42px;letter-spacing:.05em}
-  .fam-insight{margin:0 32px;--inset:48px}
+  .fam-insight{margin:0 32px;--inset:40px}
   .fam-topic--about{flex-direction:column;align-items:stretch;gap:48px}
   .fam-topic__map{width:328px;height:364px;align-self:center}
   .fam-topic__diagram img{width:700px;height:460px;max-width:calc(100vw - 100px)}
@@ -180,13 +180,13 @@ body:has(main.fam) > .site-footer{display:none}
 @media (max-width:767px){
   .fam-float{right:16px;width:112px}
   .fam-hero{height:560px}
-  .fam-hero__catch span{font-size:20px;line-height:28px;letter-spacing:8px;width:36px;padding:8px 4px}
+  .fam-hero__catch span{font-size:20px;line-height:28px;width:36px;padding:8px 2px}
   .fam-hero__catch{gap:24px}
   .fam-intro{margin:-100px 12px 0;padding:48px 24px 32px}
   .fam-intro__title{font-size:30px;line-height:44px;letter-spacing:.05em}
   .fam-intro__date{font-size:22px;line-height:36px;margin-top:21px !important}
   .fam-sp-br::before{content:"";display:block}
-  .fam-insight{margin:0 12px;--inset:24px}
+  .fam-insight{margin:0 12px;--inset:16px}
   .fam-title h2{font-size:32px;line-height:48px}
   .fam-title h2 span{display:block}
   .fam-topic__title{font-size:22px;line-height:33px;margin-top:12px !important}
@@ -206,8 +206,8 @@ body:has(main.fam) > .site-footer{display:none}
   .fam-carousel{max-width:352px}
   .fam-carousel__nav{order:2;align-self:center;margin:12px 0 0}
   .fam-slide{flex-direction:column;min-height:600px;padding:24px}
-  .fam-slide__label{flex:none;writing-mode:horizontal-tb;justify-content:flex-start;font-size:14px;line-height:22px}
-  .fam-slide__label--en{font-size:14px;line-height:22px}
+  .fam-slide__label{flex:none;align-self:flex-start;padding:0;text-align:left;word-break:normal;line-break:auto;font-size:14px;line-height:22px}
+  .fam-slide__label--en{writing-mode:horizontal-tb;font-size:14px;line-height:22px}
   .fam-slide__main{padding:16px 0 0}
   .fam-slide__head{gap:16px}
   .fam-slide__num{font-size:26px;line-height:33px}

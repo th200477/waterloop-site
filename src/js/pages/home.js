@@ -9,7 +9,7 @@
     if(!hv||!wide.matches||hv.dataset.loaded) return;
     hv.dataset.loaded='1';
     [['webm','video/webm'],['mp4','video/mp4']].forEach(function(t){
-      var s=document.createElement('source');s.src=hv.dataset['src'+t[0].charAt(0).toUpperCase()+t[0].slice(1)];s.type=t[1];hv.appendChild(s);
+      var s=document.createElement('source');s.src=(window.__BASE__||'')+hv.dataset['src'+t[0].charAt(0).toUpperCase()+t[0].slice(1)];s.type=t[1];hv.appendChild(s);
     });
     hv.load();
     if(!reduce){var p=hv.play();if(p&&p.catch)p.catch(function(){});}
