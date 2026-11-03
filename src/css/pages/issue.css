@@ -58,6 +58,39 @@
 .iss-approach__text{flex:1;min-width:0}
 .iss-photo--mural{margin-top:var(--s160)}
 
+/* WATER LOOP：保全・活用・還元の循環（APPROACH の中、3つの項目の下） */
+.iss-loop{padding-top:var(--s160)}
+.iss-loop__br{display:none}
+.iss-loop__def,.iss-loop__body,.iss-loop .iss-body p{word-break:auto-phrase}
+.iss-loop__wrap{display:flex;align-items:center;gap:80px;margin-top:64px}
+.iss-loop__fig{flex:0 0 440px;margin:0;display:flex;flex-direction:column;align-items:center;gap:20px}
+.iss-loop__svg{width:100%;height:auto;display:block}
+.iss-loop__svg text{font-family:var(--font-jp)}
+.iss-loop__svg .en{font-family:var(--font-en)}
+.iss-loop__copy{font:400 24px/1.6 var(--font-mincho);letter-spacing:var(--ls-vision);color:var(--blue)}
+.iss-loop__list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:48px;flex:1;min-width:0}
+.iss-loop__item{display:flex;gap:24px;align-items:flex-start}
+.iss-loop__icon{flex:none;width:64px;height:64px}
+.iss-loop__name{margin:0;font:var(--type-h3-jp);letter-spacing:var(--ls-h3-jp);color:var(--blue);display:flex;align-items:baseline;gap:12px}
+.iss-loop__name span{font:400 12px/1 var(--font-en);letter-spacing:.16em;color:var(--label)}
+.iss-loop__def{margin:8px 0 0;font:var(--type-text-jp);letter-spacing:var(--ls-text-jp);font-weight:700}
+.iss-loop__body{margin:4px 0 0;font:var(--type-sm-jp);letter-spacing:var(--ls-sm-jp)}
+@media (max-width:1279px){
+  .iss-loop__wrap{flex-direction:column;align-items:stretch;gap:56px}
+  .iss-loop__fig{flex:none;width:min(440px,100%);margin:0 auto}
+}
+@media (max-width:799px){
+  .iss-loop{padding-top:96px}
+  .iss-loop__br{display:inline}
+  .iss-loop__def{font-size:15px;line-height:1.7}
+  .iss-loop__wrap{margin-top:40px;gap:40px}
+  .iss-loop__copy{font-size:19px;letter-spacing:.12em}
+  .iss-loop__fig{gap:14px}
+  .iss-loop__list{gap:36px}
+  .iss-loop__item{gap:16px}
+  .iss-loop__icon{width:48px;height:48px}
+}
+
 /* PEOPLE */
 .iss-people{padding-top:160px}
 .iss-people__list{list-style:none;margin:96px 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:48px;row-gap:48px}
