@@ -36,7 +36,7 @@ function doPost(e) {
   ].filter(String).join('\n');
 
   // 1) info への通知（返信すると相手に届く）
-  MailApp.sendEmail({ to: INFO, subject: '【お問い合わせ】' + v.type + '｜' + v.name + '様', replyTo: v.email, name: 'waterloop.jp フォーム',
+  MailApp.sendEmail({ to: INFO, subject: '【お問い合わせ】' + v.type + '｜' + v.name + '様', replyTo: v.email, name: FROM_NAME,
     body: 'waterloop.jp のフォームから問い合わせが届きました。\nこのメールに返信すると、' + v.name + '様に届きます。\n\n' + summary + '\n\n送信元ページ：' + v.page });
 
   // 2) 相手への自動返信（このスクリプトは info の Google アカウントで動くので、差出人は info になる）
