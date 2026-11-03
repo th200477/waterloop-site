@@ -1,0 +1,58 @@
+/* /contact のオリジナルフォーム（入力 → 確認 → 送信完了） */
+.contact{min-height:0}
+.contact .legal__body{margin-top:96px}
+
+.cf-steps{display:flex;justify-content:center;gap:8px;max-width:560px;margin:56px auto 0;padding:0;list-style:none;counter-reset:cf}
+.cf-steps li{counter-increment:cf;display:flex;align-items:center;gap:8px;font:var(--type-sm-jp);letter-spacing:var(--ls-sm-jp);color:var(--green-40)}
+.cf-steps li::before{content:counter(cf);display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;border:1px solid currentColor;font:400 12px/1 var(--font-en)}
+.cf-steps li+li::after{content:none}
+.cf-steps li:not(:last-child){padding-right:8px;margin-right:0}
+.cf-steps li:not(:last-child)::after{content:"";display:block;width:32px;height:1px;background:var(--green-20);margin-left:8px}
+.cf-steps li.is-on{color:var(--blue);font-weight:700}
+.cf-steps li.is-on::before{background:var(--blue);border-color:var(--blue);color:var(--white)}
+
+.cf{max-width:560px;margin:48px auto 0;display:flex;flex-direction:column;gap:28px}
+.cf[hidden]{display:none}
+.cf__field{display:flex;flex-direction:column;gap:8px}
+.cf__field[hidden]{display:none}
+.cf label{font:var(--type-sm-jp-b);letter-spacing:var(--ls-sm-jp-b);color:var(--blue-dark)}
+.cf__req{display:inline-block;margin-left:8px;padding:0 6px;border-radius:4px;background:var(--blue);color:var(--white);font:400 11px/18px var(--font-jp);vertical-align:1px}
+.cf input[type=text],.cf input[type=email],.cf input[type=tel],.cf textarea,.cf select{width:100%;box-sizing:border-box;font:400 16px/28px var(--font-jp);color:var(--black);padding:10px 14px;border:1px solid var(--green-20);border-radius:var(--radius-m);background:var(--white);appearance:none}
+.cf textarea{min-height:200px;resize:vertical}
+.cf textarea::placeholder{color:#9aaba6}
+.cf__select{position:relative}
+.cf__select::after{content:"";position:absolute;right:16px;top:50%;width:8px;height:8px;border-right:1.5px solid var(--blue);border-bottom:1.5px solid var(--blue);transform:translateY(-70%) rotate(45deg);pointer-events:none}
+.cf select{padding-right:40px;cursor:pointer}
+.cf input:focus,.cf textarea:focus,.cf select:focus{outline:2px solid var(--blue);outline-offset:1px;border-color:var(--blue)}
+.cf [aria-invalid=true]{border-color:#c0392b}
+.cf__hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.cf__agree{display:flex;justify-content:center}
+.cf__agree label{display:flex;align-items:center;gap:10px;font:var(--type-sm-jp);letter-spacing:var(--ls-sm-jp);cursor:pointer}
+.cf__agree input{width:20px;height:20px;margin:0;accent-color:var(--blue)}
+.cf__agree a{color:var(--blue)}
+.cf__error{margin:0;min-height:22px;text-align:center;font:var(--type-sm-jp);color:#c0392b}
+.cf__error:empty{min-height:0}
+.cf__actions{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.cf__btn{box-sizing:border-box;cursor:pointer;font-family:var(--font-jp)}
+.cf__btn--primary{background:var(--blue);border-color:var(--blue);color:var(--white);min-width:240px}
+.cf__btn--primary:disabled{opacity:.6;cursor:wait;scale:1}
+
+.cf-confirm__h,.cf-done__h{margin:0;text-align:center;font:var(--type-h3-jp);letter-spacing:var(--ls-h3-jp);color:var(--blue-dark)}
+.cf-confirm__list{margin:0;border-top:1px solid var(--green-20)}
+.cf-confirm__list div{display:grid;grid-template-columns:160px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--green-20)}
+.cf-confirm__list dt{font:var(--type-sm-jp-b);color:var(--blue-dark)}
+.cf-confirm__list dd{margin:0;font:var(--type-text-jp);color:var(--black);white-space:pre-wrap;word-break:break-word}
+
+.cf-done{text-align:center;font:var(--type-text-jp);color:var(--blue-dark)}
+.cf-done p{margin:0}
+.cf-done:focus{outline:none}
+
+@media (max-width:799px){
+  .contact .legal__body{margin:48px 24px 0}
+  .cf-steps{margin:40px 24px 0}
+  .cf-steps li:not(:last-child)::after{width:16px}
+  .cf{margin:40px 24px 0}
+  .cf-confirm__list div{grid-template-columns:1fr;gap:4px}
+  .cf__actions{flex-direction:column-reverse;align-items:stretch}
+  .cf__btn,.cf__btn--primary{min-width:0;width:100%}
+}
